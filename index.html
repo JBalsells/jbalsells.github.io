@@ -23,6 +23,70 @@
         }
       </style>
     </noscript>
+    <style>
+        * {box-sizing: border-box;}
+        body {font-family: Verdana, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+        
+        /* Slideshow container */
+        .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+        }
+        
+        /* Caption text */
+        .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+        
+        .active {
+        background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+        }
+        </style>
   </head>
   <body id="top">
     <header class="d-print-none">
@@ -69,6 +133,38 @@
       </div>
     </div>
   </div>
+
+
+  <div class="slideshow-container">
+  
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="images/img_nature_wide.jpg" style="width:100%">
+      <div class="text">Caption Text</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="images/img_snow_wide.jpg" style="width:100%">
+      <div class="text">Caption Two</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="images/img_mountains_wide.jpg" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+    </div>
+
+
   <hr class="d-print-none"/>
   <div class="skills-section px-3 px-lg-4">
     <h2 class="h3 mb-3">Habilidades profesionales</h2>
@@ -121,8 +217,6 @@
   </div>
 
 
-
-
   <hr class="d-print-none"/>
   <div class="work-experience-section px-3 px-lg-4">
     <h2 class="h3 mb-4">Experiencia Laboral</h2>
@@ -131,7 +225,7 @@
         <div class="timeline-card timeline-card-primary card shadow-sm">
             <div class="card-body">
                 <div class="h5 mb-1">Profesor<span class="text-muted h6"> Escuela de estudios de postgrado, facultad de Ingeniería, USAC</span></div>
-                <div class="text-muted text-small mb-2">Enero 2022 - Abril 2022</div>
+                <div class="text-muted text-small mb-2">2022</div>
                 <div>Catedrático de curso "Software y bases de datos biomédicas". 93/100 y 97/100 en puntuaciónes de primera y segunda evaluaciones docentes</div>
                 <div><strong>Stack: Python, MySQL, LaTeX</strong></div>
             </div>
@@ -156,8 +250,8 @@
                 <div>Desarrollos utilizando APIs de google maps mostrando distancias consumidas para instalaciones, aprobaciones de factibilidades y rutas efectivas de instalación.</div>
                 <div>Servicios de reportería y estadísticas, servicios de depuración de bases de datos, scripts para backups automáticos hácia servidores remotos por sftp.</div>
                 <div><strong>Stack: PHP-Laravel, Javascript-VueJS, Axios, MySQL, Python, HTML, CSS</strong></div>
-                <div><img src="images/factibilidades1.png" class="img-fluid" alt="Responsive Image" width="100%"/></div>
-                <div><img src="images/factibilidades3.png" class="img-fluid" alt="Responsive Image" width="100%"/></div>
+                <!--<div><img src="images/factibilidades1.png" class="img-fluid" alt="Responsive Image" width="100%"/></div>
+                <div><img src="images/factibilidades3.png" class="img-fluid" alt="Responsive Image" width="100%"/></div>-->
             </div>
         </div>
 
@@ -240,6 +334,12 @@
                 <div class="card-body">
                     <div class="h5 mb-1">Programa especializado "Modern Robotics" <span class="text-muted h6"> Coursera</span></div>
                     <div class="text-muted text-small mb-2">2021-Actualidad</div>
+                    <div>Foundations of Robot Motion</div>
+                    <div>Robot Kinematics</div>
+                    <div>Robot Dynamics</div>
+                    <div>Robot Motion and Planning Control</div>
+                    <div>Robot Manipulation and Wheeled Mobile Robots</div>
+                    <div>Capstone project, Mobile Manipulation</div>
                 </div>
             </div>
 
@@ -247,6 +347,12 @@
                 <div class="card-body">
                     <div class="h5 mb-1">Programa especializado "Data Structures and Algorithms" <span class="text-muted h6"> Coursera</span></div>
                     <div class="text-muted text-small mb-2">2018-2019</div>
+                    <div>Algorithmic Toolbox</div>
+                    <div>Data Structures</div>
+                    <div>Algorithms on Graphs</div>
+                    <div>Advanced Algorithms and Complexity</div>
+                    <div>Algorithms on Strings</div>
+                    <div>Genome Assembly Programming Challenge</div>
                 </div>
             </div>
     
@@ -269,33 +375,40 @@
 
     <div class="timeline-card timeline-card-success card shadow-sm">
     <div class="card-body">
-        <div class="h5 mb-1">Robot multifuncional orientado al área agrícola <span class="text-muted h6">Dirección General de Investigación, Universidad de San Carlos</span></div>
+        <div class="h5 mb-1">Robot multifuncional orientado al área agrícola <span class="text-muted h6"> Proyecto de desarrollo e investigación ejecutado dentro del presupuesto 2021, Dirección General de Investigación, Universidad de San Carlos.</span></div>
         <div class="text-muted text-small mb-2">2021-2022</div>
         <div></div>
+
+        <div><a href="https://www.youtube.com/watch?v=SRWdE6ATchU" class="link-info" target="_blank">Video Diario de Centro América.</a></div>
+        <div><a href="https://issuu.com/_dca/docs/edicio_n_del_diario_de_centro_ame_rica_del_02_de_may" class="link-info" target="_blank">Nota 1 Diario de Centro América.</a></div>
+        <div><a href="https://dca.gob.gt/noticias-guatemala-diario-centro-america/un-robot-aliado-de-la-agroindustria/" class="link-info" target="_blank">Nota 2 Diario de Centro América.</a></div>
+        <div><a href="https://www.guatemala.com/noticias/tecnologia/laboratorio-de-innovacion-de-la-usac-presento-robot-para-ayudar-en-agricultura.html" class="link-info" target="_blank">Nota Guatemala.com.</a></div>
+        <div><a href="https://soy.usac.edu.gt/?p=16338" class="link-info" target="_blank">Nota Soy USAC.</a></div>
+        <div><a href="https://investigacionparatodos.usac.edu.gt/noticias-principales-2/item/225-prototipofablab" class="link-info" target="_blank">Nota Investigación para todos.</a></div>
     </div>
     </div>
 
     <div class="timeline-card timeline-card-success card shadow-sm">
     <div class="card-body">
-        <div class="h5 mb-1">Telescopio auto ajustable <span class="text-muted h6">Trabajo de fin de máster, Universidad Internacional de la Rioja</span></div>
+        <div class="h5 mb-1">Dispositivo electromecánico para Telescopio, para localización y seguimiento astronómico.<span class="text-muted h6"> Trabajo de fin de máster, Universidad Internacional de la Rioja</span></div>
         <div class="text-muted text-small mb-2">2020-2021</div>
-        <div><img src="images/Telescope6.png" class="img-fluid" alt="Responsive Image" width="307" height="240"/></div>
+        <div>Desarrollo de Hardware, firmware y software para ajuste automático de telescopio y seguimiento astronómico.</div>
     </div>
     </div>
 
     <div class="timeline-card timeline-card-success card shadow-sm">
     <div class="card-body">
-        <div class="h5 mb-1">Detección y clasificación de las fases del parásito PLASMODIUM VIVAX en imágenes de frotis de sangre a través de redes neuronales convolucionales <span class="text-muted h6">Trabajo de fin de especialización, Universidad de San Carlos</span></div>
+        <div class="h5 mb-1">Detección y clasificación de las fases del parásito PLASMODIUM VIVAX en imágenes de frotis de sangre a través de redes neuronales convolucionales <span class="text-muted h6"> Trabajo de fin de especialización, Universidad de San Carlos</span></div>
         <div class="text-muted text-small mb-2">2019</div>
-        <div></div>
+        <div> Proyecto de software para análisis de imágenes de muestras de sangre de gota gruesa infectadas con malaria, para detección de gametocitos, esquizontes, trofozoitos y anillos.</div>
     </div>
     </div>
 
     <div class="timeline-card timeline-card-success card shadow-sm">
     <div class="card-body">
-        <div class="h5 mb-1">Bazo Robot Moveo 3d(Open Source) <span class="text-muted h6">Proyecto personal</span></div>
+        <div class="h5 mb-1">Bazo Robot Moveo 3d(Open Source) <span class="text-muted h6"> Proyecto personal</span></div>
         <div class="text-muted text-small mb-2">2019</div>
-        <div></div>
+        <div> Desarrollo de brazo robot educativo impreso en 3D para desarrollar la teoría matemática detrás de la robótica.</div>
     </div>
     </div>
 
@@ -374,9 +487,6 @@
             <div class="card-body">
                 <div class="h5 mb-1">Galonista III <span class="text-muted h6"> Benemérito cuerpo de bomberos voluntarios de Guatemala.</span></div>
                 <div class="text-muted text-small mb-2">2011 - Actualidad</div>
-                <div>TUM - Técnico en Urgencias Médicas básico</div>
-                <div>PRIMAP - Primer respondedor a incidentes con materiales peligrosos</div>
-                <div>SCI - Sistema de comandos de incidentes</div>
                 <div>Fire Rescue Training - Reds Team, FAG</div>
                 <div>Fire Instructor NFPA 1403 - SACS Group, Texas A&M Engineering Extension Services</div>
                 <div>Combate de Incendios Forestales - Portugal 2018, 2021</div>
@@ -498,5 +608,28 @@
     <script src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="scripts/aos.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 5000); // Change image every 2 seconds
+        }
+        </script>
+
   </body>
 </html>
