@@ -195,3 +195,7 @@ footer a:not(.nav-link) {
       border-radius: 20px; /* Valor de radio para el borde redondeado */
       overflow: hidden; /* Para asegurar que la imagen no se desborde */
   }
+
+  .nav-item .nav-link .fab {
+    color: #00c5ff;
+}
