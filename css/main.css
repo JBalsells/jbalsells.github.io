@@ -143,7 +143,7 @@ footer a:not(.nav-link) {
 @media (min-width: 48em) {
   .site-title {
     float: left; }
-  .site-nav {
+  .site-nav {auto
     float: right; }
   .avatar {
     margin-bottom: -80px;
@@ -175,3 +175,16 @@ footer a:not(.nav-link) {
   .page-break {
     padding-top: 5rem;
     page-break-before: always; } }
+
+    .img-carousel {
+      .img-carousel {
+        height: 400px; /* Altura deseada para todas las imágenes */
+        width: auto; /* Ancho automático para mantener la proporción original */
+        object-fit: contain; /* Mantiene la imagen completa dentro del área especificada */
+    }
+    }
+
+    .rounded-image {
+      border-radius: 20px; /* Valor de radio para el borde redondeado */
+      overflow: hidden; /* Para asegurar que la imagen no se desborde */
+  }
