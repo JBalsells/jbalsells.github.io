@@ -134,20 +134,27 @@ html {
   /* Safari 6.0 - 9.0 */
   filter: grayscale(30%); }
 
+/* Estilo para los enlaces en el footer, excluyendo .nav-link */
 footer a:not(.nav-link) {
-  color: inherit;bg-warning
+  color: inherit;
   border-bottom: 1px dashed;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
+/* Media query */
 @media (min-width: 48em) {
   .site-title {
-    float: left; }
-  .site-nav {auto
-    float: right; }
+    float: left;
+  }
+  .site-nav {
+    float: right;
+  }
   .avatar {
-    margin-bottom: -80px;
-    margin-left: 0; } }
+    margin-bottom: -80px; /* Este valor puede necesitar ajustes según el diseño */
+    margin-left: 0;
+  }
+}
 
 @media print {
   body {
