@@ -199,3 +199,10 @@ footer a:not(.nav-link) {
   .nav-item .nav-link .fab {
     color: #00c5ff;
 }
+
+.logo {
+  width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
