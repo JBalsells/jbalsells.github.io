@@ -77,6 +77,9 @@ html {
 .nav-item + .nav-item {
   margin-left: 1rem; }
 
+.nav-icon + .nav-icon {
+  margin-left: 1rem; }
+
 .cover {
   border-radius: 10px; 
   background-color: #eeeeee; 
@@ -142,6 +145,14 @@ footer a:not(.nav-link) {
   cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
 /* Media query */
 @media (min-width: 48em) {
   .site-title {
@@ -197,7 +208,11 @@ footer a:not(.nav-link) {
   }
 
   .nav-item .nav-link .fab {
-    color: #00c5ff;
+    color: #ff5e00;
+}
+
+.nav-icon {
+  color: hsl(0, 0%, 70%);
 }
 
 .logo {
@@ -206,3 +221,162 @@ footer a:not(.nav-link) {
   vertical-align: middle;
   margin-right: 5px;
 }
+
+
+
+.timeline-card {
+  border-left: 5px solid #007bff; /* Línea azul a la izquierda */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f8f9fa; /* Fondo claro para las tarjetas */
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil al pasar el mouse */
+}
+
+.timeline-card-primary {
+  background-color: #e9ecef; /* Fondo gris claro para las tarjetas */
+}
+
+.text-primary {
+  color: #007bff !important; /* Color azul en enlaces y texto destacado */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-card .h5 {
+  font-size: 1.25rem;
+}
+
+.timeline-card .text-muted {
+  font-size: 0.9rem;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+
+
+
+
+
+
+
+    .skills-section {
+      background-color: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skills-section h2 {
+      color: #343a40;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .progress {
+      height: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .progress-bar {
+      border-radius: 8px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .progress-bar.bg-info {
+      background-color: #17a2b8;
+    }
+
+    .progress-bar.bg-success {
+      background-color: #28a745;
+    }
+
+    .progress-bar.bg-warning {
+      background-color: #ffc107;
+    }
+
+    .progress-bar.bg-error {
+      background-color: #dc3545;
+    }
+
+    .progress-bar-text {
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+    .col-md-6 {
+      margin-bottom: 20px;
+    }
+
+    .mb-2 span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #495057;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+
+
+
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1); /* Tamaño normal */
+      }
+      25% {
+        transform: scale(1.2) rotate(-5deg); /* Agrandado y temblor (ligera rotación) */
+      }
+      30% {
+        transform: scale(1.2) rotate(5deg); /* Movimiento de temblor (rotación opuesta) */
+      }
+      35% {
+        transform: scale(1.2) rotate(-5deg); /* Movimiento de temblor (rotación) */
+      }
+      40% {
+        transform: scale(1.2) rotate(5deg); /* Movimiento de temblor (rotación opuesta) */
+      }
+      50% {
+        transform: scale(1); /* Regreso al tamaño original */
+      }
+      75% {
+        transform: scale(1); /* Tamaño original */
+      }
+      100% {
+        transform: scale(1); /* Tamaño original */
+      }
+    }
+  
+    .nav-item a i {
+      animation: pulse 4s infinite ease-in-out; /* Duración total de 4 segundos por ciclo */
+      animation-duration: 4s; /* Duración total del ciclo */
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite; /* Repite infinitamente */
+    }

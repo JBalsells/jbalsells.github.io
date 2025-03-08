@@ -19,6 +19,9 @@ html {
 .nav-item + .nav-item {
   margin-left: 1rem; }
 
+.nav-icon + .nav-icon {
+  margin-left: 1rem; }
+
 .cover {
   border-radius: 10px; }
 
