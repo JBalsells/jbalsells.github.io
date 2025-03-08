@@ -1,18 +1,23 @@
-/* Buttons */
-/* Inputs */
-/* Timeline custom component */
+[data-aos] {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) !important;
+}
+
 .timeline {
   border-left: 2px solid #E6E9ED;
-  padding: 1rem 0; }
+  padding: 1rem 0;
+}
 
 .timeline-card {
   position: relative;
   margin-left: 31px;
   border-left: 2px solid;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+}
 
 .timeline-card:last-child {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+}
 
 .timeline-card:before {
   content: '';
@@ -25,7 +30,8 @@
   top: 20px;
   left: -41px;
   border: 2px solid;
-  z-index: 2; }
+  z-index: 2;
+}
 
 .timeline-card:after {
   content: '';
@@ -36,94 +42,125 @@
   height: 2px;
   top: 25px;
   left: -29px;
-  z-index: 1; }
+  z-index: 1;
+}
 
 .timeline-card-primary {
-  border-left-color: #4A89DC; }
+  border-left-color: #4A89DC;
+}
 
 .timeline-card-primary:before {
-  border-color: #4A89DC; }
+  border-color: #4A89DC;
+}
 
 .timeline-card-primary:after {
-  background-color: #4A89DC; }
+  background-color: #4A89DC;
+}
 
 .timeline-card-success {
-  border-left-color: #37BC9B; }
+  border-left-color: #37BC9B;
+}
 
 .timeline-card-success:before {
-  border-color: #37BC9B; }
+  border-color: #37BC9B;
+}
 
 .timeline-card-success:after {
-  background-color: #37BC9B; }
+  background-color: #37BC9B;
+}
 
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+}
 
 .site-title {
   font-size: 1.25rem;
-  line-height: 2.5rem; }
+  line-height: 2.5rem;
+}
 
 .nav-link {
   padding: 0;
   font-size: 1.25rem;
   line-height: 2.5rem;
-  color: rgba(0, 0, 0, 0.5); }
+  color: rgba(0, 0, 0, 0.5);
+}
 
 .nav-link:hover,
 .nav-link:focus,
 .active .nav-link {
-  color: rgba(0, 0, 0, 0.8); }
-
-.nav-item + .nav-item {
-  margin-left: 1rem; }
-
-.nav-icon + .nav-icon {
-  margin-left: 1rem; }
-
-.cover {
-  border-radius: 10px; 
-  background-color: #eeeeee; 
+  color: rgba(0, 0, 0, 0.8);
 }
 
-  .bg-principal{
-    background-image: url("../images/3137882.jpg"); /* Ruta a tu imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen en el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed;
-  }
+.nav-item+.nav-item {
+  margin-left: 1rem;
+}
 
-  .cover-bg {
-    position: relative; /* Necesario para el posicionamiento absoluto del pseudo-elemento */
-    background-color: #215b71; /*#4A89DC;*/
-    background-image: url("../images/PC.png");
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen en el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    border-radius: 10px 10px 0 0;
-    color: #fff; /* Color de texto personalizado */
-  }
-  
-  .cover-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("mi-imagen.jpg"); /* Imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen en el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    opacity: 0.9; /* Ajusta la transparencia aquí */
-    border-radius: inherit; /* Hereda el border-radius de .cover-bg */
-    z-index: 1; /* Asegura que la capa esté sobre la imagen pero debajo del contenido */
-  }
-  
-  .cover-bg * {
-    position: relative;
-    z-index: 2; /* Asegura que el contenido esté sobre la capa semi-transparente */
-  }
+.nav-icon+.nav-icon {
+  margin-left: 1rem;
+}
+
+.cover {
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.bg-principal {
+  background-image: url("../images/3137882.jpg");
+  /* Ruta a tu imagen de fondo */
+  background-size: cover;
+  /* Asegura que la imagen cubra todo el fondo */
+  background-position: center;
+  /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  background-attachment: fixed;
+}
+
+.cover-bg {
+  position: relative;
+  /* Necesario para el posicionamiento absoluto del pseudo-elemento */
+  background-color: #215b71;
+  /*#4A89DC;*/
+  background-image: url("../images/PC.png");
+  background-size: cover;
+  /* Asegura que la imagen cubra todo el fondo */
+  background-position: center;
+  /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  /* Color de texto personalizado */
+}
+
+.cover-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("mi-imagen.jpg");
+  /* Imagen de fondo */
+  background-size: cover;
+  /* Asegura que la imagen cubra todo el fondo */
+  background-position: center;
+  /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  opacity: 0.9;
+  /* Ajusta la transparencia aquí */
+  border-radius: inherit;
+  /* Hereda el border-radius de .cover-bg */
+  z-index: 1;
+  /* Asegura que la capa esté sobre la imagen pero debajo del contenido */
+}
+
+.cover-bg * {
+  position: relative;
+  z-index: 2;
+  /* Asegura que el contenido esté sobre la capa semi-transparente */
+}
 
 .avatar {
   max-width: 216px;
@@ -131,11 +168,13 @@ html {
   margin-top: 20px;
   text-align: center;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
 .avatar img {
   /* Safari 6.0 - 9.0 */
-  filter: grayscale(30%); }
+  filter: grayscale(30%);
+}
 
 /* Estilo para los enlaces en el footer, excluyendo .nav-link */
 footer a:not(.nav-link) {
@@ -158,57 +197,84 @@ footer a:not(.nav-link) {
   .site-title {
     float: left;
   }
+
   .site-nav {
     float: right;
   }
+
   .avatar {
-    margin-bottom: -80px; /* Este valor puede necesitar ajustes según el diseño */
+    margin-bottom: -80px;
+    /* Este valor puede necesitar ajustes según el diseño */
     margin-left: 0;
   }
 }
 
 @media print {
   body {
-    background-color: #fff; }
+    background-color: #fff;
+  }
+
   .container {
     width: auto;
     max-width: 100%;
-    padding: 0; }
-  .cover, .cover-bg {
-    border-radius: 0; }
+    padding: 0;
+  }
+
+  .cover,
+  .cover-bg {
+    border-radius: 0;
+  }
+
   .cover.shadow-lg {
-    box-shadow: none !important; }
+    box-shadow: none !important;
+  }
+
   .cover-bg {
     padding: 5rem !important;
-    padding-bottom: 10px !important; }
+    padding-bottom: 10px !important;
+  }
+
   .avatar {
-    margin-top: -10px; }
+    margin-top: -10px;
+  }
+
   .about-section {
-    padding: 6.5rem 5rem 2rem !important; }
+    padding: 6.5rem 5rem 2rem !important;
+  }
+
   .skills-section,
   .work-experience-section,
   .education-section,
   .contant-section {
-    padding: 1.5rem 5rem 2rem !important; }
-  .page-break {
-    padding-top: 5rem;
-    page-break-before: always; } }
-
-    .img-carousel {
-      .img-carousel {
-        height: 400px; /* Altura deseada para todas las imágenes */
-        width: auto; /* Ancho automático para mantener la proporción original */
-        object-fit: contain; /* Mantiene la imagen completa dentro del área especificada */
-    }
-    }
-
-    .rounded-image {
-      border-radius: 20px; /* Valor de radio para el borde redondeado */
-      overflow: hidden; /* Para asegurar que la imagen no se desborde */
+    padding: 1.5rem 5rem 2rem !important;
   }
 
-  .nav-item .nav-link .fab {
-    color: #ff5e00;
+  .page-break {
+    padding-top: 5rem;
+    page-break-before: always;
+  }
+}
+
+.img-carousel {
+  .img-carousel {
+    height: 400px;
+    /* Altura deseada para todas las imágenes */
+    width: auto;
+    /* Ancho automático para mantener la proporción original */
+    object-fit: contain;
+    /* Mantiene la imagen completa dentro del área especificada */
+  }
+}
+
+.rounded-image {
+  border-radius: 20px;
+  /* Valor de radio para el borde redondeado */
+  overflow: hidden;
+  /* Para asegurar que la imagen no se desborde */
+}
+
+.nav-item .nav-link .fab {
+  color: #ff5e00;
 }
 
 .nav-icon {
@@ -216,7 +282,8 @@ footer a:not(.nav-link) {
 }
 
 .logo {
-  width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+  width: 30px;
+  /* Ajusta el tamaño de la imagen según sea necesario */
   height: 30px;
   vertical-align: middle;
   margin-right: 5px;
@@ -225,23 +292,30 @@ footer a:not(.nav-link) {
 
 
 .timeline-card {
-  border-left: 5px solid #007bff; /* Línea azul a la izquierda */
-  border-radius: 8px; /* Bordes redondeados */
-  background-color: #f8f9fa; /* Fondo claro para las tarjetas */
+  border-left: 5px solid #007bff;
+  /* Línea azul a la izquierda */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  background-color: #f8f9fa;
+  /* Fondo claro para las tarjetas */
   transition: all 0.3s ease;
 }
 
 .timeline-card:hover {
-  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil al pasar el mouse */
+  transform: translateY(-5px);
+  /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil al pasar el mouse */
 }
 
 .timeline-card-primary {
-  background-color: #e9ecef; /* Fondo gris claro para las tarjetas */
+  background-color: #e9ecef;
+  /* Fondo gris claro para las tarjetas */
 }
 
 .text-primary {
-  color: #007bff !important; /* Color azul en enlaces y texto destacado */
+  color: #007bff !important;
+  /* Color azul en enlaces y texto destacado */
 }
 
 .card-body {
@@ -277,106 +351,124 @@ footer a:not(.nav-link) {
 
 
 
-    .skills-section {
-      background-color: #f8f9fa;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.skills-section {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .skills-section h2 {
-      color: #343a40;
-      font-family: 'Arial', sans-serif;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+.skills-section h2 {
+  color: #343a40;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-    .progress {
-      height: 12px;
-      border-radius: 8px;
-      margin: 10px 0;
-    }
+.progress {
+  height: 12px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
 
-    .progress-bar {
-      border-radius: 8px;
-      transition: width 0.5s ease-in-out;
-    }
+.progress-bar {
+  border-radius: 8px;
+  transition: width 0.5s ease-in-out;
+}
 
-    .progress-bar.bg-info {
-      background-color: #17a2b8;
-    }
+.progress-bar.bg-info {
+  background-color: #17a2b8;
+}
 
-    .progress-bar.bg-success {
-      background-color: #28a745;
-    }
+.progress-bar.bg-success {
+  background-color: #28a745;
+}
 
-    .progress-bar.bg-warning {
-      background-color: #ffc107;
-    }
+.progress-bar.bg-warning {
+  background-color: #ffc107;
+}
 
-    .progress-bar.bg-error {
-      background-color: #dc3545;
-    }
+.progress-bar.bg-error {
+  background-color: #dc3545;
+}
 
-    .progress-bar-text {
-      font-size: 12px;
-      font-weight: bold;
-      color: white;
-      position: absolute;
-      width: 100%;
-      text-align: center;
-    }
+.progress-bar-text {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
 
-    .col-md-6 {
-      margin-bottom: 20px;
-    }
+.col-md-6 {
+  margin-bottom: 20px;
+}
 
-    .mb-2 span {
-      font-size: 16px;
-      font-weight: bold;
-      color: #495057;
-    }
+.mb-2 span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #495057;
+}
 
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1); /* Tamaño normal */
-      }
-      25% {
-        transform: scale(1.2) rotate(-5deg); /* Agrandado y temblor (ligera rotación) */
-      }
-      30% {
-        transform: scale(1.2) rotate(5deg); /* Movimiento de temblor (rotación opuesta) */
-      }
-      35% {
-        transform: scale(1.2) rotate(-5deg); /* Movimiento de temblor (rotación) */
-      }
-      40% {
-        transform: scale(1.2) rotate(5deg); /* Movimiento de temblor (rotación opuesta) */
-      }
-      50% {
-        transform: scale(1); /* Regreso al tamaño original */
-      }
-      75% {
-        transform: scale(1); /* Tamaño original */
-      }
-      100% {
-        transform: scale(1); /* Tamaño original */
-      }
-    }
-  
-    .nav-item a i {
-      animation: pulse 4s infinite ease-in-out; /* Duración total de 4 segundos por ciclo */
-      animation-duration: 4s; /* Duración total del ciclo */
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite; /* Repite infinitamente */
-    }
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    /* Tamaño normal */
+  }
+
+  25% {
+    transform: scale(1.2) rotate(-5deg);
+    /* Agrandado y temblor (ligera rotación) */
+  }
+
+  30% {
+    transform: scale(1.2) rotate(5deg);
+    /* Movimiento de temblor (rotación opuesta) */
+  }
+
+  35% {
+    transform: scale(1.2) rotate(-5deg);
+    /* Movimiento de temblor (rotación) */
+  }
+
+  40% {
+    transform: scale(1.2) rotate(5deg);
+    /* Movimiento de temblor (rotación opuesta) */
+  }
+
+  50% {
+    transform: scale(1);
+    /* Regreso al tamaño original */
+  }
+
+  75% {
+    transform: scale(1);
+    /* Tamaño original */
+  }
+
+  100% {
+    transform: scale(1);
+    /* Tamaño original */
+  }
+}
+
+.nav-item a i {
+  animation: pulse 4s infinite ease-in-out;
+  /* Duración total de 4 segundos por ciclo */
+  animation-duration: 4s;
+  /* Duración total del ciclo */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  /* Repite infinitamente */
+}
