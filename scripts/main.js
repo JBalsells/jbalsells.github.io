@@ -1,66 +1,36 @@
-// Animations
+// AOS Animations
 AOS.init({
   anchorPlacement: 'top-left',
   duration: 1000
 });
 
+// Collapsible sections - single handler using data attributes
+document.querySelectorAll('.section-toggle').forEach(function (toggle) {
+  toggle.addEventListener('click', function () {
+    var targetId = this.getAttribute('data-target');
+    var content = document.getElementById(targetId);
+    var icon = this.querySelector('.toggle-icon');
 
-document.getElementById("toggleExperience").addEventListener("click", function() {
-  var content = document.getElementById("experienceContent");
-  var icon = document.getElementById("toggleIcon");
-  if (content.style.display === "none" || content.style.display === "") {
-      content.style.display = "block";
-      icon.style.transform = "rotate(180deg)";
-  } else {
-      content.style.display = "none";
-      icon.style.transform = "rotate(0deg)";
-  }
+    content.classList.toggle('open');
+    icon.classList.toggle('open');
+  });
 });
 
-document.getElementById("toggleExperience1").addEventListener("click", function() {
-  var content = document.getElementById("experienceContent1");
-  var icon = document.getElementById("toggleIcon1");
-  if (content.style.display === "none" || content.style.display === "") {
-      content.style.display = "block";
-      icon.style.transform = "rotate(180deg)";
-  } else {
-      content.style.display = "none";
-      icon.style.transform = "rotate(0deg)";
-  }
-});
-
-document.getElementById("toggleExperience2").addEventListener("click", function() {
-  var content = document.getElementById("experienceContent2");
-  var icon = document.getElementById("toggleIcon2");
-  if (content.style.display === "none" || content.style.display === "") {
-      content.style.display = "block";
-      icon.style.transform = "rotate(180deg)";
-  } else {
-      content.style.display = "none";
-      icon.style.transform = "rotate(0deg)";
-  }
-});
-
-document.getElementById("toggleExperience3").addEventListener("click", function() {
-  var content = document.getElementById("experienceContent3");
-  var icon = document.getElementById("toggleIcon3");
-  if (content.style.display === "none" || content.style.display === "") {
-      content.style.display = "block";
-      icon.style.transform = "rotate(180deg)";
-  } else {
-      content.style.display = "none";
-      icon.style.transform = "rotate(0deg)";
-  }
-});
-
-document.getElementById("toggleExperience4").addEventListener("click", function() {
-  var content = document.getElementById("experienceContent4");
-  var icon = document.getElementById("toggleIcon4");
-  if (content.style.display === "none" || content.style.display === "") {
-      content.style.display = "block";
-      icon.style.transform = "rotate(180deg)";
-  } else {
-      content.style.display = "none";
-      icon.style.transform = "rotate(0deg)";
-  }
+// Swiper carousel
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  effect: 'slide',
 });

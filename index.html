@@ -1,127 +1,78 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="es">
 
 <head>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jorge Balsells - CV</title>
 
-  <title>Jorge Balsells</title>
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" />
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap">
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
-    media="print" onload="this.media='all'" />
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
-  <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
-  <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
-  <link href="css/main.css?ver=1.2.0" rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap"
+    media="print" onload="this.media='all'">
 
-
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <style>
-    /* Estilos básicos para el contenedor */
-    .swiper-container {
-      width: 100%;
-      /* Ancho completo */
-      max-width: 800px;
-      /* Máximo de ancho (ajusta según tus preferencias) */
-      height: 400px;
-      /* Alto fijo del carrusel */
-      margin: 20px auto;
-      /* Centrado */
-      border-radius: 10px;
-      /* Bordes redondeados */
-      overflow: hidden;
-      /* Para ocultar lo que se desborda */
-    }
-
-    /* Estilos para las imágenes */
-    .swiper-slide img {
-      width: 100%;
-      /* Ancho 100% de la diapositiva */
-      height: 100%;
-      /* Altura 100% de la diapositiva */
-      object-fit: cover;
-      /* Asegura que la imagen cubra todo el área sin distorsión */
-      border-radius: 10px;
-      /* Bordes redondeados en las imágenes */
-    }
-
-    /* Estilos de los botones de navegación */
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: rgba(255, 255, 255, 0.8);
-      /* Color de los botones */
-      background-color: rgba(0, 0, 0, 0.3);
-      /* Fondo semitransparente */
-      border-radius: 50%;
-      /* Forma circular */
-      width: 40px;
-      /* Tamaño del botón */
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0.8;
-    }
-
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      opacity: 1;
-      /* Aumenta la opacidad al pasar el ratón */
-    }
-
-    /* Estilos para la paginación (si se usa) */
-    .swiper-pagination-bullet {
-      background-color: rgba(255, 255, 255, 0.7);
-      /* Color de los puntos de paginación */
-    }
-
-    .swiper-pagination-bullet-active {
-      background-color: rgba(255, 255, 255, 1);
-      /* Color de los puntos activos */
-    }
-  </style>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome/css/all.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="css/aos.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
   <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" />
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap">
   </noscript>
 </head>
 
 <body id="top">
 
+  <!-- Barra de navegación fija -->
+  <nav class="navbar navbar-expand navbar-dark sticky-nav d-print-none">
+    <div class="container">
+      <a class="navbar-brand" href="#top">Jorge Balsells</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">Acerca de</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experiencia</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Educación</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header con redes sociales -->
   <header class="d-print-none bg-principal">
     <div class="container text-center text-lg-left">
       <div class="py-2 clearfix">
         <div class="site-nav">
           <nav role="navigation">
-            <ul class="nav justify-content-center">
+            <ul class="nav justify-content-center social-links">
               <li class="nav-item">
-                <a class="nav-link" href="https://www.linkedin.com/in/jbalsells/" title="Linkedin" target="_blank">
+                <a class="nav-link" href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn" target="_blank"
+                  rel="noopener">
                   <i class="fab fa-lg fa-linkedin"></i>
-                  <span class="menu-title sr-only">Linkedin</span>
+                  <span class="menu-title sr-only">LinkedIn</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/JBalsellsO" title="Github" target="_blank">
+                <a class="nav-link" href="https://github.com/JBalsellsO" title="Github (personal)" target="_blank"
+                  rel="noopener">
                   <i class="fab fa-lg fa-github"></i>
                   <span class="menu-title sr-only">Github</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/JBalsells" title="Github" target="_blank">
+                <a class="nav-link" href="https://github.com/JBalsells" title="Github (org)" target="_blank"
+                  rel="noopener">
                   <i class="fab fa-lg fa-github"></i>
                   <span class="menu-title sr-only">Github</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/jorge.balsells/" title="Facebook" target="_blank">
+                <a class="nav-link" href="https://www.facebook.com/jorge.balsells/" title="Facebook" target="_blank"
+                  rel="noopener">
                   <i class="fab fa-lg fa-facebook"></i>
                   <span class="menu-title sr-only">Facebook</span>
                 </a>
@@ -133,37 +84,39 @@
     </div>
   </header>
 
-
-
   <div class="page-content bg-principal">
     <div class="container">
 
+      <!-- Hero / Portada -->
       <div class="cover shadow-lg">
-        <div class="cover-bg p-3 p-lg-4">
-          <div class="row">
+        <div class="cover-bg px-3 px-lg-4">
+          <div class="row w-100">
             <div class="col-lg-4 col-md-5">
               <div class="avatar hover-effect bg-white shadow-sm p-1 rounded-circle">
-                <img src="images/avatar.jpg" width="200" height="200" class="rounded-circle" />
+                <img src="images/avatar.jpg" width="200" height="200" alt="Jorge Balsells" class="rounded-circle">
               </div>
             </div>
-            <div class="col-lg-8 col-md-7 text-center text-md-start">
-              <h2 class="h1 mt-2 text-light" data-aos="fade-left" data-aos-delay="0"
-                style="text-shadow: 2px 2px 4px #808080, -2px -2px 4px #808080, 2px -2px 4px #808080, -2px 2px 4px #808080;">
-                Jorge A. Balsells Orellana</h2>
-              <p class="text-light" data-aos="fade-left" data-aos-delay="100"
-                style="text-shadow: 2px 2px 4px #808080, -2px -2px 4px #808080, 2px -2px 4px #808080, -2px 2px 4px #808080;">
-                Electronic Engineer & Master's degree in mathematical engineering</p>
-
-
+            <div class="col-lg-8 col-md-7 text-center text-md-start hero-text">
+              <h2 class="h1 mt-2 hero-title" data-aos="fade-left" data-aos-delay="0">
+                Jorge A. Balsells Orellana
+              </h2>
+              <p class="hero-subtitle" data-aos="fade-left" data-aos-delay="100">
+                Electronic Engineer &amp; Master's degree in Mathematical Engineering
+              </p>
               <div class="d-print-none" data-aos="fade-left" data-aos-delay="200">
-                <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="jorge-balsells-cv.pdf"
-                  target="_blank">Descarga CV</a>
-                <a class="btn btn-success shadow-sm mt-1" href="#contact">Contáctame</a>
+                <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="jorge-balsells-cv.pdf" target="_blank">
+                  <i class="fas fa-download me-1"></i>Descargar CV
+                </a>
+                <a class="btn btn-success shadow-sm mt-1" href="#contact">
+                  <i class="fas fa-envelope me-1"></i>Contáctame
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="about-section pt-4 px-3 px-lg-4 mt-1">
+
+        <!-- Acerca de -->
+        <div class="about-section pt-4 px-3 px-lg-4 mt-1" id="about">
           <div class="row">
             <div class="col-md-6">
               <h2 class="h3 mb-3">Acerca de</h2>
@@ -180,90 +133,49 @@
                 Universidad de San Carlos de Guatemala en la Escuela no facultativa
                 de Ciencias Físicas y Matemáticas, donde aprendo y comparto conocimientos en simulación, experimentación
                 y análisis de datos.
-                Además, me desempeño como Machine Learning Operations Engineer en Vana.gt, enfocándome en la infraestructura y
-                escalabilidad de modelos de inteligencia artificial.
-
+                Además, me desempeño como Machine Learning Operations Engineer en Vana.gt, enfocándome en la
+                infraestructura y escalabilidad de modelos de inteligencia artificial.
               </p>
             </div>
           </div>
         </div>
 
-        <div class="cover shadow-lg">
-          <hr class="d-print-none" />
-          <div class="work-experience-section px-3 px-lg-4">
-            <!-- Carrusel de imágenes -->
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="images/ecfm/1.jpg" alt="Imagen 1">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/ecfm/2.jpg" alt="Imagen 2">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/ecfm/3.jpeg" alt="Imagen 3">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/ecfm/4.jpeg" alt="Imagen 4">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/ecfm/5.jpeg" alt="Imagen 5">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/ecfm/6.jpeg" alt="Imagen 6">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/factibilidades/factibilidades1.png" alt="Imagen 7">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/factibilidades/factibilidades2.png" alt="Imagen 8">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/factibilidades/factibilidades3.png" alt="Imagen 9">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/fablab/harmonic_drive.jpg" alt="Imagen 10">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/fablab/1.jpg" alt="Imagen 11">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/fablab/2.jpg" alt="Imagen 12">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/fablab/3.jpg" alt="Imagen 13">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/fablab/4.jpg" alt="Imagen 14">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/fablab/5.jpg" alt="Imagen 15">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/unir/Telescope6.png" alt="Imagen 16">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/unir/1.jpg" alt="Imagen 17">
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/unir/2.jpg" alt="Imagen 18">
-                </div>
+        <!-- Carrusel de imágenes -->
+        <hr class="d-print-none">
+        <div class="gallery-section px-3 px-lg-4">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="images/ecfm/1.jpg" alt="ECFM 1"></div>
+              <div class="swiper-slide"><img src="images/ecfm/2.jpg" alt="ECFM 2"></div>
+              <div class="swiper-slide"><img src="images/ecfm/3.jpeg" alt="ECFM 3"></div>
+              <div class="swiper-slide"><img src="images/ecfm/4.jpeg" alt="ECFM 4"></div>
+              <div class="swiper-slide"><img src="images/ecfm/5.jpeg" alt="ECFM 5"></div>
+              <div class="swiper-slide"><img src="images/ecfm/6.jpeg" alt="ECFM 6"></div>
+              <div class="swiper-slide"><img src="images/factibilidades/factibilidades1.png" alt="Factibilidades 1">
               </div>
-  
-              <!-- Botones de navegación (opcionales) 
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-        
-              <div class="swiper-pagination"></div>
-              -->
+              <div class="swiper-slide"><img src="images/factibilidades/factibilidades2.png" alt="Factibilidades 2">
+              </div>
+              <div class="swiper-slide"><img src="images/factibilidades/factibilidades3.png" alt="Factibilidades 3">
+              </div>
+              <div class="swiper-slide"><img src="images/fablab/harmonic_drive.jpg" alt="Harmonic Drive"></div>
+              <div class="swiper-slide"><img src="images/fablab/1.jpg" alt="FabLab 1"></div>
+              <div class="swiper-slide"><img src="images/fablab/2.jpg" alt="FabLab 2"></div>
+              <div class="swiper-slide"><img src="images/fablab/3.jpg" alt="FabLab 3"></div>
+              <div class="swiper-slide"><img src="images/fablab/4.jpg" alt="FabLab 4"></div>
+              <div class="swiper-slide"><img src="images/fablab/5.jpg" alt="FabLab 5"></div>
+              <div class="swiper-slide"><img src="images/unir/Telescope6.png" alt="Telescopio"></div>
+              <div class="swiper-slide"><img src="images/unir/1.jpg" alt="UNIR 1"></div>
+              <div class="swiper-slide"><img src="images/unir/2.jpg" alt="UNIR 2"></div>
             </div>
-  
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
-          <hr class="d-print-none" />
         </div>
+        <hr class="d-print-none">
 
-        <hr class="d-print-none" />
-        <div class="skills-section px-3 px-lg-4">
+        <!-- Habilidades -->
+        <div class="skills-section px-3 px-lg-4" id="skills">
           <h2 class="h3 mb-3">Habilidades profesionales</h2>
           <div class="row">
             <div class="col-md-6">
@@ -271,220 +183,229 @@
                 <div class="progress my-1">
                   <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="700"
                     data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span class="progress-bar-text"></span>
-                  </div>
+                    aria-valuemax="100"></div>
                 </div>
               </div>
-              <div class="mb-2"><span>MLOps/MLOps Platform</span>
+              <div class="mb-2"><span>MLOps / MLOps Platform</span>
                 <div class="progress my-1">
                   <div class="progress-bar bg-success" role="progressbar" data-aos="zoom-in-right" data-aos-delay="700"
                     data-aos-anchor=".skills-section" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span class="progress-bar-text"></span>
-                  </div>
+                    aria-valuemax="100"></div>
                 </div>
               </div>
-              <div class="mb-2"><span>Software development</span>
+              <div class="mb-2"><span>Software Development</span>
                 <div class="progress my-1">
                   <div class="progress-bar bg-success" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500"
                     data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span class="progress-bar-text"></span>
-                  </div>
+                    aria-valuemax="100"></div>
                 </div>
               </div>
             </div>
-
             <div class="col-md-6">
               <div class="mb-2"><span>AWS Cloud Computing Platform</span>
                 <div class="progress my-1">
                   <div class="progress-bar bg-warning" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400"
                     data-aos-anchor=".skills-section" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span class="progress-bar-text"></span>
-                  </div>
+                    aria-valuemax="100"></div>
                 </div>
               </div>
               <div class="mb-2"><span>3D Mechanical Prototyping</span>
                 <div class="progress my-1">
                   <div class="progress-bar bg-danger" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500"
                     data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span class="progress-bar-text"></span>
-                  </div>
+                    aria-valuemax="100"></div>
                 </div>
               </div>
               <div class="mb-2"><span>Digital Electronics</span>
                 <div class="progress my-1">
                   <div class="progress-bar bg-danger" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500"
                     data-aos-anchor=".skills-section" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span class="progress-bar-text"></span>
-                  </div>
+                    aria-valuemax="100"></div>
                 </div>
               </div>
-
             </div>
 
-            <ul class="nav justify-content-center">
+            <ul class="nav justify-content-center tech-icons">
               <li class="nav-icon"><i class="fab fa-python fa-md"></i></li>
               <li class="nav-icon"><i class="fab fa-linux fa-md"></i></li>
               <li class="nav-icon"><i class="fas fa-code fa-md"></i></li>
               <li class="nav-icon"><i class="fas fa-cogs fa-md"></i></li>
               <li class="nav-icon"><i class="fas fa-chart-line fa-md"></i></li>
               <li class="nav-icon"><i class="fas fa-database fa-md"></i></li>
-              <li class="nav-icon"><i class="fas fa-dna fa-md"></i></li> <!-- Análisis de Datos -->
-              <li class="nav-icon"><i class="fas fa-robot fa-md"></i></li> <!-- IA -->
-              <li class="nav-icon"><i class="fas fa-project-diagram fa-md"></i></li> <!-- ML -->
-              <li class="nav-icon"><i class="fas fa-laptop-code fa-md"></i></li> <!-- Programación -->
-              <li class="nav-icon"><i class="fas fa-microchip fa-md"></i></li> <!-- Hardware -->
-              <li class="nav-icon"><i class="fas fa-atom fa-md"></i></li> <!-- Física -->
-              <li class="nav-icon"><i class="fas fa-chart-bar fa-md"></i></li> <!-- Estadística -->
-              <li class="nav-icon"><i class="fas fa-cloud fa-md"></i></li> <!-- Cloud Computing -->
-              <li class="nav-icon"><i class="fas fa-hard-hat fa-md"></i></li> <!-- Robótica Industrial -->
+              <li class="nav-icon"><i class="fas fa-dna fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-robot fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-project-diagram fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-laptop-code fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-microchip fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-atom fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-chart-bar fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-cloud fa-md"></i></li>
+              <li class="nav-icon"><i class="fas fa-hard-hat fa-md"></i></li>
             </ul>
-
           </div>
           <br>
         </div>
       </div>
 
-
-      <div class="cover shadow-lg">
-        <hr class="d-print-none" />
+      <!-- Experiencia Laboral -->
+      <div class="cover shadow-lg" id="experience">
+        <hr class="d-print-none">
         <div class="work-experience-section px-3 px-lg-4">
-          <h2 class="h3 mb-4 d-flex align-items-center" id="toggleExperience" style="cursor: pointer;">
-            Experiencia Laboral
-            <span id="toggleIcon" style="margin-left: 10px; transition: transform 0.3s;">▼</span>
+          <h2 class="h3 mb-4 section-toggle" data-target="experienceContent">
+            <i class="fas fa-briefcase me-2"></i>Experiencia Laboral
+            <span class="toggle-icon">&#9660;</span>
           </h2>
-          <div id="experienceContent" class="timeline" style="display: none;">
+          <div id="experienceContent" class="timeline collapsible-content">
 
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">Profesor<span class="text-muted h6"> Escuela de ciencias físicas y matemáticas
-                    ECFM, USAC</span></div>
-                <div class="text-muted text-small mb-2">Enero 2024 - Actualidad</div>
-                <div>Ingeniero de desarrollo en proyecto LAGO (Latin American Giant Observatory)</div>
-                <div>Catedrático de "Laboratorio de simulación".</div>
-                <div>Catedrático de "Laboratorio de instrumentación".</div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card-primary card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1">Machine Learning Engineer LII<span class="text-muted h6"> Vana</span></div>
-                <div class="text-muted text-small mb-2">2022 - Actualidad</div>
-                <div class="text-muted text-small mbb-2">MLOps / MLOps Platform</div>
-                <div>Data Science RISK Team, https://vana.gt</div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card-primary card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1">Profesor<span class="text-muted h6"> Escuela de estudios de postgrado, facultad de
-                    Ingeniería, USAC</span></div>
-                <div class="text-muted text-small mb-2">2022</div>
-                <div>Catedrático de curso "Software y bases de datos biomédicas". 93/100 y 97/100 en puntuaciónes de
-                  primera y segunda evaluaciones docentes</div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card-primary card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1">Coordinador - Profesional de Laboratorio <span class="text-muted h6"> Laboratorio
-                    de Innovación(Fab-LAB), Dirección General de Investigación, USAC</span></div>
-                <div class="text-muted text-small mb-2">Octubre 2019 - Enero 2024</div>
-                <div>Planificación, Coordinación y asesoría de desarrollo de proyectos.</div>
-                <div>Desarrollador de prototipos y proyectos de innovación.</div>
-                <div>Diseño y simulación de estructuras. Operación y mantenimiento de máquinas de control numérico.
+                <div class="h5 mb-1">Profesor
+                  <span class="text-muted h6">Escuela de Ciencias Físicas y Matemáticas ECFM, USAC</span>
                 </div>
+                <div class="text-muted text-small mb-2">Enero 2024 - Actualidad</div>
+                <ul class="card-details">
+                  <li>Ingeniero de desarrollo en proyecto LAGO (Latin American Giant Observatory)</li>
+                  <li>Catedrático de "Laboratorio de simulación".</li>
+                  <li>Catedrático de "Laboratorio de instrumentación".</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">Full Stack Developer <span class="text-muted h6"> O+M Plus</span></div>
+                <div class="h5 mb-1">Machine Learning Engineer LII
+                  <span class="text-muted h6">Vana</span>
+                </div>
+                <div class="text-muted text-small mb-2">2022 - Actualidad</div>
+                <div class="text-muted text-small mb-2">MLOps / MLOps Platform</div>
+                <ul class="card-details">
+                  <li>Data Science RISK Team, https://vana.gt</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">Profesor
+                  <span class="text-muted h6">Escuela de Estudios de Postgrado, Facultad de Ingeniería, USAC</span>
+                </div>
+                <div class="text-muted text-small mb-2">2022</div>
+                <ul class="card-details">
+                  <li>Catedrático de curso "Software y bases de datos biomédicas". 93/100 y 97/100 en puntuaciones de
+                    primera y segunda evaluaciones docentes</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">Coordinador - Profesional de Laboratorio
+                  <span class="text-muted h6">Laboratorio de Innovación (Fab-LAB), Dirección General de Investigación,
+                    USAC</span>
+                </div>
+                <div class="text-muted text-small mb-2">Octubre 2019 - Enero 2024</div>
+                <ul class="card-details">
+                  <li>Planificación, Coordinación y asesoría de desarrollo de proyectos.</li>
+                  <li>Desarrollador de prototipos y proyectos de innovación.</li>
+                  <li>Diseño y simulación de estructuras. Operación y mantenimiento de máquinas de control numérico.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">Full Stack Developer
+                  <span class="text-muted h6">O+M Plus</span>
+                </div>
                 <div class="text-muted text-small mb-2">2016-2020</div>
-                <div>Experiencia en desarrollo web y desarrollo de algoritmos para coberturas Wireless(Áreas de
-                  coberturas, Zonas de fresnel, disponibilidad de canales, áreas LTE, sitios IPRAN, GPON, etc.)</div>
-                <div>Desarrollos utilizando APIs de google maps mostrando distancias consumidas para instalaciones,
-                  aprobaciones de factibilidades y rutas efectivas de instalación.</div>
-                <div>Servicios de reportería y estadísticas, servicios de depuración de bases de datos, scripts para
-                  backups automáticos hácia servidores remotos por sftp.</div>
+                <ul class="card-details">
+                  <li>Experiencia en desarrollo web y desarrollo de algoritmos para coberturas Wireless (Áreas de
+                    coberturas, Zonas de Fresnel, disponibilidad de canales, áreas LTE, sitios IPRAN, GPON, etc.)</li>
+                  <li>Desarrollos utilizando APIs de Google Maps mostrando distancias consumidas para instalaciones,
+                    aprobaciones de factibilidades y rutas efectivas de instalación.</li>
+                  <li>Servicios de reportería y estadísticas, servicios de depuración de bases de datos, scripts para
+                    backups automáticos hacia servidores remotos por SFTP.</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">Auxiliar de cátedra II <span class="text-muted h6"> Laboratorio de Electrónica,
-                    Ingeniería, USAC</span></div>
+                <div class="h5 mb-1">Auxiliar de Cátedra II
+                  <span class="text-muted h6">Laboratorio de Electrónica, Ingeniería, USAC</span>
+                </div>
                 <div class="text-muted text-small mb-2">2015-2017</div>
-                <div>Auxiliar de laboratorio de Robótica.</div>
-                <div>Auxiliar de laboratorio de Comunicaciones 2.</div>
+                <ul class="card-details">
+                  <li>Auxiliar de laboratorio de Robótica.</li>
+                  <li>Auxiliar de laboratorio de Comunicaciones 2.</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">Desarrollador de ingenierías <span class="text-muted h6"> PROSIMA</span></div>
+                <div class="h5 mb-1">Desarrollador de Ingenierías
+                  <span class="text-muted h6">PROSIMA</span>
+                </div>
                 <div class="text-muted text-small mb-2">2013-2014</div>
-                <div>Desarrollo de ingenierías de automatización industrial subcontratadas para TIGSA y CEMPRO.</div>
+                <ul class="card-details">
+                  <li>Desarrollo de ingenierías de automatización industrial subcontratadas para TIGSA y CEMPRO.</li>
+                </ul>
               </div>
             </div>
 
           </div>
         </div>
-        <hr class="d-print-none" />
+        <hr class="d-print-none">
       </div>
 
-
-      <div class="cover shadow-lg">
-        <hr class="d-print-none" />
+      <!-- Educación -->
+      <div class="cover shadow-lg" id="education">
+        <hr class="d-print-none">
         <div class="work-experience-section px-3 px-lg-4">
-          <h2 class="h3 mb-4 d-flex align-items-center" id="toggleExperience1" style="cursor: pointer;">
-            Educación
-            <span id="toggleIcon1" style="margin-left: 10px; transition: transform 0.3s;">▼</span>
+          <h2 class="h3 mb-4 section-toggle" data-target="educationContent">
+            <i class="fas fa-graduation-cap me-2"></i>Educación
+            <span class="toggle-icon">&#9660;</span>
           </h2>
-          <div id="experienceContent1" class="timeline" style="display: none;">
+          <div id="educationContent" class="timeline collapsible-content">
 
-            <div class="timeline-card timeline-card-primary card shadow-sm">
-              <div class="card-body">
-                  <div class="h5 mb-1">
-                      <img src="images/logos/ceupe.png" alt="Logo" class="logo">
-                      Máster en Inteligencia Artificial.
-                      <span class="text-muted h6">
-                          Centro Europeo de Postgrado y Empresa (CEUPE).
-                      </span>
-                  </div>
-                  <div class="text-muted text-small mb-2">2023-2024</div>
-                  <p class="text-muted">
-                      Enfoque en aprendizaje automático, deep learning, procesamiento de lenguaje natural y aplicaciones empresariales de la IA.
-                  </p>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card-primary card shadow-sm">
-              <div class="card-body">
-                  <div class="h5 mb-1">
-                      <img src="images/logos/unir.jpg" alt="Logo" class="logo">
-                      Máster en Ingeniería Matemática y Computación.
-                      <span class="text-muted h6"> Universidad Internacional de la Rioja (UNIR), España.</span>
-                  </div>
-                  <div class="text-muted text-small mb-2">2020-2021</div>
-                  <div>Promedio: 8.68/10</div>
-                  <p class="text-muted">
-                      Enfoque en Geometría Diferencial, Análisis Numérico, Procesamiento de Señales, Modelado y Simulación, Sistemas Dinámicos, Métodos Avanzados de Programación y Técnicas Multivariantes.
-                  </p>
-              </div>
-            </div>
-          
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">
-                  <img src="images/logos/unir.jpg" alt="Logo" class="logo">
+                  <img src="images/logos/ceupe.png" alt="CEUPE" class="logo">
+                  Máster en Inteligencia Artificial.
+                  <span class="text-muted h6">Centro Europeo de Postgrado y Empresa (CEUPE).</span>
+                </div>
+                <div class="text-muted text-small mb-2">2023-2024</div>
+                <p class="text-muted">
+                  Enfoque en aprendizaje automático, deep learning, procesamiento de lenguaje natural y aplicaciones
+                  empresariales de la IA.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/unir.jpg" alt="UNIR" class="logo">
+                  Máster en Ingeniería Matemática y Computación.
+                  <span class="text-muted h6">Universidad Internacional de la Rioja (UNIR), España.</span>
+                </div>
+                <div class="text-muted text-small mb-2">2020-2021</div>
+                <div>Promedio: 8.68/10</div>
+                <p class="text-muted">
+                  Enfoque en Geometría Diferencial, Análisis Numérico, Procesamiento de Señales, Modelado y Simulación,
+                  Sistemas Dinámicos, Métodos Avanzados de Programación y Técnicas Multivariantes.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/unir.jpg" alt="UNIR" class="logo">
                   Especialización en Big Data e Inteligencia Artificial.
-                  <span class="text-muted h6"> Universidad Internacional de la Rioja (UNIR), España.</span>
+                  <span class="text-muted h6">Universidad Internacional de la Rioja (UNIR), España.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2021</div>
                 <div>Promedio: 9.5/10</div>
@@ -497,9 +418,9 @@
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">
-                  <img src="images/logos/usac.png" alt="Logo" class="logo">
-                  Especialización en Bioinformática y biocomputación molecular biomédica.
-                  <span class="text-muted h6"> Universidad de San Carlos, Guatemala.</span>
+                  <img src="images/logos/usac.png" alt="USAC" class="logo">
+                  Especialización en Bioinformática y Biocomputación Molecular Biomédica.
+                  <span class="text-muted h6">Universidad de San Carlos, Guatemala.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2019</div>
                 <div>Promedio: 9.4/10</div>
@@ -509,9 +430,9 @@
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">
-                  <img src="images/logos/usac.png" alt="Logo" class="logo">
+                  <img src="images/logos/usac.png" alt="USAC" class="logo">
                   Ingeniería Electrónica.
-                  <span class="text-muted h6"> Universidad de San Carlos, Guatemala.</span>
+                  <span class="text-muted h6">Universidad de San Carlos, Guatemala.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2008-2017</div>
                 <div>Promedio: 6.9/10</div>
@@ -522,318 +443,343 @@
 
           </div>
         </div>
-        <hr class="d-print-none" />
+        <hr class="d-print-none">
       </div>
 
-
+      <!-- Certificados y Cursos -->
       <div class="cover shadow-lg">
-        <hr class="d-print-none" />
+        <hr class="d-print-none">
         <div class="work-experience-section px-3 px-lg-4">
-            <h2 class="h3 mb-4 d-flex align-items-center" id="toggleExperience2" style="cursor: pointer;">
-                Certificados y cursos
-                <span id="toggleIcon2" style="margin-left: 10px; transition: transform 0.3s;">▼</span>
-            </h2>
-            <div id="experienceContent2" class="timeline" style="display: none;">
-    
-                <div class="timeline-card timeline-card-primary card shadow-sm">
-                    <div class="card-body">
-                        <div class="h5 mb-1">
-                            <img src="images/logos/coursera.png" alt="Logo" class="logo">
-                            <span style="font-weight: bold; color: #007bff;">Programa Especializado:</span> "Data Structures and Algorithms"
-                            <span class="text-muted h6"> Coursera</span>
-                        </div>
-                        <div class="text-muted text-small mb-2">2018-2019</div>
-                        <ul class="text-muted">
-                            <li>Algorithmic Toolbox</li>
-                            <li>Data Structures</li>
-                            <li>Algorithms on Graphs</li>
-                            <li>Algorithms on Strings</li>
-                            <li>Advanced Algorithms and Complexity</li>
-                            <li>Genome Assembly Programming Challenge</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-card timeline-card-primary card shadow-sm">
-                  <div class="card-body">
-                      <div class="h5 mb-1">
-                          <img src="images/logos/coursera.png" alt="Logo" class="logo">
-                          <span style="font-weight: bold; color: #007bff;">Programa Especializado:</span> "Modern Robotics"
-                          <span class="text-muted h6"> Coursera</span>
-                      </div>
-                      <div class="text-muted text-small mb-2">2021-2023</div>
-                      <ul class="text-muted">
-                          <li>Foundations of Robot Motion</li>
-                          <li>Robot Kinematics</li>
-                          <li>Robot Dynamics</li>
-                          <li>Robot Motion Planning and Control</li>
-                          <li>Capstone Project in Robotics</li>
-                      </ul>
-                  </div>
-                </div>
-
-
-                <div class="timeline-card timeline-card-primary card shadow-sm">
-                    <div class="card-body">
-                        <div class="h5 mb-1">
-                            <img src="images/logos/coursera.png" alt="Logo" class="logo">
-                            <span style="font-weight: bold; color: #007bff;">Programa Especializado:</span> "Machine Learning"
-                            <span class="text-muted h6"> Coursera</span>
-                        </div>
-                        <div class="text-muted text-small mb-2">2025</div>
-                        <ul class="text-muted">
-                            <li>Supervised Machine Learning: Regression and Classification.</li>
-                            <li>Advanced Learning Algorithms.</li>
-                            <li>Unsupervised Learning, Recommenders, Reinforcement Learning.</li>
-                        </ul>
-                    </div>
-                </div>
-              
-                <div class="timeline-card timeline-card-primary card shadow-sm">
-                  <div class="card-body">
-                      <div class="h5 mb-1">
-                          <img src="images/logos/coursera.png" alt="Logo" class="logo">
-                          <span style="font-weight: bold; color: #28a745;">Curso:</span> Web Applications and Command-Line Tools for Data Engineering
-                          <span class="text-muted h6"> Coursera</span>
-                      </div>
-                      <div class="text-muted text-small mb-2">2025</div>
-                      <p class="text-muted">
-                          Desarrollo de herramientas CLI y aplicaciones web para optimizar flujos de trabajo en ingeniería de datos.
-                      </p>
-                  </div>
-                </div>
-    
-                <div class="timeline-card timeline-card-primary card shadow-sm">
-                  <div class="card-body">
-                      <div class="h5 mb-1">
-                          <img src="images/logos/coursera.png" alt="Logo" class="logo">
-                          <span style="font-weight: bold; color: #28a745;">Curso:</span> AWS Cloud Technical Essentials
-                          <span class="text-muted h6"> Coursera</span>
-                      </div>
-                      <div class="text-muted text-small mb-2">2025</div>
-                      <p class="text-muted">
-                          Fundamentos de AWS, incluyendo cómputo, almacenamiento y redes en la nube.
-                      </p>
-                  </div>
-                </div>
-
-                <div class="timeline-card timeline-card-primary card shadow-sm">
-                  <div class="card-body">
-                      <div class="h5 mb-1">
-                          <img src="images/logos/coursera.png" alt="Logo" class="logo">
-                          <span style="font-weight: bold; color: #28a745;">Curso:</span> DevOps, DataOps, MLOps
-                          <span class="text-muted h6"> Coursera</span>
-                      </div>
-                      <div class="text-muted text-small mb-2">2025</div>
-                      <p class="text-muted">
-                          Principios y prácticas de DevOps, DataOps y MLOps para automatizar y optimizar flujos de trabajo en TI y ciencia de datos.
-                      </p>
-                  </div>
-                </div>
-    
-            </div>
-        </div>
-        <hr class="d-print-none" />
-    </div>
-    
-
-      <div class="cover shadow-lg">
-        <hr class="d-print-none" />
-        <div class="work-experience-section px-3 px-lg-4">
-          <h2 class="h3 mb-4 d-flex align-items-center" id="toggleExperience4" style="cursor: pointer;">
-            Proyectos y Clasificaciones
-            <span id="toggleIcon4" style="margin-left: 10px; transition: transform 0.3s;">▼</span>
+          <h2 class="h3 mb-4 section-toggle" data-target="certsContent">
+            <i class="fas fa-certificate me-2"></i>Certificados y Cursos
+            <span class="toggle-icon">&#9660;</span>
           </h2>
-          <div id="experienceContent4" class="timeline" style="display: none;">
+          <div id="certsContent" class="timeline collapsible-content">
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/coursera.png" alt="Coursera" class="logo">
+                  <span class="badge-program">Programa Especializado:</span> "Data Structures and Algorithms"
+                  <span class="text-muted h6">Coursera</span>
+                </div>
+                <div class="text-muted text-small mb-2">2018-2019</div>
+                <ul class="text-muted">
+                  <li>Algorithmic Toolbox</li>
+                  <li>Data Structures</li>
+                  <li>Algorithms on Graphs</li>
+                  <li>Algorithms on Strings</li>
+                  <li>Advanced Algorithms and Complexity</li>
+                  <li>Genome Assembly Programming Challenge</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/coursera.png" alt="Coursera" class="logo">
+                  <span class="badge-program">Programa Especializado:</span> "Modern Robotics"
+                  <span class="text-muted h6">Coursera</span>
+                </div>
+                <div class="text-muted text-small mb-2">2021-2023</div>
+                <ul class="text-muted">
+                  <li>Foundations of Robot Motion</li>
+                  <li>Robot Kinematics</li>
+                  <li>Robot Dynamics</li>
+                  <li>Robot Motion Planning and Control</li>
+                  <li>Capstone Project in Robotics</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/coursera.png" alt="Coursera" class="logo">
+                  <span class="badge-program">Programa Especializado:</span> "Machine Learning"
+                  <span class="text-muted h6">Coursera</span>
+                </div>
+                <div class="text-muted text-small mb-2">2025</div>
+                <ul class="text-muted">
+                  <li>Supervised Machine Learning: Regression and Classification.</li>
+                  <li>Advanced Learning Algorithms.</li>
+                  <li>Unsupervised Learning, Recommenders, Reinforcement Learning.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/coursera.png" alt="Coursera" class="logo">
+                  <span class="badge-course">Curso:</span> Web Applications and Command-Line Tools for Data Engineering
+                  <span class="text-muted h6">Coursera</span>
+                </div>
+                <div class="text-muted text-small mb-2">2025</div>
+                <p class="text-muted">
+                  Desarrollo de herramientas CLI y aplicaciones web para optimizar flujos de trabajo en ingeniería de
+                  datos.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/coursera.png" alt="Coursera" class="logo">
+                  <span class="badge-course">Curso:</span> AWS Cloud Technical Essentials
+                  <span class="text-muted h6">Coursera</span>
+                </div>
+                <div class="text-muted text-small mb-2">2025</div>
+                <p class="text-muted">
+                  Fundamentos de AWS, incluyendo cómputo, almacenamiento y redes en la nube.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">
+                  <img src="images/logos/coursera.png" alt="Coursera" class="logo">
+                  <span class="badge-course">Curso:</span> DevOps, DataOps, MLOps
+                  <span class="text-muted h6">Coursera</span>
+                </div>
+                <div class="text-muted text-small mb-2">2025</div>
+                <p class="text-muted">
+                  Principios y prácticas de DevOps, DataOps y MLOps para automatizar y optimizar flujos de trabajo en TI
+                  y ciencia de datos.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <hr class="d-print-none">
+      </div>
+
+      <!-- Proyectos y Clasificaciones -->
+      <div class="cover shadow-lg">
+        <hr class="d-print-none">
+        <div class="work-experience-section px-3 px-lg-4">
+          <h2 class="h3 mb-4 section-toggle" data-target="projectsContent">
+            <i class="fas fa-rocket me-2"></i>Proyectos y Clasificaciones
+            <span class="toggle-icon">&#9660;</span>
+          </h2>
+          <div id="projectsContent" class="timeline collapsible-content">
 
             <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">Robot multifuncional orientado al área agrícola <span class="text-muted h6">
-                    Proyecto de desarrollo e investigación ejecutado dentro del presupuesto 2021, Dirección General de
-                    Investigación, Universidad de San Carlos.</span></div>
-                <div class="text-muted text-small mb-2">2021-2022</div>
-                <div></div>
-
-                <div><a href="https://www.youtube.com/watch?v=SRWdE6ATchU" class="link-info" target="_blank">Video
-                    Diario de Centro América.</a></div>
-                <div><a href="https://issuu.com/_dca/docs/edicio_n_del_diario_de_centro_ame_rica_del_02_de_may"
-                    class="link-info" target="_blank">Nota 1 Diario de Centro América.</a></div>
-                <div><a
-                    href="https://dca.gob.gt/noticias-guatemala-diario-centro-america/un-robot-aliado-de-la-agroindustria/"
-                    class="link-info" target="_blank">Nota 2 Diario de Centro América.</a></div>
-                <div><a
-                    href="https://www.guatemala.com/noticias/tecnologia/laboratorio-de-innovacion-de-la-usac-presento-robot-para-ayudar-en-agricultura.html"
-                    class="link-info" target="_blank">Nota Guatemala.com.</a></div>
-                <div><a href="https://soy.usac.edu.gt/?p=16338" class="link-info" target="_blank">Nota Soy USAC.</a>
+                <div class="h5 mb-1">Robot multifuncional orientado al área agrícola
+                  <span class="text-muted h6">Proyecto de desarrollo e investigación ejecutado dentro del presupuesto
+                    2021, Dirección General de Investigación, Universidad de San Carlos.</span>
                 </div>
-                <div><a
-                    href="https://investigacionparatodos.usac.edu.gt/noticias-principales-2/item/225-prototipofablab"
-                    class="link-info" target="_blank">Nota Investigación para todos.</a></div>
+                <div class="text-muted text-small mb-2">2021-2022</div>
+                <ul class="card-details">
+                  <li><a href="https://www.youtube.com/watch?v=SRWdE6ATchU" class="link-info" target="_blank"
+                      rel="noopener">Video Diario de Centro América.</a></li>
+                  <li><a href="https://issuu.com/_dca/docs/edicio_n_del_diario_de_centro_ame_rica_del_02_de_may"
+                      class="link-info" target="_blank" rel="noopener">Nota 1 Diario de Centro América.</a></li>
+                  <li><a
+                      href="https://dca.gob.gt/noticias-guatemala-diario-centro-america/un-robot-aliado-de-la-agroindustria/"
+                      class="link-info" target="_blank" rel="noopener">Nota 2 Diario de Centro América.</a></li>
+                  <li><a
+                      href="https://www.guatemala.com/noticias/tecnologia/laboratorio-de-innovacion-de-la-usac-presento-robot-para-ayudar-en-agricultura.html"
+                      class="link-info" target="_blank" rel="noopener">Nota Guatemala.com.</a></li>
+                  <li><a href="https://soy.usac.edu.gt/?p=16338" class="link-info" target="_blank" rel="noopener">Nota
+                      Soy USAC.</a></li>
+                  <li><a
+                      href="https://investigacionparatodos.usac.edu.gt/noticias-principales-2/item/225-prototipofablab"
+                      class="link-info" target="_blank" rel="noopener">Nota Investigación para todos.</a></li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">Dispositivo electromecánico para Telescopio, para localización y seguimiento
-                  astronómico.<span class="text-muted h6"> Trabajo de fin de máster, Universidad Internacional de la
-                    Rioja</span></div>
+                  astronómico.
+                  <span class="text-muted h6">Trabajo de fin de máster, Universidad Internacional de la Rioja</span>
+                </div>
                 <div class="text-muted text-small mb-2">2020-2021</div>
-                <div>Desarrollo de Hardware, firmware y software para ajuste automático de telescopio y seguimiento
-                  astronómico.</div>
+                <ul class="card-details">
+                  <li>Desarrollo de Hardware, firmware y software para ajuste automático de telescopio y seguimiento
+                    astronómico.</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">Detección y clasificación de las fases del parásito PLASMODIUM VIVAX en imágenes de
-                  frotis de sangre a través de redes neuronales convolucionales <span class="text-muted h6"> Trabajo de
-                    fin de especialización, Universidad de San Carlos</span></div>
+                  frotis de sangre a través de redes neuronales convolucionales
+                  <span class="text-muted h6">Trabajo de fin de especialización, Universidad de San Carlos</span>
+                </div>
                 <div class="text-muted text-small mb-2">2019</div>
-                <div> Proyecto de software para análisis de imágenes de muestras de sangre de gota gruesa infectadas con
-                  malaria, para detección de gametocitos, esquizontes, trofozoitos y anillos.</div>
+                <ul class="card-details">
+                  <li>Proyecto de software para análisis de imágenes de muestras de sangre de gota gruesa infectadas con
+                    malaria, para detección de gametocitos, esquizontes, trofozoitos y anillos.</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">Bazo Robot Moveo 3d(Open Source) <span class="text-muted h6"> Proyecto
-                    personal</span></div>
-                <div class="text-muted text-small mb-2">2019</div>
-                <div> Desarrollo de brazo robot educativo impreso en 3D para desarrollar la teoría matemática detrás de
-                  la robótica.</div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1"> Revista indexada de Ciencia, Tecnología y Salud. <span class="text-muted h6"> Vol
-                    7, Num 3. Dirección General de Investigación, USAC. </span></div>
-                <div class="text-muted text-small mb-2">2020</div>
-                <div>Diseño de un dispositivo de asistencia ventilatoria temporal de lazo cerrado basado en bolsa
-                  válvula-mascarilla. </div>
-                <div><a href="https://revistas.usac.edu.gt/index.php/cytes/article/view/1024" class="link-info"
-                    target="_blank">Info link</a></div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1"> International Conference on Learning Representations(ICLR) <span
-                    class="text-muted h6"> Addis Ababa - Ethiopia</span></div>
-                <div class="text-muted text-small mb-2">2020</div>
-                <div>Clasificacion en workshop con proyecto "Classiication and Detection of Plasmodium Vivax Infected
-                  Cells in Blood Smears Images."</div>
-                <div><a href="https://pml4dc.github.io/iclr2020/program/pml4dc_45.html" class="link-info"
-                    target="_blank">Info link</a></div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1">Mercury Robotics Challenge <span class="text-muted h6"> CUN, Colombia</span></div>
-                <div class="text-muted text-small mb-2">2017</div>
-                <div>1er lugar en competencia de diseño de robot(Judge's Choice).</div>
-                <div>Diseño de un robot teleoperado, capaz de realizar múltiples pruebas de precisión, exactitud y
-                  velocidad.</div>
-                <div><a href="https://www.youtube.com/watch?v=cL6FtH0tAvI" class="link-info" target="_blank">Info
-                    link</a></div>
-              </div>
-            </div>
-
-            <div class="timeline-card timeline-card card shadow-sm">
-              <div class="card-body">
-                <div class="h5 mb-1">Mercury Robotics Challenge <span class="text-muted h6"> CUN, Colombia</span></div>
-                <div class="text-muted text-small mb-2">2016</div>
-                <div>1er lugar en competencia de diseño de robot(Judge's Choice). 3er lugar en competencia general.
+                <div class="h5 mb-1">Brazo Robot Moveo 3D (Open Source)
+                  <span class="text-muted h6">Proyecto personal</span>
                 </div>
-                <div>Diseño de un robot teleoperado, capaz de realizar múltiples pruebas de precisión, exactitud y
-                  velocidad.</div>
-                <div><a
-                    href="https://www.guatemala.com/noticias/tecnologia/guatemaltecos-ganan-en-la-primera-edicion-del-mercury-robotic-challenge-en-colombia.html"
-                    class="link-info" target="_blank">Info link</a></div>
-                <div><a href="https://www.soy502.com/articulo/san-carlistas-ganan-competencia-diseno-colombia"
-                    class="link-info" target="_blank">Info link</a></div>
+                <div class="text-muted text-small mb-2">2019</div>
+                <ul class="card-details">
+                  <li>Desarrollo de brazo robot educativo impreso en 3D para desarrollar la teoría matemática detrás de
+                    la robótica.</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card card shadow-sm">
               <div class="card-body">
-                <div class="h5 mb-1">NASA SpaceApps Challenge<span class="text-muted h6"> Guatemala</span></div>
+                <div class="h5 mb-1">Revista indexada de Ciencia, Tecnología y Salud.
+                  <span class="text-muted h6">Vol 7, Num 3. Dirección General de Investigación, USAC.</span>
+                </div>
+                <div class="text-muted text-small mb-2">2020</div>
+                <ul class="card-details">
+                  <li>Diseño de un dispositivo de asistencia ventilatoria temporal de lazo cerrado basado en bolsa
+                    válvula-mascarilla.</li>
+                  <li><a href="https://revistas.usac.edu.gt/index.php/cytes/article/view/1024" class="link-info"
+                      target="_blank" rel="noopener">Info link</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">International Conference on Learning Representations (ICLR)
+                  <span class="text-muted h6">Addis Ababa - Ethiopia</span>
+                </div>
+                <div class="text-muted text-small mb-2">2020</div>
+                <ul class="card-details">
+                  <li>Clasificación en workshop con proyecto "Classification and Detection of Plasmodium Vivax Infected
+                    Cells in Blood Smears Images."</li>
+                  <li><a href="https://pml4dc.github.io/iclr2020/program/pml4dc_45.html" class="link-info"
+                      target="_blank" rel="noopener">Info link</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">Mercury Robotics Challenge
+                  <span class="text-muted h6">CUN, Colombia</span>
+                </div>
+                <div class="text-muted text-small mb-2">2017</div>
+                <ul class="card-details">
+                  <li>1er lugar en competencia de diseño de robot (Judge's Choice).</li>
+                  <li>Diseño de un robot teleoperado, capaz de realizar múltiples pruebas de precisión, exactitud y
+                    velocidad.</li>
+                  <li><a href="https://www.youtube.com/watch?v=cL6FtH0tAvI" class="link-info" target="_blank"
+                      rel="noopener">Info link</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">Mercury Robotics Challenge
+                  <span class="text-muted h6">CUN, Colombia</span>
+                </div>
+                <div class="text-muted text-small mb-2">2016</div>
+                <ul class="card-details">
+                  <li>1er lugar en competencia de diseño de robot (Judge's Choice). 3er lugar en competencia general.</li>
+                  <li>Diseño de un robot teleoperado, capaz de realizar múltiples pruebas de precisión, exactitud y
+                    velocidad.</li>
+                  <li><a
+                      href="https://www.guatemala.com/noticias/tecnologia/guatemaltecos-ganan-en-la-primera-edicion-del-mercury-robotic-challenge-en-colombia.html"
+                      class="link-info" target="_blank" rel="noopener">Info link</a></li>
+                  <li><a href="https://www.soy502.com/articulo/san-carlistas-ganan-competencia-diseno-colombia"
+                      class="link-info" target="_blank" rel="noopener">Info link</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-card timeline-card card shadow-sm">
+              <div class="card-body">
+                <div class="h5 mb-1">NASA SpaceApps Challenge
+                  <span class="text-muted h6">Guatemala</span>
+                </div>
                 <div class="text-muted text-small mb-2">2014</div>
-                <div>URBAN DATA, proyecto dentro de los 5 finalistas a nivel mundial(Guatemala, Japón, Gran Bretaña e
-                  Italia) como "best mission concept".</div>
-                <div><a href="https://2014.spaceappschallenge.org/project/urban-data/" class="link-info"
-                    target="_blank">Info link</a></div>
-                <div><a
-                    href="https://www.guatemala.com/noticias/tecnologia/jovenes-guatemaltecos-crean-aplicaciones-internacionales-para-la-nasa.html"
-                    class="link-info" target="_blank">Info link</a></div>
+                <ul class="card-details">
+                  <li>URBAN DATA, proyecto dentro de los 5 finalistas a nivel mundial (Guatemala, Japón, Gran Bretaña e
+                    Italia) como "best mission concept".</li>
+                  <li><a href="https://2014.spaceappschallenge.org/project/urban-data/" class="link-info"
+                      target="_blank" rel="noopener">Info link</a></li>
+                  <li><a
+                      href="https://www.guatemala.com/noticias/tecnologia/jovenes-guatemaltecos-crean-aplicaciones-internacionales-para-la-nasa.html"
+                      class="link-info" target="_blank" rel="noopener">Info link</a></li>
+                </ul>
               </div>
             </div>
 
           </div>
         </div>
-        <hr class="d-print-none" />
+        <hr class="d-print-none">
       </div>
 
-
+      <!-- Voluntariado -->
       <div class="cover shadow-lg">
-        <hr class="d-print-none" />
+        <hr class="d-print-none">
         <div class="work-experience-section px-3 px-lg-4">
-          <h2 class="h3 mb-4 d-flex align-items-center" id="toggleExperience3" style="cursor: pointer;">
-            Voluntariado y Actividades Extracurriculares
-            <span id="toggleIcon3" style="margin-left: 10px; transition: transform 0.3s;">▼</span>
+          <h2 class="h3 mb-4 section-toggle" data-target="volunteerContent">
+            <i class="fas fa-hands-helping me-2"></i>Voluntariado y Actividades Extracurriculares
+            <span class="toggle-icon">&#9660;</span>
           </h2>
-          <div id="experienceContent3" class="timeline" style="display: none;">
-
+          <div id="volunteerContent" class="timeline collapsible-content">
 
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">
-                  <img src="images/logos/cvb.png" alt="Logo" class="logo">
+                  <img src="images/logos/cvb.png" alt="CVB" class="logo">
                   Galonista II
-                  <span class="text-muted h6">
-                    Benemérito cuerpo de bomberos voluntarios de Guatemala.</span>
+                  <span class="text-muted h6">Benemérito Cuerpo de Bomberos Voluntarios de Guatemala.</span>
                 </div>
                 <div class="text-muted text-small mb-2">13 años de Servicio (2011 - Actualidad)</div>
-                <div>Bombero Voluntario, décima compañía, área metropolitana.</div>
-                <div>Fire Rescue Training - Reds Team, FAG</div>
-                <div>Fire Instructor NFPA 1403 - SACS Group, Texas A&M Engineering Extension Services</div>
+                <ul class="card-details">
+                  <li>Bombero Voluntario, décima compañía, área metropolitana.</li>
+                  <li>Fire Rescue Training - Reds Team, FAG</li>
+                  <li>Fire Instructor NFPA 1403 - SACS Group, Texas A&amp;M Engineering Extension Services</li>
+                </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
                 <div class="h5 mb-1">
-                  <img src="images/logos/sprat.png" alt="Logo" class="logo">
+                  <img src="images/logos/sprat.png" alt="SPRAT" class="logo">
                   Técnico en Accesos con Cuerdas
-                  <span class="text-muted h6">
-                    Society of Professional Rope Access Technicians.</span>
+                  <span class="text-muted h6">Society of Professional Rope Access Technicians.</span>
                 </div>
-                <div class="text-muted text-small mb-2">(2025)</div>
+                <div class="text-muted text-small mb-2">2025</div>
                 <div>Técnico Nivel 1</div>
                 <p class="text-muted">
-                  Formación en técnicas avanzadas de acceso con cuerdas para realizar trabajos en alturas de manera segura y eficiente, aplicando normativas de seguridad, técnicas de rescate y manejo de equipos especializados.
+                  Formación en técnicas avanzadas de acceso con cuerdas para realizar trabajos en alturas de manera
+                  segura y eficiente, aplicando normativas de seguridad, técnicas de rescate y manejo de equipos
+                  especializados.
                 </p>
               </div>
             </div>
-            
 
           </div>
         </div>
-        <hr class="d-print-none" />
+        <hr class="d-print-none">
       </div>
-
 
     </div>
 
-
+    <!-- Footer / Contacto -->
     <footer class="pt-4 pb-4 text-muted text-center d-print-none bg-principal">
-
       <div class="page-content">
         <div class="container">
           <div class="cover shadow-lg">
-
-            <hr class="d-print-none" />
+            <hr class="d-print-none">
             <div class="contant-section px-3 px-lg-4 pb-4" id="contact">
               <h2 class="h3 text mb-3">Contacto</h2>
               <div class="row">
@@ -842,60 +788,32 @@
                     <form action="https://formspree.io/f/xpzbvaln" method="POST">
                       <div class="row">
                         <div class="col-6">
-                          <input class="form-control" type="text" id="name" name="name" placeholder="Your Name"
+                          <input class="form-control" type="text" id="name" name="name" placeholder="Tu nombre"
                             required>
                         </div>
                         <div class="col-6">
-                          <input class="form-control" type="email" id="email" name="_replyto" placeholder="Your E-mail"
-                            required>
+                          <input class="form-control" type="email" id="email" name="_replyto"
+                            placeholder="Tu correo electrónico" required>
                         </div>
                       </div>
                       <div class="form-group my-2">
                         <textarea class="form-control" style="resize: none;" id="message" name="message" rows="4"
-                          placeholder="Your Message" required></textarea>
+                          placeholder="Tu mensaje" required></textarea>
                       </div>
-                      <button class="btn btn-primary mt-2" type="submit">Send</button>
+                      <button class="btn btn-primary mt-2" type="submit">
+                        <i class="fas fa-paper-plane me-1"></i>Enviar
+                      </button>
                     </form>
                   </div>
                 </div>
                 <div class="col">
                   <div class="mt-2">
-                    <h3 class="h6">Address</h3>
+                    <h3 class="h6">Dirección</h3>
                     <div class="pb-2 text-secondary">Guatemala City (GMT-6)</div>
-                    <h3 class="h6">Phone</h3>
+                    <h3 class="h6">Teléfono</h3>
                     <div class="pb-2 text-secondary">+(502) 3016 - 9594</div>
-                    <h3 class="h6">Email</h3>
+                    <h3 class="h6">Correo</h3>
                     <div class="pb-2 text-secondary">jorgebalsells@gmail.com</div>
-                  </div>
-                </div>
-                <div class="col d-none d-print-block">
-                  <div class="mt-2">
-                    <div>
-                      <div class="mb-2">
-                        <div class="text-dark">
-                          <i class="fab fa-twitter mr-1"></i>
-                          <span>https://twitter.com/templateflip</span>
-                        </div>
-                      </div>
-                      <div class="mb-2">
-                        <div class="text-dark">
-                          <i class="fab fa-facebook mr-1"></i>
-                          <span>https://www.facebook.com/templateflip</span>
-                        </div>
-                      </div>
-                      <div class="mb-2">
-                        <div class="text-dark">
-                          <i class="fab fa-instagram mr-1"></i>
-                          <span>https://www.instagram.com/templateflip</span>
-                        </div>
-                      </div>
-                      <div class="mb-2">
-                        <div class="text-dark">
-                          <i class="fab fa-github mr-1"></i>
-                          <span>https://github.com/templateflip</span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -905,29 +823,31 @@
               <div class="py-2 clearfix">
                 <div class="site-nav">
                   <nav role="navigation">
-                    <ul class="nav justify-content-center">
+                    <ul class="nav justify-content-center social-links">
                       <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/jbalsells/" title="Linkedin"
-                          target="_blank">
+                        <a class="nav-link" href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn"
+                          target="_blank" rel="noopener">
                           <i class="fab fa-lg fa-linkedin"></i>
-                          <span class="menu-title sr-only">Linkedin</span>
+                          <span class="menu-title sr-only">LinkedIn</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/JBalsells" title="Github" target="_blank">
+                        <a class="nav-link" href="https://github.com/JBalsells" title="Github" target="_blank"
+                          rel="noopener">
                           <i class="fab fa-lg fa-github"></i>
                           <span class="menu-title sr-only">Github</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/JBalsellsO" title="Github" target="_blank">
+                        <a class="nav-link" href="https://github.com/JBalsellsO" title="Github" target="_blank"
+                          rel="noopener">
                           <i class="fab fa-lg fa-github"></i>
                           <span class="menu-title sr-only">Github</span>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="https://www.facebook.com/jorge.balsells/" title="Facebook"
-                          target="_blank">
+                          target="_blank" rel="noopener">
                           <i class="fab fa-lg fa-facebook"></i>
                           <span class="menu-title sr-only">Facebook</span>
                         </a>
@@ -944,34 +864,11 @@
     </footer>
 
   </div>
-  </div>
-</body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-<script src="scripts/aos.js?ver=1.2.0"></script>
-<script src="scripts/main.js?ver=1.2.0"></script>
-<!-- Incluir el JS de Swiper -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,         // Mostrar una imagen a la vez
-    spaceBetween: 10,         // Espacio entre las imágenes
-    loop: true,               // Hacer que el carrusel sea infinito
-    autoplay: {
-      delay: 3000,            // Intervalo entre las transiciones (en ms)
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,        // Hacer los puntos de paginación clickeables
-    },
-    effect: 'slide',          // Efecto de deslizamiento
-  });
-</script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/aos.js"></script>
+  <script src="vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
 
 </html>
