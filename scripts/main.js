@@ -41,6 +41,84 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   });
 })();
 
+// Lightbox gallery
+(function () {
+  var overlay  = document.getElementById('lightbox');
+  if (!overlay) return;
+
+  var lbImg     = document.getElementById('lightbox-img');
+  var lbCaption = document.getElementById('lightbox-caption');
+  var lbCounter = document.getElementById('lightbox-counter');
+  var items     = Array.from(document.querySelectorAll('.gallery-item'));
+  var current   = 0;
+
+  function show(index) {
+    if (index < 0) index = items.length - 1;
+    if (index >= items.length) index = 0;
+    current = index;
+
+    var item = items[current];
+    var img  = item.querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = item.getAttribute('data-caption') || '';
+    lbCounter.textContent = (current + 1) + ' / ' + items.length;
+  }
+
+  function open(index) {
+    show(index);
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Click on thumbnails
+  items.forEach(function (item, i) {
+    item.addEventListener('click', function () { open(i); });
+  });
+
+  // Controls
+  overlay.querySelector('.lightbox-close').addEventListener('click', close);
+  overlay.querySelector('.lightbox-prev').addEventListener('click', function (e) {
+    e.stopPropagation();
+    show(current - 1);
+  });
+  overlay.querySelector('.lightbox-next').addEventListener('click', function (e) {
+    e.stopPropagation();
+    show(current + 1);
+  });
+
+  // Close on backdrop click
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+
+  // Swipe support for mobile
+  var touchStartX = 0;
+  overlay.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  overlay.addEventListener('touchend', function (e) {
+    var diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) show(current - 1);
+      else show(current + 1);
+    }
+  }, { passive: true });
+})();
+
 // Active nav link highlighting on scroll
 (function () {
   var navLinks = document.querySelectorAll('.sticky-nav .nav-link');
