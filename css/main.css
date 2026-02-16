@@ -1743,7 +1743,73 @@ footer a:not(.nav-link) {
   .thumbnail-gallery,
   .gallery-category-label,
   .gallery-filters,
-  .lightbox-overlay {
+  .lightbox-overlay,
+  .gallery-cta-section {
     display: none;
   }
+}
+
+/* ==========================================================================
+   Gallery CTA Card (index.html — links to gallery.html)
+   ========================================================================== */
+
+.gallery-cta-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-card) 100%);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.gallery-cta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.gallery-cta-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.gallery-cta-text h3 {
+  margin: 0 0 .2rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+.gallery-cta-text p {
+  margin: 0;
+  font-size: .9rem;
+  color: var(--color-text-muted);
+}
+
+.gallery-cta-arrow {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: var(--color-primary-medium);
+  transition: transform .2s;
+}
+
+.gallery-cta-card:hover .gallery-cta-arrow {
+  transform: translateX(4px);
+}
+
+[data-theme="dark"] .gallery-cta-card {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-card) 100%);
 }

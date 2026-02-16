@@ -16,7 +16,7 @@
 
   window.addEventListener('load', function () {
     // Small delay so the transition feels intentional, not abrupt
-    setTimeout(hideSplash, 1000);
+    setTimeout(hideSplash, 600);
   });
 
   // Safety fallback: hide after 5s even if load event is slow
@@ -50,11 +50,13 @@
 })();
 
 // AOS Animations — reduced duration, animate once
-AOS.init({
-  anchorPlacement: 'top-left',
-  duration: 600,
-  once: true
-});
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    anchorPlacement: 'top-left',
+    duration: 600,
+    once: true
+  });
+}
 
 // PureCounter auto-initializes on load (v1.1.4 IIFE) — no manual call needed.
 // It picks up .purecounter elements and their data-purecounter-* attributes automatically.
