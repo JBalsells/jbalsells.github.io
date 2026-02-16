@@ -137,38 +137,12 @@ function applyStagger(content) {
   });
 }
 
-// Auto-open collapsible sections on scroll (lazy reveal)
+// Open all collapsible sections immediately on load
 (function () {
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: open all immediately
-    document.querySelectorAll('.collapsible-content').forEach(function (c) {
-      c.classList.add('open');
-      var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
-      if (icon) icon.classList.add('open');
-    });
-    return;
-  }
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var content = entry.target;
-        if (!content.classList.contains('open')) {
-          applyStagger(content);
-          content.classList.add('open');
-          var icon = document.querySelector('[data-target="' + content.id + '"] .toggle-icon');
-          if (icon) icon.classList.add('open');
-        }
-        observer.unobserve(content);
-      }
-    });
-  }, {
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.05
-  });
-
-  document.querySelectorAll('.collapsible-content').forEach(function (content) {
-    observer.observe(content);
+  document.querySelectorAll('.collapsible-content').forEach(function (c) {
+    c.classList.add('open');
+    var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
+    if (icon) icon.classList.add('open');
   });
 })();
 
