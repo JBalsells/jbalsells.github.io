@@ -1231,6 +1231,72 @@ footer a:not(.nav-link) {
   font-weight: 300;
 }
 
+/* ==========================================================================
+   Splash Screen
+   ========================================================================== */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #1a4f64 0%, #123a4a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.splash-initials {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  animation: splash-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes splash-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.splash-loader {
+  width: 48px;
+  height: 3px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.splash-loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: #5bb8d4;
+  border-radius: 3px;
+  animation: splash-slide 1s ease-in-out infinite;
+}
+
+@keyframes splash-slide {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
 @media print {
   body {
     background: #fff;

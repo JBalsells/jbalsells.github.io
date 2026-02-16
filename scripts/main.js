@@ -1,3 +1,28 @@
+// Splash screen — fade out when page is fully loaded
+(function () {
+  var splash = document.getElementById('splashScreen');
+  if (!splash) return;
+
+  // Prevent scroll while splash is visible
+  document.body.style.overflow = 'hidden';
+
+  function hideSplash() {
+    splash.classList.add('fade-out');
+    document.body.style.overflow = '';
+    splash.addEventListener('transitionend', function () {
+      splash.remove();
+    });
+  }
+
+  window.addEventListener('load', function () {
+    // Small delay so the transition feels intentional, not abrupt
+    setTimeout(hideSplash, 1000);
+  });
+
+  // Safety fallback: hide after 5s even if load event is slow
+  setTimeout(hideSplash, 5000);
+})();
+
 // Add AOS attributes dynamically to elements NOT inside collapsible sections
 (function () {
   function isInsideCollapsible(el) {
