@@ -16,7 +16,7 @@
 
   window.addEventListener('load', function () {
     // Small delay so the transition feels intentional, not abrupt
-    setTimeout(hideSplash, 1000);
+    setTimeout(hideSplash, 600);
   });
 
   // Safety fallback: hide after 5s even if load event is slow
@@ -45,16 +45,18 @@
   });
 
   // Contact form (not collapsible)
-  var contactForm = document.querySelector('.contant-section .row');
+  var contactForm = document.querySelector('.contact-section .row');
   if (contactForm) contactForm.setAttribute('data-aos', 'fade-up');
 })();
 
 // AOS Animations — reduced duration, animate once
-AOS.init({
-  anchorPlacement: 'top-left',
-  duration: 600,
-  once: true
-});
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    anchorPlacement: 'top-left',
+    duration: 600,
+    once: true
+  });
+}
 
 // PureCounter auto-initializes on load (v1.1.4 IIFE) — no manual call needed.
 // It picks up .purecounter elements and their data-purecounter-* attributes automatically.
@@ -137,38 +139,12 @@ function applyStagger(content) {
   });
 }
 
-// Auto-open collapsible sections on scroll (lazy reveal)
+// Open all collapsible sections immediately on load
 (function () {
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: open all immediately
-    document.querySelectorAll('.collapsible-content').forEach(function (c) {
-      c.classList.add('open');
-      var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
-      if (icon) icon.classList.add('open');
-    });
-    return;
-  }
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var content = entry.target;
-        if (!content.classList.contains('open')) {
-          applyStagger(content);
-          content.classList.add('open');
-          var icon = document.querySelector('[data-target="' + content.id + '"] .toggle-icon');
-          if (icon) icon.classList.add('open');
-        }
-        observer.unobserve(content);
-      }
-    });
-  }, {
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.05
-  });
-
-  document.querySelectorAll('.collapsible-content').forEach(function (content) {
-    observer.observe(content);
+  document.querySelectorAll('.collapsible-content').forEach(function (c) {
+    c.classList.add('open');
+    var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
+    if (icon) icon.classList.add('open');
   });
 })();
 
