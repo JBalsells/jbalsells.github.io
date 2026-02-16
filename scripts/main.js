@@ -69,7 +69,7 @@ if (document.getElementById('typed-output')) {
   }, { passive: true });
 })();
 
-// Collapsible sections (Projects & Volunteer only)
+// Collapsible sections — manual toggle
 document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   toggle.addEventListener('click', function () {
     var targetId = this.getAttribute('data-target');
@@ -78,8 +78,60 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
 
     content.classList.toggle('open');
     icon.classList.toggle('open');
+
+    // Apply stagger when opening manually
+    if (content.classList.contains('open')) {
+      applyStagger(content);
+    }
   });
 });
+
+// Stagger delay for children inside a collapsible section
+function applyStagger(content) {
+  var cards = content.querySelectorAll('.timeline-card');
+  cards.forEach(function (card, i) {
+    card.style.transitionDelay = (i * 80) + 'ms';
+  });
+  var galleryEls = content.querySelectorAll('.gallery-category-label, .thumbnail-gallery');
+  galleryEls.forEach(function (el, i) {
+    el.style.transitionDelay = (i * 100) + 'ms';
+  });
+}
+
+// Auto-open collapsible sections on scroll (lazy reveal)
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: open all immediately
+    document.querySelectorAll('.collapsible-content').forEach(function (c) {
+      c.classList.add('open');
+      var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
+      if (icon) icon.classList.add('open');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var content = entry.target;
+        if (!content.classList.contains('open')) {
+          applyStagger(content);
+          content.classList.add('open');
+          var icon = document.querySelector('[data-target="' + content.id + '"] .toggle-icon');
+          if (icon) icon.classList.add('open');
+        }
+        observer.unobserve(content);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.05
+  });
+
+  document.querySelectorAll('.collapsible-content').forEach(function (content) {
+    observer.observe(content);
+  });
+})();
 
 // Smooth scroll with offset for sticky nav
 (function () {
