@@ -334,9 +334,11 @@ function applyStagger(content) {
   });
 })();
 
-// Active nav link highlighting on scroll
+// Active nav link + dot navigation highlighting on scroll
 (function () {
   var navLinks = document.querySelectorAll('.sticky-nav .nav-link');
+  var dotNav = document.getElementById('dotNav');
+  var dotLinks = dotNav ? dotNav.querySelectorAll('a') : [];
   var sections = [];
 
   navLinks.forEach(function (link) {
@@ -359,6 +361,7 @@ function applyStagger(content) {
       }
     });
 
+    // Navbar active link
     navLinks.forEach(function (link) {
       link.classList.remove('active');
     });
@@ -366,6 +369,42 @@ function applyStagger(content) {
     if (current) {
       current.link.classList.add('active');
     }
+
+    // Dot nav active dot
+    if (dotNav) {
+      var currentId = current ? current.el.id : '';
+      dotLinks.forEach(function (dot) {
+        if (dot.getAttribute('data-section') === currentId) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Show dot nav only after scrolling past the hero
+      if (window.scrollY > 300) {
+        dotNav.classList.add('visible');
+      } else {
+        dotNav.classList.remove('visible');
+      }
+    }
+  }
+
+  // Dot nav click — smooth scroll
+  if (dotNav) {
+    var navHeight = document.querySelector('.sticky-nav')
+      ? document.querySelector('.sticky-nav').offsetHeight : 56;
+
+    dotLinks.forEach(function (dot) {
+      dot.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
   }
 
   window.addEventListener('scroll', setActive, { passive: true });
