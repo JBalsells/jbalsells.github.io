@@ -1417,6 +1417,7 @@ footer a:not(.nav-link) {
   color: var(--color-primary-dark);
   border: none;
   background: none;
+  margin-left: 0.5rem;
   font-size: 1rem;
   padding: 0.4rem;
   cursor: pointer;
