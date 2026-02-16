@@ -1,30 +1,25 @@
-// Add AOS attributes dynamically to repeated elements before AOS.init()
+// Add AOS attributes dynamically to elements NOT inside collapsible sections
 (function () {
-  // Timeline cards — staggered fade-up
-  document.querySelectorAll('.timeline-card').forEach(function (card, i) {
-    card.setAttribute('data-aos', 'fade-up');
-    card.setAttribute('data-aos-delay', String(Math.min(i % 5 * 80, 320)));
-  });
+  function isInsideCollapsible(el) {
+    return !!el.closest('.collapsible-content');
+  }
 
-  // Skill categories
+  // Skill categories (not collapsible)
   document.querySelectorAll('.skill-category').forEach(function (cat, i) {
-    cat.setAttribute('data-aos', 'fade-up');
-    cat.setAttribute('data-aos-delay', String(i * 100));
+    if (!isInsideCollapsible(cat)) {
+      cat.setAttribute('data-aos', 'fade-up');
+      cat.setAttribute('data-aos-delay', String(i * 100));
+    }
   });
 
-  // Section headings
+  // Section headings (safe — they're outside the collapsible div)
   document.querySelectorAll('.section-heading').forEach(function (h) {
     if (!h.hasAttribute('data-aos')) {
       h.setAttribute('data-aos', 'fade-right');
     }
   });
 
-  // Gallery category labels
-  document.querySelectorAll('.gallery-category-label').forEach(function (label) {
-    label.setAttribute('data-aos', 'fade-right');
-  });
-
-  // Contact form
+  // Contact form (not collapsible)
   var contactForm = document.querySelector('.contant-section .row');
   if (contactForm) contactForm.setAttribute('data-aos', 'fade-up');
 })();
