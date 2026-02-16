@@ -1,3 +1,34 @@
+// Add AOS attributes dynamically to repeated elements before AOS.init()
+(function () {
+  // Timeline cards — staggered fade-up
+  document.querySelectorAll('.timeline-card').forEach(function (card, i) {
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', String(Math.min(i % 5 * 80, 320)));
+  });
+
+  // Skill categories
+  document.querySelectorAll('.skill-category').forEach(function (cat, i) {
+    cat.setAttribute('data-aos', 'fade-up');
+    cat.setAttribute('data-aos-delay', String(i * 100));
+  });
+
+  // Section headings
+  document.querySelectorAll('.section-heading').forEach(function (h) {
+    if (!h.hasAttribute('data-aos')) {
+      h.setAttribute('data-aos', 'fade-right');
+    }
+  });
+
+  // Gallery category labels
+  document.querySelectorAll('.gallery-category-label').forEach(function (label) {
+    label.setAttribute('data-aos', 'fade-right');
+  });
+
+  // Contact form
+  var contactForm = document.querySelector('.contant-section .row');
+  if (contactForm) contactForm.setAttribute('data-aos', 'fade-up');
+})();
+
 // AOS Animations — reduced duration, animate once
 AOS.init({
   anchorPlacement: 'top-left',
@@ -29,6 +60,18 @@ if (document.getElementById('typed-output')) {
 (function () {
   var el = document.getElementById('footer-year');
   if (el) el.textContent = new Date().getFullYear();
+})();
+
+// Scroll progress bar
+(function () {
+  var bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  window.addEventListener('scroll', function () {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = progress + '%';
+  }, { passive: true });
 })();
 
 // Collapsible sections (Projects & Volunteer only)
