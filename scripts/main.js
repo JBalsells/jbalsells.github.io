@@ -1,3 +1,28 @@
+// Splash screen — fade out when page is fully loaded
+(function () {
+  var splash = document.getElementById('splashScreen');
+  if (!splash) return;
+
+  // Prevent scroll while splash is visible
+  document.body.style.overflow = 'hidden';
+
+  function hideSplash() {
+    splash.classList.add('fade-out');
+    document.body.style.overflow = '';
+    splash.addEventListener('transitionend', function () {
+      splash.remove();
+    });
+  }
+
+  window.addEventListener('load', function () {
+    // Small delay so the transition feels intentional, not abrupt
+    setTimeout(hideSplash, 1000);
+  });
+
+  // Safety fallback: hide after 5s even if load event is slow
+  setTimeout(hideSplash, 5000);
+})();
+
 // Add AOS attributes dynamically to elements NOT inside collapsible sections
 (function () {
   function isInsideCollapsible(el) {
@@ -57,19 +82,33 @@ if (document.getElementById('typed-output')) {
   if (el) el.textContent = new Date().getFullYear();
 })();
 
-// Scroll progress bar
+// Scroll progress bar + navbar solidify on scroll
 (function () {
   var bar = document.getElementById('scrollProgress');
-  if (!bar) return;
+  var nav = document.querySelector('.sticky-nav');
+
   window.addEventListener('scroll', function () {
     var scrollTop = window.scrollY;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    bar.style.width = progress + '%';
+
+    // Progress bar
+    if (bar) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    }
+
+    // Navbar: transparent → solid after 50px scroll
+    if (nav) {
+      if (scrollTop > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
   }, { passive: true });
 })();
 
-// Collapsible sections (Projects & Volunteer only)
+// Collapsible sections — manual toggle
 document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   toggle.addEventListener('click', function () {
     var targetId = this.getAttribute('data-target');
@@ -78,8 +117,60 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
 
     content.classList.toggle('open');
     icon.classList.toggle('open');
+
+    // Apply stagger when opening manually
+    if (content.classList.contains('open')) {
+      applyStagger(content);
+    }
   });
 });
+
+// Stagger delay for children inside a collapsible section
+function applyStagger(content) {
+  var cards = content.querySelectorAll('.timeline-card');
+  cards.forEach(function (card, i) {
+    card.style.transitionDelay = (i * 80) + 'ms';
+  });
+  var galleryEls = content.querySelectorAll('.gallery-category-label, .thumbnail-gallery');
+  galleryEls.forEach(function (el, i) {
+    el.style.transitionDelay = (i * 100) + 'ms';
+  });
+}
+
+// Auto-open collapsible sections on scroll (lazy reveal)
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: open all immediately
+    document.querySelectorAll('.collapsible-content').forEach(function (c) {
+      c.classList.add('open');
+      var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
+      if (icon) icon.classList.add('open');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var content = entry.target;
+        if (!content.classList.contains('open')) {
+          applyStagger(content);
+          content.classList.add('open');
+          var icon = document.querySelector('[data-target="' + content.id + '"] .toggle-icon');
+          if (icon) icon.classList.add('open');
+        }
+        observer.unobserve(content);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.05
+  });
+
+  document.querySelectorAll('.collapsible-content').forEach(function (content) {
+    observer.observe(content);
+  });
+})();
 
 // Smooth scroll with offset for sticky nav
 (function () {
@@ -102,6 +193,59 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
         window.scrollTo({ top: top, behavior: 'smooth' });
       }
     });
+  });
+})();
+
+// Gallery category filters
+(function () {
+  var filters = document.querySelectorAll('.gallery-filter');
+  if (!filters.length) return;
+
+  var labels = document.querySelectorAll('.gallery-category-label[data-category]');
+  var galleries = document.querySelectorAll('.thumbnail-gallery[data-category]');
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      // Update active button
+      filters.forEach(function (f) { f.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var filter = btn.getAttribute('data-filter');
+
+      labels.forEach(function (label) {
+        if (filter === 'all' || label.getAttribute('data-category') === filter) {
+          label.classList.remove('gallery-hidden');
+        } else {
+          label.classList.add('gallery-hidden');
+        }
+      });
+
+      galleries.forEach(function (gallery) {
+        if (filter === 'all' || gallery.getAttribute('data-category') === filter) {
+          gallery.classList.remove('gallery-hidden');
+        } else {
+          gallery.classList.add('gallery-hidden');
+        }
+      });
+    });
+  });
+})();
+
+// Gallery blur-up loading
+(function () {
+  var imgs = document.querySelectorAll('.gallery-item img');
+
+  function markLoaded(img) {
+    img.classList.add('loaded');
+  }
+
+  imgs.forEach(function (img) {
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded(img);
+    } else {
+      img.addEventListener('load', function () { markLoaded(img); });
+      img.addEventListener('error', function () { markLoaded(img); });
+    }
   });
 })();
 
@@ -130,14 +274,24 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   }
 
   function open(index) {
-    show(index);
+    // Start in animating state (small + transparent)
+    overlay.classList.add('animating');
     overlay.classList.add('active');
+    show(index);
     document.body.style.overflow = 'hidden';
+
+    // Trigger reflow, then remove animating to start transition
+    void lbImg.offsetWidth;
+    overlay.classList.remove('animating');
   }
 
   function close() {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
+    overlay.classList.add('animating');
+    setTimeout(function () {
+      overlay.classList.remove('active');
+      overlay.classList.remove('animating');
+      document.body.style.overflow = '';
+    }, 350);
   }
 
   // Click on thumbnails
@@ -243,9 +397,11 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   });
 })();
 
-// Active nav link highlighting on scroll
+// Active nav link + dot navigation highlighting on scroll
 (function () {
   var navLinks = document.querySelectorAll('.sticky-nav .nav-link');
+  var dotNav = document.getElementById('dotNav');
+  var dotLinks = dotNav ? dotNav.querySelectorAll('a') : [];
   var sections = [];
 
   navLinks.forEach(function (link) {
@@ -268,6 +424,7 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
       }
     });
 
+    // Navbar active link
     navLinks.forEach(function (link) {
       link.classList.remove('active');
     });
@@ -275,6 +432,42 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
     if (current) {
       current.link.classList.add('active');
     }
+
+    // Dot nav active dot
+    if (dotNav) {
+      var currentId = current ? current.el.id : '';
+      dotLinks.forEach(function (dot) {
+        if (dot.getAttribute('data-section') === currentId) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Show dot nav only after scrolling past the hero
+      if (window.scrollY > 300) {
+        dotNav.classList.add('visible');
+      } else {
+        dotNav.classList.remove('visible');
+      }
+    }
+  }
+
+  // Dot nav click — smooth scroll
+  if (dotNav) {
+    var navHeight = document.querySelector('.sticky-nav')
+      ? document.querySelector('.sticky-nav').offsetHeight : 56;
+
+    dotLinks.forEach(function (dot) {
+      dot.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
   }
 
   window.addEventListener('scroll', setActive, { passive: true });
