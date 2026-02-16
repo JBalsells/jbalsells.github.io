@@ -251,14 +251,14 @@ body {
 .about-section,
 #experience,
 #certs,
-#Gallery {
+#gallery {
   background-color: rgba(200, 220, 228, 0.18);
 }
 
 [data-theme="dark"] .about-section,
 [data-theme="dark"] #experience,
 [data-theme="dark"] #certs,
-[data-theme="dark"] #Gallery {
+[data-theme="dark"] #gallery {
   background-color: rgba(255, 255, 255, 0.02);
 }
 
@@ -1066,28 +1066,28 @@ body {
    Contact Section (Footer)
    ========================================================================== */
 
-.contant-section h2 {
+.contact-section h2 {
   font-family: var(--font-heading);
   color: var(--color-primary);
 }
 
-.contant-section .form-control {
+.contact-section .form-control {
   border: 1px solid var(--color-border);
   border-radius: 6px;
   font-size: 0.9rem;
 }
 
-.contant-section .form-control:focus {
+.contact-section .form-control:focus {
   border-color: var(--color-primary-medium);
   box-shadow: 0 0 0 3px rgba(26, 79, 100, 0.1);
 }
 
-.contant-section .btn-primary {
+.contact-section .btn-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
-.contant-section .btn-primary:hover {
+.contact-section .btn-primary:hover {
   background-color: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
 }
@@ -1334,7 +1334,7 @@ footer a:not(.nav-link) {
   color: var(--color-primary-dark);
 }
 
-[data-theme="dark"] .contant-section .form-control {
+[data-theme="dark"] .contact-section .form-control {
   background-color: #1e2a30;
   border-color: var(--color-border);
   color: var(--color-text);
@@ -1658,7 +1658,7 @@ footer a:not(.nav-link) {
 
   .skills-section,
   .work-experience-section,
-  .contant-section {
+  .contact-section {
     padding: 1.5rem 3rem !important;
   }
 

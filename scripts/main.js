@@ -45,7 +45,7 @@
   });
 
   // Contact form (not collapsible)
-  var contactForm = document.querySelector('.contant-section .row');
+  var contactForm = document.querySelector('.contact-section .row');
   if (contactForm) contactForm.setAttribute('data-aos', 'fade-up');
 })();
 
