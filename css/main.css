@@ -86,6 +86,32 @@ html {
   color: #fff;
 }
 
+/* ==========================================================================
+   Accessibility — Focus styles
+   ========================================================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary-medium);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.sticky-nav .nav-link:focus-visible,
+.btn:focus-visible,
+.btn-hero-pill:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Improve contrast on muted text */
+.text-muted {
+  color: #566a73 !important;
+}
+
+[data-theme="dark"] .text-muted {
+  color: #9bb0bd !important;
+}
+
 body {
   font-family: var(--font-body);
   background: linear-gradient(170deg, #c8dce4 0%, #e8f1f5 100%);
@@ -103,33 +129,70 @@ body {
   position: sticky;
   top: 0;
   z-index: 1030;
+  background-color: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  min-height: var(--nav-height);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+.sticky-nav.scrolled {
   background-color: var(--color-primary-dark);
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  min-height: var(--nav-height);
 }
 
-.sticky-nav .navbar-brand {
+.sticky-nav.navbar-dark .navbar-brand {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1.1rem;
+  color: var(--color-primary-dark);
+  transition: color 0.35s ease;
 }
 
-.sticky-nav .nav-link {
+.sticky-nav.scrolled.navbar-dark .navbar-brand {
+  color: #fff;
+}
+
+.sticky-nav.navbar-dark .navbar-nav .nav-link {
   font-size: 0.82rem;
   padding: 0.5rem 0.55rem;
+  color: var(--color-primary-dark);
+  transition: color 0.35s ease;
+}
+
+.sticky-nav.navbar-dark .navbar-nav .nav-link:hover,
+.sticky-nav.navbar-dark .navbar-nav .nav-link:focus {
+  color: var(--color-primary);
+}
+
+.sticky-nav.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* Scrolled: white text */
+.sticky-nav.scrolled.navbar-dark .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.75);
-  transition: color 0.2s;
 }
 
-.sticky-nav .nav-link:hover,
-.sticky-nav .nav-link:focus {
+.sticky-nav.scrolled.navbar-dark .navbar-nav .nav-link:hover,
+.sticky-nav.scrolled.navbar-dark .navbar-nav .nav-link:focus {
   color: #fff;
 }
 
-.sticky-nav .nav-link.active {
+.sticky-nav.scrolled.navbar-dark .navbar-nav .nav-link.active {
   color: #fff;
-  border-bottom: 2px solid #fff;
+  border-bottom-color: #fff;
+}
+
+/* Navbar toggler icon — blue when transparent, white when scrolled */
+.sticky-nav .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a4f64' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.sticky-nav.scrolled .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Contact pill button in nav */
@@ -934,10 +997,49 @@ footer a:not(.nav-link) {
 
 .link-info {
   color: var(--color-primary-medium);
+  text-decoration: none;
+  position: relative;
+}
+
+.link-info::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
 }
 
 .link-info:hover {
   color: var(--color-primary);
+}
+
+.link-info:hover::after {
+  width: 100%;
+}
+
+/* Animated underline for footer and general content links */
+.footer-social a,
+.quick-contact a {
+  position: relative;
+  text-decoration: none;
+}
+
+.quick-contact a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.quick-contact a:hover::after {
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -1041,7 +1143,7 @@ footer a:not(.nav-link) {
   background: linear-gradient(170deg, #0f1419 0%, #1a2332 100%);
 }
 
-[data-theme="dark"] .sticky-nav {
+[data-theme="dark"] .sticky-nav.scrolled {
   background-color: #0d1117;
 }
 
@@ -1121,7 +1223,7 @@ footer a:not(.nav-link) {
 
 /* Dark mode toggle */
 .nav-dark-toggle {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-primary-dark);
   border: none;
   background: none;
   font-size: 1rem;
@@ -1131,6 +1233,14 @@ footer a:not(.nav-link) {
 }
 
 .nav-dark-toggle:hover {
+  color: var(--color-primary);
+}
+
+.sticky-nav.scrolled .nav-dark-toggle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sticky-nav.scrolled .nav-dark-toggle:hover {
   color: #fff;
 }
 

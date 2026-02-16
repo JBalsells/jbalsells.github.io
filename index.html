@@ -23,6 +23,7 @@
   <meta name="twitter:image" content="https://jbalsells.github.io/images/avatar.jpg">
 
   <!-- Favicon & SEO -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="icon" type="image/jpeg" href="images/avatar.jpg">
   <link rel="apple-touch-icon" href="images/avatar.jpg">
   <link rel="canonical" href="https://jbalsells.github.io/">
@@ -87,13 +88,13 @@
   </div>
 
   <!-- Scroll progress bar -->
-  <div class="scroll-progress d-print-none" id="scrollProgress"></div>
+  <div class="scroll-progress d-print-none" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
 
   <!-- Skip to content (accessibility) -->
   <a class="skip-to-content" href="#about">Skip to content</a>
 
   <!-- Navegacion fija -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-nav d-print-none">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-nav d-print-none" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="#top">Jorge A. Balsells Orellana</a>
       <div class="d-flex align-items-center ms-auto d-lg-none">
@@ -157,9 +158,9 @@
                   <i class="fas fa-envelope me-1"></i>Contact Me
                 </a>
                 <span class="hero-social-icons">
-                  <a href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                  <a href="https://github.com/JBalsellsO" title="Github (personal)" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="https://github.com/JBalsells" title="Github (org)" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://github.com/JBalsellsO" title="Github (personal)" target="_blank" rel="noopener" aria-label="GitHub personal account"><i class="fab fa-github"></i></a>
+                  <a href="https://github.com/JBalsells" title="Github (org)" target="_blank" rel="noopener" aria-label="GitHub organization account"><i class="fab fa-github"></i></a>
                 </span>
               </div>
             </div>
@@ -183,7 +184,7 @@
         </div>
 
         <!-- Acerca de -->
-        <div class="about-section pt-4 px-3 px-lg-4 mt-1" id="about">
+        <div class="about-section pt-4 px-3 px-lg-4 mt-1" id="about" role="region" aria-label="About">
           <h2 class="section-heading"><i class="fas fa-user"></i>About</h2>
 
           <ul class="nav nav-tabs about-tabs mb-3" role="tablist">
@@ -294,7 +295,7 @@
         <div class="section-divider"></div>
 
         <!-- Habilidades -->
-        <div class="skills-section px-3 px-lg-4 py-4" id="skills">
+        <div class="skills-section px-3 px-lg-4 py-4" id="skills" role="region" aria-label="Skills">
           <h2 class="section-heading"><i class="fas fa-tools"></i>Professional Skills</h2>
 
           <div class="row">
@@ -1163,12 +1164,12 @@
 
 
         <!-- Contacto -->
-        <div class="contant-section px-3 px-lg-4 py-4" id="contact">
+        <div class="contant-section px-3 px-lg-4 py-4" id="contact" role="region" aria-label="Contact">
           <h2 class="section-heading"><i class="fas fa-paper-plane"></i>Contact</h2>
           <div class="row">
             <div class="col-md-7 d-print-none">
               <div class="my-2">
-                <form action="https://formspree.io/f/xpzbvaln" method="POST">
+                <form action="https://formspree.io/f/xpzbvaln" method="POST" aria-label="Contact form">
                   <div class="row">
                     <div class="col-6">
                       <input class="form-control" type="text" id="name" name="name" placeholder="Your name"
@@ -1199,9 +1200,9 @@
                 <div class="pb-2 text-secondary">jorgebalsells@gmail.com</div>
               </div>
               <div class="footer-social mt-3">
-                <a href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/JBalsellsO" title="Github (personal)" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                <a href="https://github.com/JBalsells" title="Github (org)" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/JBalsellsO" title="Github (personal)" target="_blank" rel="noopener" aria-label="GitHub personal account"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/JBalsells" title="Github (org)" target="_blank" rel="noopener" aria-label="GitHub organization account"><i class="fab fa-github"></i></a>
               </div>
             </div>
           </div>

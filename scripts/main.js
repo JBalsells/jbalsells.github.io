@@ -82,15 +82,29 @@ if (document.getElementById('typed-output')) {
   if (el) el.textContent = new Date().getFullYear();
 })();
 
-// Scroll progress bar
+// Scroll progress bar + navbar solidify on scroll
 (function () {
   var bar = document.getElementById('scrollProgress');
-  if (!bar) return;
+  var nav = document.querySelector('.sticky-nav');
+
   window.addEventListener('scroll', function () {
     var scrollTop = window.scrollY;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    bar.style.width = progress + '%';
+
+    // Progress bar
+    if (bar) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    }
+
+    // Navbar: transparent → solid after 50px scroll
+    if (nav) {
+      if (scrollTop > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
   }, { passive: true });
 })();
 
