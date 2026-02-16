@@ -790,6 +790,74 @@ body {
   margin-top: 0.75rem;
 }
 
+/* Gallery filter tabs */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  padding-top: 0.25rem;
+}
+
+.gallery-filter {
+  background: none;
+  border: 1.5px solid var(--color-primary-medium);
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.gallery-filter:hover {
+  background-color: rgba(42, 122, 150, 0.1);
+}
+
+.gallery-filter.active {
+  background-color: var(--color-primary-medium);
+  color: #fff;
+  border-color: var(--color-primary-medium);
+}
+
+.filter-count {
+  font-size: 0.68rem;
+  opacity: 0.7;
+  margin-left: 0.15rem;
+}
+
+[data-theme="dark"] .gallery-filter {
+  border-color: #5bb8d4;
+  color: #5bb8d4;
+}
+
+[data-theme="dark"] .gallery-filter:hover {
+  background-color: rgba(91, 184, 212, 0.1);
+}
+
+[data-theme="dark"] .gallery-filter.active {
+  background-color: #5bb8d4;
+  color: #0f1419;
+  border-color: #5bb8d4;
+}
+
+/* Gallery category hide/show for filtering */
+.gallery-category-label,
+.thumbnail-gallery {
+  transition: opacity 0.35s ease, max-height 0.4s ease;
+}
+
+.gallery-category-label.gallery-hidden,
+.thumbnail-gallery.gallery-hidden {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
 /* ==========================================================================
    Thumbnail Gallery
    ========================================================================== */
@@ -820,10 +888,17 @@ body {
 .gallery-item img {
   width: 100%;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, filter 0.5s ease, opacity 0.5s ease;
+  filter: blur(8px);
+  opacity: 0.6;
 }
 
-.gallery-item:hover img {
+.gallery-item img.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.gallery-item:hover img.loaded {
   transform: scale(1.05);
 }
 
@@ -1610,6 +1685,7 @@ footer a:not(.nav-link) {
 
   .thumbnail-gallery,
   .gallery-category-label,
+  .gallery-filters,
   .lightbox-overlay {
     display: none;
   }

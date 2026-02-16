@@ -990,9 +990,18 @@
           </h2>
           <div id="GalleryContent" class="timeline collapsible-content">
 
+          <!-- Gallery filter tabs -->
+          <div class="gallery-filters d-print-none">
+            <button class="gallery-filter active" data-filter="all">All</button>
+            <button class="gallery-filter" data-filter="ecfm">ECFM <span class="filter-count">11</span></button>
+            <button class="gallery-filter" data-filter="omplus">O+M Plus <span class="filter-count">3</span></button>
+            <button class="gallery-filter" data-filter="prototipos">Prototipos <span class="filter-count">16</span></button>
+            <button class="gallery-filter" data-filter="bomberos">Bomberos <span class="filter-count">17</span></button>
+          </div>
+
           <!-- Gallery with captions and lightbox -->
-          <div class="gallery-category-label">ECFM — Laboratorios de Simulación e Instrumentación</div>
-          <div class="thumbnail-gallery d-print-none">
+          <div class="gallery-category-label" data-category="ecfm">ECFM — Laboratorios de Simulación e Instrumentación</div>
+          <div class="thumbnail-gallery d-print-none" data-category="ecfm">
             <div class="gallery-item" data-caption="Soldadura de superficie, pruebas de tarjetas de detectores.">
               <img src="images/ecfm/1.jpg" alt="ECFM 1" loading="lazy">
             </div>
@@ -1028,8 +1037,8 @@
             </div>
           </div>
 
-          <div class="gallery-category-label">O+M Plus — Algoritmos de Coberturas Wireless</div>
-          <div class="thumbnail-gallery d-print-none">
+          <div class="gallery-category-label" data-category="omplus">O+M Plus — Algoritmos de Coberturas Wireless</div>
+          <div class="thumbnail-gallery d-print-none" data-category="omplus">
             <div class="gallery-item" data-caption="Mapa de factibilidades y cobertura wireless">
               <img src="images/factibilidades/factibilidades1.png" alt="Factibilidades 1" loading="lazy">
             </div>
@@ -1041,8 +1050,8 @@
             </div>
           </div>
 
-          <div class="gallery-category-label">Desarrollo de prototipos</div>
-          <div class="thumbnail-gallery d-print-none">
+          <div class="gallery-category-label" data-category="prototipos">Desarrollo de prototipos</div>
+          <div class="thumbnail-gallery d-print-none" data-category="prototipos">
             <div class="gallery-item" data-caption="Harmonic Drive — prototipo de transmisión mecánica">
               <img src="images/fablab/harmonic_drive.jpg" alt="Harmonic Drive" loading="lazy">
             </div>
@@ -1093,8 +1102,8 @@
             </div>
           </div>
 
-          <div class="gallery-category-label">Bomberos Voluntarios — Servicio y Capacitación</div>
-          <div class="thumbnail-gallery d-print-none">
+          <div class="gallery-category-label" data-category="bomberos">Bomberos Voluntarios — Servicio y Capacitación</div>
+          <div class="thumbnail-gallery d-print-none" data-category="bomberos">
             <div class="gallery-item" data-caption="Servicio activo como bombero voluntario">
               <img src="images/bomberos/1.jpg" alt="Bomberos 1" loading="lazy">
             </div>
