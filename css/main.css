@@ -25,6 +25,25 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-medium) var(--color-primary-light);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
 }
 
 /* ==========================================================================
@@ -184,6 +203,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   border-radius: 10px 10px 0 0;
   color: #fff;
   min-height: 400px;
@@ -213,9 +233,12 @@ body {
 
 .hero-title {
   font-family: var(--font-heading);
-  color: #fff;
   font-size: 2rem;
   margin-bottom: 0.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, #8ed4ea 50%, #5bb8d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
@@ -896,6 +919,10 @@ footer a:not(.nav-link) {
    ========================================================================== */
 
 @media (max-width: 576px) {
+  .cover-bg {
+    background-attachment: scroll;
+  }
+
   .hero-title {
     font-size: 1.5rem;
   }
