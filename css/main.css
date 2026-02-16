@@ -137,8 +137,9 @@ body {
 }
 
 .sticky-nav.scrolled {
-  background-color: var(--color-primary-dark);
-  backdrop-filter: blur(8px);
+  background-color: rgba(18, 58, 74, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -237,6 +238,7 @@ body {
   border-radius: 10px;
   background-color: var(--color-card);
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
 
 /* ==========================================================================
@@ -244,7 +246,9 @@ body {
    ========================================================================== */
 
 .section-divider {
-  display: none;
+  height: 1px;
+  margin: 0 2.5rem;
+  background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
 }
 
 /* Alternating section backgrounds */
@@ -252,20 +256,20 @@ body {
 #experience,
 #certs,
 #gallery {
-  background-color: rgba(200, 220, 228, 0.18);
+  background-color: rgba(200, 220, 228, 0.35);
 }
 
 [data-theme="dark"] .about-section,
 [data-theme="dark"] #experience,
 [data-theme="dark"] #certs,
 [data-theme="dark"] #gallery {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 /* Alternating section backgrounds */
 .work-experience-section:nth-of-type(even),
 .skills-section {
-  background-color: rgba(26, 79, 100, 0.03);
+  background-color: rgba(26, 79, 100, 0.06);
 }
 
 /* ==========================================================================
@@ -282,10 +286,10 @@ body {
   background-attachment: fixed;
   border-radius: 10px 10px 0 0;
   color: #fff;
-  min-height: 400px;
+  min-height: 450px;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .cover-bg::before {
@@ -706,10 +710,61 @@ body {
   background-color: var(--color-primary-medium);
 }
 
+/* Current/active position highlight */
+.timeline-card-current {
+  border-left-color: #2e8b57 !important;
+}
+
+.timeline-card-current::before {
+  border-color: #2e8b57 !important;
+  background-color: #2e8b57 !important;
+}
+
+.timeline-card-current::after {
+  background-color: #2e8b57 !important;
+}
+
+.badge-current {
+  display: inline-block;
+  background-color: rgba(46, 139, 87, 0.12);
+  color: #2e8b57;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+[data-theme="dark"] .timeline-card-current {
+  border-left-color: #3cb371 !important;
+}
+
+[data-theme="dark"] .timeline-card-current::before {
+  border-color: #3cb371 !important;
+  background-color: #3cb371 !important;
+}
+
+[data-theme="dark"] .timeline-card-current::after {
+  background-color: #3cb371 !important;
+}
+
+[data-theme="dark"] .badge-current {
+  background-color: rgba(60, 179, 113, 0.15);
+  color: #3cb371;
+}
+
 .timeline-card .h5 {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1.12rem;
+  font-weight: 600;
   color: var(--color-primary-dark);
+}
+
+.timeline-card .h5 .h6 {
+  font-size: 0.82rem;
+  font-weight: 400;
 }
 
 .timeline-card .text-muted {
@@ -1277,7 +1332,9 @@ footer a:not(.nav-link) {
 }
 
 [data-theme="dark"] .sticky-nav.scrolled {
-  background-color: #0d1117;
+  background-color: rgba(13, 17, 23, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 [data-theme="dark"] .cover {
