@@ -5,6 +5,32 @@ AOS.init({
   once: true
 });
 
+// PureCounter auto-initializes on load (v1.1.4 IIFE) — no manual call needed.
+// It picks up .purecounter elements and their data-purecounter-* attributes automatically.
+
+// Typed.js — animated hero tagline
+if (document.getElementById('typed-output')) {
+  new Typed('#typed-output', {
+    strings: [
+      '10+ years in firmware & software development.',
+      '4+ years in Machine Learning Operations.',
+      'Bridging hardware and software to build data-driven systems.'
+    ],
+    typeSpeed: 40,
+    backSpeed: 25,
+    backDelay: 2000,
+    startDelay: 500,
+    loop: true,
+    showCursor: true
+  });
+}
+
+// Footer year
+(function () {
+  var el = document.getElementById('footer-year');
+  if (el) el.textContent = new Date().getFullYear();
+})();
+
 // Collapsible sections (Projects & Volunteer only)
 document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   toggle.addEventListener('click', function () {
@@ -117,6 +143,66 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
       else show(current + 1);
     }
   }, { passive: true });
+})();
+
+// Back to top button
+(function () {
+  var btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// Dark mode toggle
+(function () {
+  var saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  }
+
+  function toggleDarkMode() {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcons(next);
+  }
+
+  function updateIcons(theme) {
+    document.querySelectorAll('.nav-dark-toggle i').forEach(function (icon) {
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+  }
+
+  // Initialize icons
+  updateIcons(saved || 'light');
+
+  // Attach to both toggle buttons (mobile + desktop)
+  document.querySelectorAll('.nav-dark-toggle').forEach(function (btn) {
+    btn.addEventListener('click', toggleDarkMode);
+  });
+})();
+
+// Close mobile nav when clicking a link
+(function () {
+  var navCollapse = document.getElementById('navbarMain');
+  if (!navCollapse) return;
+  navCollapse.querySelectorAll('.nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+      if (bsCollapse) bsCollapse.hide();
+    });
+  });
 })();
 
 // Active nav link highlighting on scroll

@@ -22,6 +22,41 @@
   <meta name="twitter:description" content="10+ years in firmware, software development and MLOps. Master's in Mathematical Engineering and Artificial Intelligence.">
   <meta name="twitter:image" content="https://jbalsells.github.io/images/avatar.jpg">
 
+  <!-- Favicon & SEO -->
+  <link rel="icon" type="image/jpeg" href="images/avatar.jpg">
+  <link rel="apple-touch-icon" href="images/avatar.jpg">
+  <link rel="canonical" href="https://jbalsells.github.io/">
+  <meta name="robots" content="index, follow">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jorge A. Balsells Orellana",
+    "jobTitle": "Electronic Engineer & MLOps Engineer",
+    "url": "https://jbalsells.github.io/",
+    "image": "https://jbalsells.github.io/images/avatar.jpg",
+    "email": "jorgebalsells@gmail.com",
+    "telephone": "+50230169594",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Guatemala City",
+      "addressCountry": "GT"
+    },
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Universidad de San Carlos de Guatemala"},
+      {"@type": "CollegeOrUniversity", "name": "Universidad Internacional de la Rioja"},
+      {"@type": "CollegeOrUniversity", "name": "Centro Europeo de Postgrado y Empresa"}
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/jbalsells/",
+      "https://github.com/JBalsellsO",
+      "https://github.com/JBalsells"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap">
@@ -44,20 +79,35 @@
 <body id="top">
 
   <!-- Navegacion fija -->
-  <nav class="navbar navbar-expand navbar-dark sticky-nav d-print-none">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-nav d-print-none">
     <div class="container">
       <a class="navbar-brand" href="#top">Jorge A. Balsells Orellana</a>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certs">Courses</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#volunteer">Volunteering</a></li>
-        <li class="nav-item"><a class="nav-link" href="#Gallery">Gallery</a></li>
-        <li class="nav-item nav-contact-pill"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
-      </ul>
+      <div class="d-flex align-items-center ms-auto d-lg-none">
+        <button class="btn btn-link nav-dark-toggle me-2" id="darkToggleMobile" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certs">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#volunteer">Volunteering</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Gallery">Gallery</a></li>
+          <li class="nav-item nav-contact-pill"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item d-none d-lg-block">
+            <button class="btn btn-link nav-dark-toggle" id="darkToggleDesktop" aria-label="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -83,7 +133,7 @@
                 Electronic Engineer &amp; Master's degree in Mathematical Engineering
               </p>
               <p class="hero-tagline" data-aos="fade-left" data-aos-delay="150">
-                10+ years in firmware & software development. 4+ years in Machine Learning Operations
+                <span id="typed-output"></span>
               </p>
               <div class="d-print-none" data-aos="fade-left" data-aos-delay="200">
                 <a class="btn btn-hero-pill mt-1 me-1" href="jorge-balsells-cv.pdf" target="_blank">
@@ -120,37 +170,46 @@
 
         <!-- Acerca de -->
         <div class="about-section pt-4 px-3 px-lg-4 mt-1" id="about">
-          <h2 class="section-heading"><i class="fas fa-user"></i>About / Acerca de</h2>
-          <div class="row">
+          <h2 class="section-heading"><i class="fas fa-user"></i>About</h2>
 
+          <ul class="nav nav-tabs about-tabs mb-3" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-en" data-bs-toggle="tab" data-bs-target="#about-en" type="button" role="tab" aria-controls="about-en" aria-selected="true">
+                <span class="fi-flag">&#127468;&#127463;</span> English
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-es" data-bs-toggle="tab" data-bs-target="#about-es" type="button" role="tab" aria-controls="about-es" aria-selected="false">
+                <span class="fi-flag">&#127468;&#127481;</span> Español
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
             <!-- English -->
-            <div class="col-md-6">
+            <div class="tab-pane fade show active" id="about-en" role="tabpanel" aria-labelledby="tab-en">
               <p>
                 Jorge Balsells is an Electronic Engineer with a Master's degree in Mathematical Engineering
                 and Computing and a Master's degree in Artificial Intelligence. With more than 10 years of
                 experience across firmware development, software engineering, and machine learning operations,
                 his work focuses on connecting hardware and software to build reliable and data-driven systems.
               </p>
-
               <p>
                 This multidisciplinary background provides a strong foundation for solving complex engineering
                 problems, ranging from embedded systems and signal processing to the design and deployment of
                 scalable machine learning infrastructure in production environments.
               </p>
-
               <p>
                 He currently serves as a professor at the School of Physical Sciences and Mathematics (ECFM)
                 at Universidad de San Carlos de Guatemala, where he teaches Simulation and Instrumentation
                 laboratories. He also contributes as a development engineer to the LAGO project
                 (Latin American Giant Observatory).
               </p>
-
               <p>
                 In parallel, he works as a Machine Learning Operations Engineer at Vana.gt, contributing to the
                 development and maintenance of infrastructure for training, deploying, and monitoring machine
                 learning models at scale for the Data Science Risk team.
               </p>
-
               <p>
                 Outside of engineering, he serves as a volunteer firefighter, with particular interest in fire
                 suppression and rope systems for safe work at height and technical rescue. This experience reinforces
@@ -159,41 +218,35 @@
             </div>
 
             <!-- Spanish -->
-            <div class="col-md-6">
+            <div class="tab-pane fade" id="about-es" role="tabpanel" aria-labelledby="tab-es">
               <p>
                 Jorge Balsells es Ingeniero Electrónico con una Maestría en Ingeniería Matemática y Computación
                 y una Maestría en Inteligencia Artificial. Cuenta con más de 10 años de experiencia en desarrollo
                 de firmware, ingeniería de software y operaciones de machine learning, con un enfoque en la integración
                 entre hardware y software para construir sistemas confiables y basados en datos.
               </p>
-
               <p>
                 Esta formación multidisciplinaria proporciona una base sólida para abordar problemas complejos de
                 ingeniería, desde sistemas embebidos y procesamiento de señales hasta el diseño y despliegue de
                 infraestructura escalable de machine learning en entornos de producción.
               </p>
-
               <p>
                 Actualmente se desempeña como profesor en la Escuela de Ciencias Físicas y Matemáticas (ECFM)
                 de la Universidad de San Carlos de Guatemala, donde imparte los laboratorios de Simulación e
                 Instrumentación. También colabora como ingeniero de desarrollo en el proyecto LAGO
                 (Latin American Giant Observatory).
               </p>
-
               <p>
                 Paralelamente, trabaja como Machine Learning Operations Engineer en Vana.gt, contribuyendo al
                 desarrollo y mantenimiento de la infraestructura utilizada para el entrenamiento, despliegue y
                 monitoreo de modelos de machine learning a escala para el equipo de Data Science Risk.
               </p>
-
               <p>
                 Fuera del ámbito profesional, participa como bombero voluntario, con especial interés en el combate
                 de incendios y en sistemas de cuerdas para trabajo seguro en alturas y rescate técnico. Esta actividad
                 fortalece la disciplina, el trabajo en equipo y la capacidad de actuar con responsabilidad en situaciones exigentes.
               </p>
             </div>
-
-
           </div>
         </div>
 
@@ -203,22 +256,22 @@
           <div class="row text-center">
             <div class="col-6 col-md-3 mb-3 mb-md-0">
               <div class="highlight-icon"><i class="fas fa-laptop-code"></i></div>
-              <div class="highlight-number">10+</div>
+              <div class="highlight-number"><span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="2" class="purecounter"></span>+</div>
               <div class="highlight-label">Years of Experience</div>
             </div>
             <div class="col-6 col-md-3 mb-3 mb-md-0">
               <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
-              <div class="highlight-number">3</div>
+              <div class="highlight-number"><span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="2" class="purecounter"></span></div>
               <div class="highlight-label">Master's Degrees</div>
             </div>
             <div class="col-6 col-md-3">
               <div class="highlight-icon"><i class="fas fa-award"></i></div>
-              <div class="highlight-number">9+</div>
+              <div class="highlight-number"><span data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="2" class="purecounter"></span>+</div>
               <div class="highlight-label">Certificates &amp; Courses</div>
             </div>
             <div class="col-6 col-md-3">
               <div class="highlight-icon"><i class="fas fa-fire-alt"></i></div>
-              <div class="highlight-number">14</div>
+              <div class="highlight-number"><span data-purecounter-start="0" data-purecounter-end="14" data-purecounter-duration="2" class="purecounter"></span></div>
               <div class="highlight-label">Years Volunteer Firefighter</div>
             </div>
           </div>
@@ -1145,8 +1198,22 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="site-footer d-print-none">
+    <div class="container text-center">
+      <p>&copy; <span id="footer-year"></span> Jorge A. Balsells Orellana. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top d-print-none" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/aos.js"></script>
+  <script src="vendor/purecounter/purecounter.js"></script>
+  <script src="vendor/typed.js/typed.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 
