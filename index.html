@@ -31,6 +31,7 @@
 
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" rel="stylesheet">
   <link href="css/aos.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
 
@@ -51,6 +52,10 @@
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
         <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certs">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#volunteer">Volunteering</a></li>
+        <li class="nav-item"><a class="nav-link" href="#Gallery">Gallery</a></li>
         <li class="nav-item nav-contact-pill"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
       </ul>
     </div>
@@ -81,10 +86,10 @@
                 10+ years in firmware & software development. 4+ years in Machine Learning Operations
               </p>
               <div class="d-print-none" data-aos="fade-left" data-aos-delay="200">
-                <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="jorge-balsells-cv.pdf" target="_blank">
+                <a class="btn btn-hero-pill mt-1 me-1" href="jorge-balsells-cv.pdf" target="_blank">
                   <i class="fas fa-download me-1"></i>Download CV
                 </a>
-                <a class="btn btn-success shadow-sm mt-1 me-1" href="#contact">
+                <a class="btn btn-hero-pill mt-1 me-1" href="#contact">
                   <i class="fas fa-envelope me-1"></i>Contact Me
                 </a>
                 <span class="hero-social-icons">
@@ -232,10 +237,12 @@
                 <div class="skill-tags">
                   <span class="skill-tag">Full Stack</span>
                   <span class="skill-tag">APIs</span>
-                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag"><i class="devicon-git-plain colored"></i> Git</span>
                   <span class="skill-tag">CI/CD</span>
                   <span class="skill-tag">Databases</span>
                   <span class="skill-tag">Algorithms</span>
+                  <span class="skill-tag">Design Patterns</span>
+                  <span class="skill-tag">Architecture Patterns</span>
                   <span class="skill-tag">MLOps</span>
                   <span class="skill-tag">Bioinformatics</span>
                 </div>
@@ -255,8 +262,8 @@
               <div class="skill-category">
                 <div class="skill-category-title">Cloud & Infrastructure</div>
                 <div class="skill-tags">
-                  <span class="skill-tag">AWS</span>
-                  <span class="skill-tag">Docker</span>
+                  <span class="skill-tag"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+                  <span class="skill-tag"><i class="devicon-docker-plain colored"></i> Docker</span>
                   <span class="skill-tag">Linux</span>
                   <span class="skill-tag">DevOps</span>
                   <span class="skill-tag">DataOps</span>
@@ -277,21 +284,39 @@
             </div>
           </div>
 
-          <div class="skill-category mt-2">
-            <div class="skill-category-title">Languages</div>
-            <div class="skill-tags">
-              <span class="skill-tag">&#127468;&#127481; Spanish — Native</span>
-              <span class="skill-tag">&#127468;&#127463; English — Intermediate</span>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <div class="skill-category">
+                <div class="skill-category-title">Languages</div>
+                <div class="skill-tags">
+                  <span class="skill-tag">&#127468;&#127481; Spanish — Native</span>
+                  <span class="skill-tag">&#127468;&#127463; English — Intermediate</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="skill-category">
+                <div class="skill-category-title">Programming Languages</div>
+                <div class="skill-tags">
+                  <span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span>
+                  <span class="skill-tag"><i class="devicon-matlab-plain colored"></i> MATLAB</span>
+                  <span class="skill-tag"><i class="devicon-rust-original colored"></i> Rust</span>
+                  <span class="skill-tag"><i class="devicon-cplusplus-plain colored"></i> C++</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="section-divider"></div>
 
-        <!-- Experiencia Laboral (always open) -->
+        <!-- Experiencia Laboral (collapsible, open by default) -->
         <div class="work-experience-section px-3 px-lg-4 py-4" id="experience">
-          <h2 class="section-heading"><i class="fas fa-briefcase"></i>Work Experience</h2>
-          <div class="timeline">
+          <h2 class="section-heading section-toggle" data-target="experienceContent">
+            <i class="fas fa-briefcase"></i>Work Experience
+            <span class="toggle-icon open">&#9660;</span>
+          </h2>
+          <div id="experienceContent" class="timeline collapsible-content open">
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
@@ -395,10 +420,13 @@
 
         <div class="section-divider"></div>
 
-        <!-- Educacion (always open) -->
+        <!-- Educacion (collapsible, open by default) -->
         <div class="work-experience-section px-3 px-lg-4 py-4" id="education">
-          <h2 class="section-heading"><i class="fas fa-graduation-cap"></i>Education</h2>
-          <div class="timeline">
+          <h2 class="section-heading section-toggle" data-target="educationContent">
+            <i class="fas fa-graduation-cap"></i>Education
+            <span class="toggle-icon open">&#9660;</span>
+          </h2>
+          <div id="educationContent" class="timeline collapsible-content open">
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
@@ -477,10 +505,13 @@
 
         <div class="section-divider"></div>
 
-        <!-- Certificados y Cursos (always open) -->
+        <!-- Certificados y Cursos (collapsible, open by default) -->
         <div class="work-experience-section px-3 px-lg-4 py-4" id="certs">
-          <h2 class="section-heading"><i class="fas fa-certificate"></i>Certificates &amp; Courses</h2>
-          <div class="timeline">
+          <h2 class="section-heading section-toggle" data-target="certsContent">
+            <i class="fas fa-certificate"></i>Certificates &amp; Courses
+            <span class="toggle-icon open">&#9660;</span>
+          </h2>
+          <div id="certsContent" class="timeline collapsible-content open">
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
