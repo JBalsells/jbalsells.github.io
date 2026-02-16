@@ -221,14 +221,24 @@ function applyStagger(content) {
   }
 
   function open(index) {
-    show(index);
+    // Start in animating state (small + transparent)
+    overlay.classList.add('animating');
     overlay.classList.add('active');
+    show(index);
     document.body.style.overflow = 'hidden';
+
+    // Trigger reflow, then remove animating to start transition
+    void lbImg.offsetWidth;
+    overlay.classList.remove('animating');
   }
 
   function close() {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
+    overlay.classList.add('animating');
+    setTimeout(function () {
+      overlay.classList.remove('active');
+      overlay.classList.remove('animating');
+      document.body.style.overflow = '';
+    }, 350);
   }
 
   // Click on thumbnails
