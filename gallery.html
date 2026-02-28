@@ -51,13 +51,47 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-nav d-print-none" aria-label="Main navigation">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <i class="fas fa-arrow-left me-2"></i>Jorge A. Balsells Orellana
-      </a>
-      <div class="d-flex align-items-center ms-auto">
-        <button class="btn btn-link nav-dark-toggle" id="darkToggleMobile" aria-label="Toggle dark mode">
+      <a class="navbar-brand" href="index.html">Jorge A. Balsells Orellana</a>
+      <div class="d-flex align-items-center ms-auto d-lg-none">
+        <button class="btn btn-link nav-dark-toggle me-2" id="darkToggleMobile" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
         </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#certs">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#volunteer">Volunteering</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="ropeSimsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Rope Simulations
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="ropeSimsDropdown">
+              <li><a class="dropdown-item" href="Rope_Simulations/anclaje_en_v.html">Anclaje en V</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/camilla_en_tirolesa.html">Camilla en Tirolesa</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/distribucion_multi_anclaje.html">Distribución Multi-Anclaje</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/factor_de_caida.html">Factor de Caída</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/fuerza_y_newton.html">¿Qué es un Newton?</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/nudos_y_resistencia.html">Nudos y Resistencia</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/tirolesa_fuerzas.html">Fuerzas en la Tirolesa</a></li>
+              <li><a class="dropdown-item" href="Rope_Simulations/vectores_fuerzas.html">Vectores y Suma de Fuerzas</a></li>
+            </ul>
+          </li>
+          <li class="nav-item nav-contact-pill"><a class="nav-link" href="index.html#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item d-none d-lg-block">
+            <button class="btn btn-link nav-dark-toggle" id="darkToggleDesktop" aria-label="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

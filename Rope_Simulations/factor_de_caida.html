@@ -10,7 +10,7 @@
   <link href="../css/font-awesome/css/all.min.css" rel="stylesheet">
   <link href="../css/main.css" rel="stylesheet">
   <style>
-    .sim-wrapper *, .sim-wrapper *::before, .sim-wrapper *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .sim-content *, .sim-content *::before, .sim-content *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 
     h1 {
@@ -296,20 +296,17 @@
     }
 
   
-    /* ─── Simulation wrapper ──────────────────────────────────────────── */
-    .sim-wrapper {
+    /* ─── Simulation content panel ───────────────────────────────────── */
+    .sim-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 24px 12px 36px;
-      min-height: calc(100vh - 56px);
-      background: #1b2a3b;
+      padding: 20px 8px 24px;
+      background: #0f0f1a;
+      border-radius: 8px;
       color: #ECEFF1;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      transition: background 0.3s ease;
-    }
-    [data-theme="dark"] .sim-wrapper {
-      background: #0f0f1a;
+      overflow-x: auto;
     }
   </style>
   <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
@@ -366,7 +363,12 @@
     </div>
   </nav>
 
-  <div class="sim-wrapper">
+  <div class="page-content">
+    <div class="container">
+      <div class="cover shadow-sm">
+        <div class="px-3 px-lg-4 py-4">
+          <h2 class="section-heading"><i class="fas fa-arrow-down"></i>Factor de Caída</h2>
+          <div class="sim-content">
 
 
 
@@ -1278,7 +1280,11 @@ selectScenario(1.0);
 requestAnimationFrame(loop);
 </script>
 
-  </div><!-- /.sim-wrapper -->
+          </div><!-- /.sim-content -->
+        </div>
+      </div><!-- /.cover -->
+    </div><!-- /.container -->
+  </div><!-- /.page-content -->
 
   <footer class="site-footer d-print-none">
     <div class="container text-center">
