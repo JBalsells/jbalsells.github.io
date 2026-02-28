@@ -154,7 +154,7 @@ function applyStagger(content) {
     ? document.querySelector('.sticky-nav').offsetHeight
     : 56;
 
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  document.querySelectorAll('a[href^="#"]:not([data-bs-toggle])').forEach(function (link) {
     link.addEventListener('click', function (e) {
       var targetId = this.getAttribute('href');
       if (targetId === '#' || targetId === '#top') {
@@ -361,15 +361,22 @@ function applyStagger(content) {
   });
 })();
 
-// Close mobile nav when clicking a link
+// Close mobile nav when clicking a link (but not when opening a dropdown)
 (function () {
   var navCollapse = document.getElementById('navbarMain');
   if (!navCollapse) return;
-  navCollapse.querySelectorAll('.nav-link').forEach(function (link) {
-    link.addEventListener('click', function () {
-      var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
-      if (bsCollapse) bsCollapse.hide();
-    });
+
+  function hideNav() {
+    var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+    if (bsCollapse) bsCollapse.hide();
+  }
+
+  navCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function (link) {
+    link.addEventListener('click', hideNav);
+  });
+
+  navCollapse.querySelectorAll('.dropdown-item').forEach(function (item) {
+    item.addEventListener('click', hideNav);
   });
 })();
 
