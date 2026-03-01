@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rope Simulations - Jorge A. Balsells Orellana</title>
+  <meta name="description" content="Interactive physics simulations for rope rescue systems: anchors, ziplines, force vectors, knots, and more.">
+  <meta name="author" content="Jorge A. Balsells Orellana">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/jpeg" href="images/avatar.jpg">
+  <link rel="apple-touch-icon" href="images/avatar.jpg">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap">
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome/css/all.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+
+  <style>
+    .sim-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--color-border, #e2e8f0);
+      background: var(--color-card);
+      transition: transform 0.18s, box-shadow 0.18s;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+    }
+    .sim-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      text-decoration: none;
+      color: inherit;
+    }
+    .sim-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90px;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-medium) 100%);
+      color: #fff;
+      flex-shrink: 0;
+    }
+    [data-theme="dark"] .sim-card-icon {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    }
+    .sim-card-body {
+      padding: 1rem 1.1rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .sim-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--color-heading, #1e293b);
+    }
+    [data-theme="dark"] .sim-card-title {
+      color: #e2e8f0;
+    }
+    .sim-card-desc {
+      font-size: 0.82rem;
+      color: var(--color-muted, #64748b);
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 0.8rem;
+    }
+    .sim-card-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    [data-theme="dark"] .sim-card-link { color: var(--color-primary-medium); }
+    .sim-card:hover .sim-card-link { text-decoration: underline; }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress d-print-none" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-nav d-print-none" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Jorge A. Balsells Orellana</a>
+      <div class="d-flex align-items-center ms-auto d-lg-none">
+        <button class="btn btn-link nav-dark-toggle me-2" id="darkToggleMobile" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#certs">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#volunteer">Volunteering</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="othersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Others
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="othersDropdown">
+              <li><a class="dropdown-item" href="rope_simulations.html">Rope Simulations</a></li>
+            </ul>
+          </li>
+          <li class="nav-item nav-contact-pill"><a class="nav-link" href="index.html#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item d-none d-lg-block">
+            <button class="btn btn-link nav-dark-toggle" id="darkToggleDesktop" aria-label="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="cover shadow-sm">
+        <div class="px-3 px-lg-4 py-4">
+
+          <h2 class="section-heading"><i class="fas fa-ruler-combined"></i>Rope Simulations</h2>
+          <p class="text-muted mb-4" style="font-size:0.92rem;">
+            Interactive physics simulations for rope rescue systems. Explore force distributions, anchor mechanics,
+            knot resistance, and more — directly in the browser.
+          </p>
+
+          <div class="row g-3">
+
+            <!-- Anclaje en V -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/anclaje_en_v.html">
+                <div class="sim-card-icon"><i class="fas fa-drafting-compass"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Anclaje en V</div>
+                  <div class="sim-card-desc">Visualiza la distribución de fuerzas en un sistema de anclaje en V. Ajusta el ángulo de apertura y observa cómo varía la carga en cada ramal.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Camilla en Tirolesa -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/camilla_en_tirolesa.html">
+                <div class="sim-card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Camilla en Tirolesa</div>
+                  <div class="sim-card-desc">Estudia las fuerzas que actúan sobre una camilla suspendida en una tirolesa. Simula distintas posiciones y masas de la víctima.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Distribución Multi-Anclaje -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/distribucion_multi_anclaje.html">
+                <div class="sim-card-icon"><i class="fas fa-project-diagram"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Distribución Multi-Anclaje</div>
+                  <div class="sim-card-desc">Sistema auto-ecualizado de hasta 4 anclajes. Arrastra los puntos para ver la redistribución de fuerzas en tiempo real y simula fallos de anclaje.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Factor de Caída -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/factor_de_caida.html">
+                <div class="sim-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Factor de Caída</div>
+                  <div class="sim-card-desc">Explora cómo el factor de caída determina la energía de impacto sobre el sistema. Comprende por qué la posición del anclaje es crítica.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- ¿Qué es un Newton? -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/fuerza_y_newton.html">
+                <div class="sim-card-icon"><i class="fas fa-weight-hanging"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">¿Qué es un Newton?</div>
+                  <div class="sim-card-desc">Visualización interactiva de la unidad de fuerza y su relación con masa y gravedad. Ideal como punto de partida para entender mecánica de rescate.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Nudos y Resistencia -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/nudos_y_resistencia.html">
+                <div class="sim-card-icon"><i class="fas fa-infinity"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Nudos y Resistencia</div>
+                  <div class="sim-card-desc">Compara la resistencia a rotura de cuerdas con distintos tipos de nudo. Analiza los factores de reducción y su impacto en la carga de trabajo segura.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Fuerzas en la Tirolesa -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/tirolesa_fuerzas.html">
+                <div class="sim-card-icon"><i class="fas fa-wave-square"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Fuerzas en la Tirolesa</div>
+                  <div class="sim-card-desc">Analiza las tensiones en los cables de una tirolesa según el ángulo de inclinación y la masa transportada. Visualiza las componentes de fuerza.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- English Reeve -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/english_reeve.html">
+                <div class="sim-card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Sistema English Reeve</div>
+                  <div class="sim-card-desc">Simulación completa de un sistema highline con carriage. Ajusta vano, flecha, carga y posición para ver tensiones, ángulo V, factores de seguridad y ventaja mecánica horizontal y vertical.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Vectores y Suma de Fuerzas -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/vectores_fuerzas.html">
+                <div class="sim-card-icon"><i class="fas fa-arrows-alt"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Vectores y Suma de Fuerzas</div>
+                  <div class="sim-card-desc">Suma vectorial interactiva de fuerzas en 2D. Comprende cómo se combinan múltiples fuerzas para producir una resultante en sistemas de rescate.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+          </div><!-- /.row -->
+        </div>
+      </div><!-- /.cover -->
+    </div><!-- /.container -->
+  </div><!-- /.page-content -->
+
+  <!-- Footer -->
+  <footer class="site-footer d-print-none">
+    <div class="container text-center">
+      <div class="footer-social mb-2">
+        <a href="https://www.linkedin.com/in/jbalsells/" title="LinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/JBalsellsO" title="Github (personal)" target="_blank" rel="noopener" aria-label="GitHub personal account"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/JBalsells" title="Github (org)" target="_blank" rel="noopener" aria-label="GitHub organization account"><i class="fab fa-github"></i></a>
+      </div>
+      <p>&copy; <span id="footer-year"></span> Jorge A. Balsells Orellana. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top d-print-none" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

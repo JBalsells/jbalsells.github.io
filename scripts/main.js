@@ -49,6 +49,16 @@
   if (contactForm) contactForm.setAttribute('data-aos', 'fade-up');
 })();
 
+// Open all collapsible sections before AOS.init() so positions are calculated
+// with the final (expanded) layout, preventing inflated trigger thresholds.
+(function () {
+  document.querySelectorAll('.collapsible-content').forEach(function (c) {
+    c.classList.add('open');
+    var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
+    if (icon) icon.classList.add('open');
+  });
+})();
+
 // AOS Animations — reduced duration, animate once
 if (typeof AOS !== 'undefined') {
   AOS.init({
@@ -124,6 +134,12 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
     if (content.classList.contains('open')) {
       applyStagger(content);
     }
+
+    // Refresh AOS after the max-height transition (0.5s) so that sections
+    // below recalculate their trigger positions correctly.
+    if (typeof AOS !== 'undefined') {
+      setTimeout(function () { AOS.refresh(); }, 550);
+    }
   });
 });
 
@@ -139,12 +155,18 @@ function applyStagger(content) {
   });
 }
 
-// Open all collapsible sections immediately on load
+// Refresh AOS after Bootstrap collapse/dropdown to fix positions recalculated
+// while the sticky nav was expanded (which inflates offsetTop of sections below it).
 (function () {
-  document.querySelectorAll('.collapsible-content').forEach(function (c) {
-    c.classList.add('open');
-    var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
-    if (icon) icon.classList.add('open');
+  if (typeof AOS === 'undefined') return;
+  var navCollapse = document.getElementById('navbarMain');
+  if (navCollapse) {
+    navCollapse.addEventListener('hidden.bs.collapse', function () {
+      AOS.refresh();
+    });
+  }
+  document.addEventListener('hidden.bs.dropdown', function () {
+    AOS.refresh();
   });
 })();
 
@@ -389,7 +411,7 @@ function applyStagger(content) {
 
   navLinks.forEach(function (link) {
     var href = link.getAttribute('href');
-    if (href && href.startsWith('#') && href !== '#top') {
+    if (href && href.startsWith('#') && href !== '#top' && href.length > 1) {
       var section = document.querySelector(href);
       if (section) {
         sections.push({ el: section, link: link });

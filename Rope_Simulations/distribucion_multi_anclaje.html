@@ -39,8 +39,8 @@
     canvas {
       display: block;
       border-radius: 8px;
-      border: 1px solid #2a2a3e;
-      background: #0f0f1a;
+      border: 1px solid #143045;
+      background: #061520;
       flex-shrink: 0;
     }
 
@@ -49,7 +49,7 @@
       flex: 1;
       min-width: 340px;
       max-width: 410px;
-      background: #16213e;
+      background: #0a1e2f;
       border: 1px solid #00BCD4;
       border-radius: 8px;
       padding: 12px 14px;
@@ -66,7 +66,7 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 4px;
-      border-bottom: 1px solid #2a2a3e;
+      border-bottom: 1px solid #143045;
       padding-bottom: 3px;
     }
 
@@ -91,7 +91,7 @@
       font-weight: normal;
       text-align: left;
       padding: 2px 4px;
-      border-bottom: 1px solid #2a2a3e;
+      border-bottom: 1px solid #143045;
     }
     .anchor-table td {
       padding: 3px 4px;
@@ -166,8 +166,8 @@
     .controls-bar {
       width: 100%;
       max-width: 1290px;
-      background: #16213e;
-      border: 1px solid #2a2a3e;
+      background: #0a1e2f;
+      border: 1px solid #143045;
       border-radius: 8px;
       padding: 9px 16px;
       display: flex;
@@ -226,10 +226,44 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 20px 8px 24px;
-      background: #0f0f1a;
+      background: #061520;
       border-radius: 8px;
       color: #ECEFF1;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ─── Back button ─────────────────────────────────────────────────── */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 1.1rem;
+      margin-bottom: 1.2rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+      border: 1.5px solid var(--color-primary-medium);
+      text-decoration: none;
+      transition: background 0.18s, color 0.18s, transform 0.15s,
+                  box-shadow 0.18s, border-color 0.18s;
+    }
+    .btn-back:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+      transform: translateX(-3px);
+      box-shadow: 0 4px 16px rgba(26, 79, 100, 0.25);
+      text-decoration: none;
+    }
+    .btn-back-arrow {
+      font-size: 0.72rem;
+      transition: transform 0.18s;
+    }
+    .btn-back:hover .btn-back-arrow {
+      transform: translateX(-3px);
     }
   </style>
   <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
@@ -261,18 +295,11 @@
           <li class="nav-item"><a class="nav-link" href="../index.html#volunteer">Volunteering</a></li>
           <li class="nav-item"><a class="nav-link" href="../gallery.html">Gallery</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="ropeSimsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Rope Simulations
+            <a class="nav-link dropdown-toggle active" href="#" id="othersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Others
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="ropeSimsDropdown">
-              <li><a class="dropdown-item" href="anclaje_en_v.html">Anclaje en V</a></li>
-              <li><a class="dropdown-item" href="camilla_en_tirolesa.html">Camilla en Tirolesa</a></li>
-              <li><a class="dropdown-item" href="distribucion_multi_anclaje.html">Distribución Multi-Anclaje</a></li>
-              <li><a class="dropdown-item" href="factor_de_caida.html">Factor de Caída</a></li>
-              <li><a class="dropdown-item" href="fuerza_y_newton.html">¿Qué es un Newton?</a></li>
-              <li><a class="dropdown-item" href="nudos_y_resistencia.html">Nudos y Resistencia</a></li>
-              <li><a class="dropdown-item" href="tirolesa_fuerzas.html">Fuerzas en la Tirolesa</a></li>
-              <li><a class="dropdown-item" href="vectores_fuerzas.html">Vectores y Suma de Fuerzas</a></li>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="othersDropdown">
+              <li><a class="dropdown-item" href="../rope_simulations.html">Rope Simulations</a></li>
             </ul>
           </li>
           <li class="nav-item nav-contact-pill"><a class="nav-link" href="../index.html#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
@@ -290,6 +317,7 @@
     <div class="container">
       <div class="cover shadow-sm">
         <div class="px-3 px-lg-4 py-4">
+          <a href="../rope_simulations.html" class="btn-back"><i class="fas fa-chevron-left btn-back-arrow"></i> Rope Simulations</a>
           <h2 class="section-heading"><i class="fas fa-project-diagram"></i>Distribución Multi-Anclaje</h2>
           <div class="sim-content">
 
@@ -404,8 +432,8 @@ const SHOCK_FACTOR = 1.5;
 
 // ── Paleta de colores (de config.py) ─────────────────────────────────
 const C = {
-  bg:        '#0f0f1a',
-  panel:     '#16213e',
+  bg:        '#061520',
+  panel:     '#0a1e2f',
   primary:   '#00BCD4',
   secondary: '#FF5722',
   accent:    '#4CAF50',
@@ -413,7 +441,7 @@ const C = {
   danger:    '#F44336',
   info:      '#2196F3',
   text:      '#ECEFF1',
-  grid:      '#2a2a3e',
+  grid:      '#143045',
   rope:      '#8D6E63',
   anchor:    '#78909C',
   dark_text: '#546E7A',
