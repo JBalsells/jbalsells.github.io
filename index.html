@@ -60,9 +60,9 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@500;700&display=swap">
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@500;700&display=swap"
     media="print" onload="this.media='all'">
 
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
 
   <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@500;700&display=swap">
   </noscript>
 </head>
 
@@ -175,21 +175,6 @@
           </div>
         </div>
 
-        <!-- Quick Contact Bar -->
-        <div class="quick-contact d-print-none">
-          <div class="item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:jorgebalsells@gmail.com">jorgebalsells@gmail.com</a>
-          </div>
-          <div class="item">
-            <i class="fas fa-phone"></i>
-            <a href="tel:+50230169594">+(502) 3016-9594</a>
-          </div>
-          <div class="item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Guatemala City (GMT-6)</span>
-          </div>
-        </div>
 
         <!-- Acerca de -->
         <div class="about-section pt-4 px-3 px-lg-4 mt-1" id="about" role="region" aria-label="About">
@@ -303,13 +288,13 @@
         <div class="section-divider"></div>
 
         <!-- Habilidades -->
-        <div class="skills-section px-3 px-lg-4 py-4" id="skills" role="region" aria-label="Skills">
+        <div class="skills-section section-alt px-3 px-lg-4 py-4" id="skills" role="region" aria-label="Skills">
           <h2 class="section-heading"><i class="fas fa-tools"></i>Professional Skills</h2>
 
           <div class="row">
             <div class="col-md-6">
               <div class="skill-category">
-                <div class="skill-category-title">Software Development</div>
+                <div class="skill-category-title">Software & Systems</div>
                 <div class="skill-tags">
                   <span class="skill-tag"><i class="fas fa-layer-group"></i> Full Stack</span>
                   <span class="skill-tag"><i class="fas fa-plug"></i> APIs</span>
@@ -324,7 +309,7 @@
                 </div>
               </div>
               <div class="skill-category">
-                <div class="skill-category-title">Academic & Teaching</div>
+                <div class="skill-category-title">Academic & Research</div>
                 <div class="skill-tags">
                   <span class="skill-tag"><i class="fas fa-microscope"></i> Instrumentation</span>
                   <span class="skill-tag"><i class="fas fa-microchip"></i> Electronics</span>
@@ -336,7 +321,7 @@
             </div>
             <div class="col-md-6">
               <div class="skill-category">
-                <div class="skill-category-title">Cloud & Infrastructure</div>
+                <div class="skill-category-title">Cloud & DevOps</div>
                 <div class="skill-tags">
                   <span class="skill-tag"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
                   <span class="skill-tag"><i class="devicon-docker-plain colored"></i> Docker</span>
@@ -347,7 +332,7 @@
                 </div>
               </div>
               <div class="skill-category">
-                <div class="skill-category-title">Engineering & Hardware</div>
+                <div class="skill-category-title">Hardware & Embedded</div>
                 <div class="skill-tags">
                   <span class="skill-tag"><i class="fas fa-microchip"></i> Digital Electronics</span>
                   <span class="skill-tag"><i class="fas fa-memory"></i> Firmware</span>
@@ -372,7 +357,7 @@
             </div>
             <div class="col-md-6">
               <div class="skill-category">
-                <div class="skill-category-title">Programming Languages</div>
+                <div class="skill-category-title">Prog. Languages</div>
                 <div class="skill-tags">
                   <span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span>
                   <span class="skill-tag"><i class="devicon-matlab-plain colored"></i> MATLAB</span>
@@ -500,7 +485,7 @@
         <div class="section-divider"></div>
 
         <!-- Educacion (collapsible, open by default) -->
-        <div class="work-experience-section px-3 px-lg-4 py-4" id="education">
+        <div class="work-experience-section section-alt px-3 px-lg-4 py-4" id="education">
           <h2 class="section-heading section-toggle" data-target="educationContent">
             <i class="fas fa-graduation-cap"></i>Education
             <span class="toggle-icon">&#9660;</span>
@@ -741,7 +726,7 @@
         <div class="section-divider"></div>
 
         <!-- Proyectos y Clasificaciones (collapsible, open by default) -->
-        <div class="work-experience-section px-3 px-lg-4 py-4" id="projects">
+        <div class="work-experience-section section-alt px-3 px-lg-4 py-4" id="projects">
           <h2 class="section-heading section-toggle" data-target="projectsContent">
             <i class="fas fa-rocket"></i>Projects &amp; Achievements
             <span class="toggle-icon">&#9660;</span>
@@ -936,14 +921,15 @@
               </div>
             </div>
 
-            <div class="timeline-card timeline-card-primary card">
+            <div class="timeline-card timeline-card-current card">
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/sprat.png" alt="SPRAT" class="logo">
                   Tecnico en accesos con cuerdas
                   <span class="text-muted h6">Society of Professional Rope Access Technicians.</span>
+                  <span class="badge-current">Actual</span>
                 </div>
-                <div class="text-muted text-small mb-2">2025</div>
+                <div class="text-muted text-small mb-2">2025 - Actualidad</div>
                 <div>Tecnico Nivel 1</div>
                 <p class="text-muted">
                   Formacion en tecnicas avanzadas de acceso con cuerdas para realizar trabajos en alturas de manera
@@ -953,14 +939,15 @@
               </div>
             </div>
 
-            <div class="timeline-card timeline-card-primary card">
+            <div class="timeline-card timeline-card-current card">
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/staisabel.jpg" alt="AGRESTE" class="logo">
                   Técnico en rescate agreste
                   <span class="text-muted h6">ASONBOMD - Santa Isabel.</span>
+                  <span class="badge-current">Actual</span>
                 </div>
-                <div class="text-muted text-small mb-2">2023 - 2024</div>
+                <div class="text-muted text-small mb-2">2023 - Actualidad</div>
                 <div>Tecnico Nivel 2</div>
                 <p class="text-muted">
                   Formación en técnicas avanzadas de rescate agreste mediante acceso y progresión con cuerdas, 
@@ -972,14 +959,15 @@
             </div>
 
 
-            <div class="timeline-card timeline-card-primary card">
+            <div class="timeline-card timeline-card-current card">
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/treeclimbing.jpeg" alt="Tree Climbing" class="logo">
                   Escalada de árboles - Tree Climbing
                   <span class="text-muted h6">Tree Climbing - Purulhá B.V.</span>
+                  <span class="badge-current">Actual</span>
                 </div>
-                <div class="text-muted text-small mb-2">2023</div>
+                <div class="text-muted text-small mb-2">2023 - Actualidad</div>
                 <div>Aliado Oficial</div>
                 <p class="text-muted">
                   Formación en técnicas avanzadas de progresión con cuerdas en árboles.
@@ -1078,6 +1066,30 @@
   <button class="back-to-top d-print-none" id="backToTop" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
   </button>
+
+  <!-- Floating contact bar (desktop: fixed left side; mobile: fixed bottom bar) -->
+  <div class="floating-contact d-print-none" id="floatingContact">
+    <a class="fc-btn" href="mailto:jorgebalsells@gmail.com" aria-label="Email" aria-expanded="false">
+      <i class="fas fa-envelope"></i>
+      <span class="fc-label">jorgebalsells@gmail.com</span>
+    </a>
+    <a class="fc-btn" href="tel:+50230169594" aria-label="Teléfono" aria-expanded="false">
+      <i class="fas fa-phone"></i>
+      <span class="fc-label">+(502) 3016-9594</span>
+    </a>
+    <a class="fc-btn" href="https://www.linkedin.com/in/jbalsells/" target="_blank" rel="noopener" aria-label="LinkedIn" aria-expanded="false">
+      <i class="fab fa-linkedin-in"></i>
+      <span class="fc-label">linkedin/jbalsells</span>
+    </a>
+    <a class="fc-btn" href="https://github.com/JBalsellsO" target="_blank" rel="noopener" aria-label="GitHub personal" aria-expanded="false">
+      <i class="fab fa-github"></i>
+      <span class="fc-label">JBalsellsO</span>
+    </a>
+    <a class="fc-btn" href="https://github.com/JBalsells" target="_blank" rel="noopener" aria-label="GitHub org" aria-expanded="false">
+      <i class="fab fa-github"></i>
+      <span class="fc-label">JBalsells</span>
+    </a>
+  </div>
 
   <!-- Dot navigation -->
   <nav class="dot-nav d-print-none d-none d-lg-flex" id="dotNav" aria-label="Section navigation">

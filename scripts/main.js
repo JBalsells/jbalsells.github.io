@@ -143,6 +143,26 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
   });
 });
 
+// Detect when section-toggle headings are pinned — add .is-stuck for styling
+(function () {
+  var navEl = document.querySelector('.sticky-nav');
+  var navH  = navEl ? navEl.offsetHeight : 56;
+
+  document.querySelectorAll('.section-toggle').forEach(function (toggle) {
+    // Zero-height sentinel placed just before the heading in the flow
+    var sentinel = document.createElement('div');
+    sentinel.style.cssText = 'height:0;overflow:hidden;pointer-events:none;';
+    toggle.parentElement.insertBefore(sentinel, toggle);
+
+    new IntersectionObserver(function (entries) {
+      toggle.classList.toggle('is-stuck', !entries[0].isIntersecting);
+    }, {
+      rootMargin: '-' + (navH + 4) + 'px 0px 0px 0px',
+      threshold: 0
+    }).observe(sentinel);
+  });
+})();
+
 // Stagger delay for children inside a collapsible section
 function applyStagger(content) {
   var cards = content.querySelectorAll('.timeline-card');
@@ -477,4 +497,51 @@ function applyStagger(content) {
 
   window.addEventListener('scroll', setActive, { passive: true });
   setActive();
+})();
+
+// Floating contact — expand on click to reveal info (desktop only)
+(function () {
+  var btns = document.querySelectorAll('.fc-btn');
+  if (!btns.length) return;
+
+  function isMobile() {
+    return window.innerWidth < 992;
+  }
+
+  function closeAll() {
+    btns.forEach(function (b) {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      // On mobile: navigate directly, no expand behavior
+      if (isMobile()) return;
+
+      var isOpen = btn.classList.contains('open');
+      closeAll();
+
+      if (!isOpen) {
+        // First click: expand to show info, prevent navigation
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        e.preventDefault();
+      }
+      // Second click on an already-open item: default navigation happens (link follows)
+    });
+  });
+
+  // Click outside collapses all
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('#floatingContact')) {
+      closeAll();
+    }
+  });
+
+  // Collapse on resize to mobile
+  window.addEventListener('resize', function () {
+    if (isMobile()) closeAll();
+  }, { passive: true });
 })();
