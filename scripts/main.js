@@ -49,6 +49,16 @@
   if (contactForm) contactForm.setAttribute('data-aos', 'fade-up');
 })();
 
+// Open all collapsible sections before AOS.init() so positions are calculated
+// with the final (expanded) layout, preventing inflated trigger thresholds.
+(function () {
+  document.querySelectorAll('.collapsible-content').forEach(function (c) {
+    c.classList.add('open');
+    var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
+    if (icon) icon.classList.add('open');
+  });
+})();
+
 // AOS Animations — reduced duration, animate once
 if (typeof AOS !== 'undefined') {
   AOS.init({
@@ -124,8 +134,34 @@ document.querySelectorAll('.section-toggle').forEach(function (toggle) {
     if (content.classList.contains('open')) {
       applyStagger(content);
     }
+
+    // Refresh AOS after the max-height transition (0.5s) so that sections
+    // below recalculate their trigger positions correctly.
+    if (typeof AOS !== 'undefined') {
+      setTimeout(function () { AOS.refresh(); }, 550);
+    }
   });
 });
+
+// Detect when section-toggle headings are pinned — add .is-stuck for styling
+(function () {
+  var navEl = document.querySelector('.sticky-nav');
+  var navH  = navEl ? navEl.offsetHeight : 56;
+
+  document.querySelectorAll('.section-toggle').forEach(function (toggle) {
+    // Zero-height sentinel placed just before the heading in the flow
+    var sentinel = document.createElement('div');
+    sentinel.style.cssText = 'height:0;overflow:hidden;pointer-events:none;';
+    toggle.parentElement.insertBefore(sentinel, toggle);
+
+    new IntersectionObserver(function (entries) {
+      toggle.classList.toggle('is-stuck', !entries[0].isIntersecting);
+    }, {
+      rootMargin: '-' + (navH + 4) + 'px 0px 0px 0px',
+      threshold: 0
+    }).observe(sentinel);
+  });
+})();
 
 // Stagger delay for children inside a collapsible section
 function applyStagger(content) {
@@ -139,12 +175,18 @@ function applyStagger(content) {
   });
 }
 
-// Open all collapsible sections immediately on load
+// Refresh AOS after Bootstrap collapse/dropdown to fix positions recalculated
+// while the sticky nav was expanded (which inflates offsetTop of sections below it).
 (function () {
-  document.querySelectorAll('.collapsible-content').forEach(function (c) {
-    c.classList.add('open');
-    var icon = document.querySelector('[data-target="' + c.id + '"] .toggle-icon');
-    if (icon) icon.classList.add('open');
+  if (typeof AOS === 'undefined') return;
+  var navCollapse = document.getElementById('navbarMain');
+  if (navCollapse) {
+    navCollapse.addEventListener('hidden.bs.collapse', function () {
+      AOS.refresh();
+    });
+  }
+  document.addEventListener('hidden.bs.dropdown', function () {
+    AOS.refresh();
   });
 })();
 
@@ -154,7 +196,7 @@ function applyStagger(content) {
     ? document.querySelector('.sticky-nav').offsetHeight
     : 56;
 
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  document.querySelectorAll('a[href^="#"]:not([data-bs-toggle])').forEach(function (link) {
     link.addEventListener('click', function (e) {
       var targetId = this.getAttribute('href');
       if (targetId === '#' || targetId === '#top') {
@@ -361,15 +403,22 @@ function applyStagger(content) {
   });
 })();
 
-// Close mobile nav when clicking a link
+// Close mobile nav when clicking a link (but not when opening a dropdown)
 (function () {
   var navCollapse = document.getElementById('navbarMain');
   if (!navCollapse) return;
-  navCollapse.querySelectorAll('.nav-link').forEach(function (link) {
-    link.addEventListener('click', function () {
-      var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
-      if (bsCollapse) bsCollapse.hide();
-    });
+
+  function hideNav() {
+    var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+    if (bsCollapse) bsCollapse.hide();
+  }
+
+  navCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function (link) {
+    link.addEventListener('click', hideNav);
+  });
+
+  navCollapse.querySelectorAll('.dropdown-item').forEach(function (item) {
+    item.addEventListener('click', hideNav);
   });
 })();
 
@@ -382,7 +431,7 @@ function applyStagger(content) {
 
   navLinks.forEach(function (link) {
     var href = link.getAttribute('href');
-    if (href && href.startsWith('#') && href !== '#top') {
+    if (href && href.startsWith('#') && href !== '#top' && href.length > 1) {
       var section = document.querySelector(href);
       if (section) {
         sections.push({ el: section, link: link });
@@ -448,4 +497,51 @@ function applyStagger(content) {
 
   window.addEventListener('scroll', setActive, { passive: true });
   setActive();
+})();
+
+// Floating contact — expand on click to reveal info (desktop only)
+(function () {
+  var btns = document.querySelectorAll('.fc-btn');
+  if (!btns.length) return;
+
+  function isMobile() {
+    return window.innerWidth < 992;
+  }
+
+  function closeAll() {
+    btns.forEach(function (b) {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      // On mobile: navigate directly, no expand behavior
+      if (isMobile()) return;
+
+      var isOpen = btn.classList.contains('open');
+      closeAll();
+
+      if (!isOpen) {
+        // First click: expand to show info, prevent navigation
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        e.preventDefault();
+      }
+      // Second click on an already-open item: default navigation happens (link follows)
+    });
+  });
+
+  // Click outside collapses all
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('#floatingContact')) {
+      closeAll();
+    }
+  });
+
+  // Collapse on resize to mobile
+  window.addEventListener('resize', function () {
+    if (isMobile()) closeAll();
+  }, { passive: true });
 })();
