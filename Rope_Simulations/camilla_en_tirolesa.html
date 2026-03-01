@@ -297,6 +297,13 @@
     .btn-back:hover .btn-back-arrow {
       transform: translateX(-3px);
     }
+
+    /* ── Responsive scaling ─────────────────────────────────── */
+    @media (max-width: 700px) {
+      .slider-row { grid-template-columns: 1fr auto !important; }
+      .slider-row .slider-label,
+      .slider-row label { grid-column: 1 / -1; text-align: left !important; }
+    }
   </style>
   <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
@@ -1448,7 +1455,41 @@ requestAnimationFrame(loop);
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+/* ── Responsive canvas scaling ─────────────────────────────── */
+(function () {
+  var s = document.querySelector('.canvas-row, .main-layout, .main-row');
+  if (!s) return;
+  function init() {
+    var _saved = s.style.minWidth;
+    s.style.minWidth = 'max-content';
+    var nW = s.offsetWidth, nH = s.offsetHeight;
+    s.style.minWidth = _saved;
+    if (!nW) return;
+    var w = document.createElement('div');
+    w.style.cssText = 'width:100%;overflow:hidden;';
+    s.parentNode.insertBefore(w, s);
+    w.appendChild(s);
+    function rescale() {
+      var a = w.clientWidth;
+      if (a > 0 && a < nW) {
+        var sc = a / nW;
+        s.style.transformOrigin = 'top left';
+        s.style.transform = 'scale(' + sc + ')';
+        w.style.height = Math.ceil(nH * sc) + 'px';
+      } else {
+        s.style.transform = '';
+        w.style.height = '';
+      }
+    }
+    window.addEventListener('resize', rescale);
+    rescale();
+  }
+  if (document.readyState === 'complete') { init(); }
+  else { window.addEventListener('load', init); }
+})();
+</script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../scripts/aos.js"></script>
   <script src="../scripts/main.js"></script>
 
