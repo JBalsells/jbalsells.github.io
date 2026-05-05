@@ -544,3 +544,85 @@ function applyStagger(content) {
     if (isMobile()) closeAll();
   }, { passive: true });
 })();
+
+// Timeline draw — vertical line animates down when each timeline enters viewport
+(function () {
+  var timelines = document.querySelectorAll('.timeline');
+  if (!timelines.length || !('IntersectionObserver' in window)) {
+    // Fallback: show line immediately
+    timelines.forEach(function (tl) { tl.classList.add('tl-animated'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tl-animated');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  timelines.forEach(function (tl) { observer.observe(tl); });
+})();
+
+// Skill tags stagger — tags wave in per-category when skills section enters viewport
+(function () {
+  var section = document.getElementById('skills');
+  if (!section) return;
+
+  // Assign stagger delay within each tag group
+  section.querySelectorAll('.skill-tags').forEach(function (group) {
+    group.querySelectorAll('.skill-tag').forEach(function (tag, i) {
+      tag.style.transitionDelay = (i * 45) + 'ms';
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    section.classList.add('skills-visible');
+    return;
+  }
+
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      section.classList.add('skills-visible');
+    }
+  }, { threshold: 0.05 }).observe(section);
+})();
+
+// Key highlights countup — smooth ease-out count when section enters viewport
+(function () {
+  var section = document.querySelector('.key-highlights');
+  if (!section) return;
+
+  function countUp(el) {
+    var end      = parseInt(el.getAttribute('data-purecounter-end'), 10);
+    var duration = (parseFloat(el.getAttribute('data-purecounter-duration')) || 2) * 1000;
+    var startTs  = null;
+
+    function step(ts) {
+      if (!startTs) startTs = ts;
+      var progress = Math.min((ts - startTs) / duration, 1);
+      var eased    = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.round(end * eased);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = end;
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    section.querySelectorAll('.countup-number').forEach(function (el) {
+      el.textContent = el.getAttribute('data-purecounter-end');
+    });
+    return;
+  }
+
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    section.querySelectorAll('.countup-number').forEach(function (el, i) {
+      setTimeout(function () { countUp(el); }, i * 120);
+    });
+  }, { threshold: 0.3 }).observe(section);
+})();
