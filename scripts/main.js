@@ -376,9 +376,8 @@ function applyStagger(content) {
 // Dark mode toggle
 (function () {
   var saved = localStorage.getItem('theme');
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-  }
+  var initial = saved || 'dark';
+  document.documentElement.setAttribute('data-theme', initial);
 
   function toggleDarkMode() {
     var current = document.documentElement.getAttribute('data-theme');
@@ -395,7 +394,7 @@ function applyStagger(content) {
   }
 
   // Initialize icons
-  updateIcons(saved || 'light');
+  updateIcons(initial);
 
   // Attach to both toggle buttons (mobile + desktop)
   document.querySelectorAll('.nav-dark-toggle').forEach(function (btn) {
