@@ -2103,7 +2103,7 @@ footer a:not(.nav-link) {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-medium) 100%);
   color: #fff;
   font-size: 1.4rem;
 }

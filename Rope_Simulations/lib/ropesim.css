@@ -1,0 +1,200 @@
+/* ══════════════════════════════════════════════════════════════════════
+   Rope Simulations — estilo compartido (terminal verde fósforo)
+   Espejo del tema de config.py (COLORS): fondo negro terminal, verde
+   fósforo, tipografía monospace, ámbar/rojo solo para semáforo.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.sim-content {
+  --rs-bg:        #0a0f0a;
+  --rs-panel:     #0e1a0e;
+  --rs-primary:   #00ff33;
+  --rs-secondary: #ffb000;
+  --rs-accent:    #00cc22;
+  --rs-warning:   #ffcc00;
+  --rs-danger:    #ff3333;
+  --rs-info:      #00d9a0;
+  --rs-text:      #88cc88;
+  --rs-grid:      #1a2e1a;
+  --rs-rope:      #aaff44;
+  --rs-anchor:    #5c8a5c;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 10px 22px;
+  background: var(--rs-bg);
+  border: 1px solid #143014;
+  border-radius: 10px;
+  color: var(--rs-text);
+  font-family: 'Roboto Mono', ui-monospace, 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+.sim-content h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--rs-primary);
+  text-align: center;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px;
+}
+
+.sim-content .sim-sub {
+  color: var(--rs-text);
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 1120px;
+  margin: 0 auto 8px;
+  line-height: 1.5;
+}
+
+.sim-content .warning-bar {
+  color: var(--rs-danger);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  max-width: 1120px;
+  margin: 0 auto 12px;
+  line-height: 1.5;
+}
+
+.sim-stage {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+}
+
+.sim-content canvas {
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #143014;
+  background: var(--rs-bg);
+}
+
+/* ── Panel de controles: recuadro "Controles" + filas slider/casilla ── */
+.sim-controls {
+  width: 100%;
+  max-width: 1120px;
+  background: var(--rs-panel);
+  border: 1px solid var(--rs-grid);
+  border-radius: 8px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.sim-controls .ctrl-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--rs-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.ctrl-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 84px;
+  align-items: center;
+  gap: 12px;
+}
+.ctrl-row label {
+  font-size: 0.86rem;
+  text-align: right;
+  color: var(--rs-text);
+}
+.ctrl-row input[type="range"] {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  accent-color: var(--rs-primary);
+}
+.ctrl-row input[type="number"] {
+  width: 100%;
+  background: var(--rs-bg);
+  border: 1px solid var(--rs-grid);
+  border-radius: 4px;
+  padding: 3px 5px;
+  color: var(--rs-primary);
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.ctrl-row input[type="number"]:focus {
+  outline: none;
+  border-color: var(--rs-primary);
+}
+
+/* ── Botonera (escenarios, tipos de aparejo, nº de anclajes) ── */
+.sim-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.sim-btn {
+  background: #16241a;
+  border: 1px solid var(--rs-grid);
+  border-radius: 6px;
+  padding: 5px 12px;
+  color: var(--rs-text);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.sim-btn:hover { border-color: var(--rs-primary); }
+.sim-btn.active {
+  background: var(--rs-accent);
+  color: var(--rs-bg);
+  border-color: var(--rs-accent);
+  font-weight: 700;
+}
+
+.sim-content .sim-footnote {
+  margin-top: 10px;
+  font-size: 0.74rem;
+  color: var(--rs-text);
+  opacity: 0.55;
+  font-style: italic;
+  text-align: center;
+  max-width: 1120px;
+  line-height: 1.6;
+}
+
+/* ── Botón volver ────────────────────────────────────────────── */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 1.1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border: 1.5px solid var(--color-primary-medium);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, transform 0.15s, box-shadow 0.18s;
+}
+.btn-back:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  transform: translateX(-3px);
+  box-shadow: 0 4px 16px rgba(26, 79, 100, 0.25);
+  text-decoration: none;
+}
+.btn-back-arrow { font-size: 0.72rem; transition: transform 0.18s; }
+.btn-back:hover .btn-back-arrow { transform: translateX(-3px); }
+
+@media (max-width: 760px) {
+  .ctrl-row { grid-template-columns: 1fr 84px; }
+  .ctrl-row label { grid-column: 1 / -1; text-align: left; }
+}

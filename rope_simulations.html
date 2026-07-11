@@ -52,8 +52,21 @@
       color: #fff;
       flex-shrink: 0;
     }
+    /* Dark mode: match the "Photo Gallery" CTA palette (subtle dark card,
+       faint orange border, orange icon accent) instead of the loud orange
+       header. Light mode keeps the Rope Simulations orange gradient above. */
+    [data-theme="dark"] .sim-card {
+      background: linear-gradient(135deg, rgba(232, 73, 15, 0.10) 0%, #262626 100%);
+      border-color: rgba(240, 112, 64, 0.22);
+    }
+    [data-theme="dark"] .sim-card:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      border-color: rgba(240, 112, 64, 0.40);
+    }
     [data-theme="dark"] .sim-card-icon {
-      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      background: linear-gradient(135deg, rgba(232, 73, 15, 0.16) 0%, rgba(38, 38, 38, 0.30) 100%);
+      color: var(--color-primary);
+      border-bottom: 1px solid rgba(240, 112, 64, 0.18);
     }
     .sim-card-body {
       padding: 1rem 1.1rem 1.2rem;
@@ -241,6 +254,18 @@
                 <div class="sim-card-body">
                   <div class="sim-card-title">Sistema English Reeve</div>
                   <div class="sim-card-desc">Simulación completa de un sistema highline con carriage. Ajusta vano, flecha, carga y posición para ver tensiones, ángulo V, factores de seguridad y ventaja mecánica horizontal y vertical.</div>
+                  <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Ventaja Mecánica -->
+            <div class="col-sm-6 col-lg-4">
+              <a class="sim-card" href="Rope_Simulations/ventaja_mecanica.html">
+                <div class="sim-card-icon"><i class="fas fa-cog"></i></div>
+                <div class="sim-card-body">
+                  <div class="sim-card-title">Ventaja Mecánica</div>
+                  <div class="sim-card-desc">Aparejos de poleas 1:1 a 6:1. Ajusta carga, eficiencia y altura para ver el esfuerzo necesario y cuánta cuerda hay que tirar (se conserva el trabajo).</div>
                   <span class="sim-card-link">Abrir simulación <i class="fas fa-arrow-right fa-xs"></i></span>
                 </div>
               </a>

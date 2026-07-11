@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Física del Rescate — Ventaja Mecánica</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@500;700&display=swap">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome/css/all.min.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+  <link href="lib/ropesim.css" rel="stylesheet">
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body id="top">
+  <div class="scroll-progress d-print-none" id="scrollProgress"></div>
+  <div id="rs-app"></div>
+
+  <script src="lib/ropesim.js"></script>
+  <script src="lib/shell.js"></script>
+  <script>
+  var root = RS.shell({ title: 'Ventaja Mecánica (poleas)', icon: 'fas fa-cog' });
+  var C = RS.COLORS, G = RS.G, phys = RS.phys, draw = RS.draw;
+  var GOLD = '#f0c337';
+
+  root.innerHTML =
+    '<h1>Ventaja mecánica: poleas y aparejos</h1>' +
+    '<p class="sim-sub">F_esfuerzo = carga / (n · eficiencia).&nbsp; s = n · h (se conserva el trabajo): reducís la fuerza pero tirás más cuerda.</p>' +
+    '<div class="sim-buttons" id="maBtns"></div>' +
+    '<div class="sim-stage"><canvas id="cvS" width="700" height="520"></canvas><canvas id="cvP" width="400" height="520"></canvas></div>' +
+    '<div id="ctrls"></div>' +
+    '<p class="sim-footnote">Un aparejo n:1 reparte la carga entre n tramos de cuerda. Con más poleas tirás con menos fuerza, pero recogés n veces más cuerda.</p>';
+
+  var cvS = document.getElementById('cvS'), cvP = document.getElementById('cvP');
+  var ctxS = RS.setupCanvas(cvS), ctxP = RS.setupCanvas(cvP);
+  var WS = cvS._cssW, HS = cvS._cssH, WP = cvP._cssW, HP = cvP._cssH;
+
+  var st = { ma: 2, load: 100, eff: 100, h: 10 };
+
+  function pulley(ctx, x, y, r, col) { ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.fillStyle = C.bg; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); draw.dot(ctx, x, y, 2.5, col); }
+  function forceArrow(ctx, x, y, col, label) {
+    var y2 = y + 30; draw.arrow(ctx, x, y, x, y2, col, 3, 9);
+    draw.text(ctx, x + 8, y + 18, label, col, 10, { bold: true });
+  }
+  function dim(ctx, x1, y1, y2, col, label) {
+    ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1, y2); ctx.stroke();
+    [y1, y2].forEach(function (yy) { ctx.beginPath(); ctx.moveTo(x1 - 4, yy); ctx.lineTo(x1 + 4, yy); ctx.stroke(); });
+    draw.text(ctx, x1 + 7, (y1 + y2) / 2 + 4, label, col, 9);
+  }
+
+  function drawScene(F1, F2, sCm) {
+    var ctx = ctxS; draw.clear(ctx, WS, HS);
+    var n = st.ma, cx = WS * 0.42, yCeil = 46, yFix = yCeil + 34, lift = HS * 0.34, yMov = yFix + lift;
+    var span = n === 1 ? 0 : Math.min(30 * (n - 1), WS * 0.40);
+    var xL = cx - span / 2;
+    var xs = []; for (var i = 0; i < n; i++) xs.push(n === 1 ? cx : xL + i * span / (n - 1));
+    var xR = xs[n - 1];
+    // techo
+    var bl = Math.min.apply(null, xs) - 36, br = Math.max(xR + 80, xs[n - 1] + 36);
+    ctx.strokeStyle = C.anchor; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bl, yCeil); ctx.lineTo(br, yCeil); ctx.stroke();
+    ctx.strokeStyle = '#5a6e5a'; ctx.lineWidth = 1;
+    for (var hx = bl; hx < br; hx += 12) { ctx.beginPath(); ctx.moveTo(hx, yCeil - 10); ctx.lineTo(hx + 8, yCeil); ctx.stroke(); }
+    // poleas fijas
+    xs.forEach(function (x) { ctx.strokeStyle = C.primary; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, yCeil); ctx.lineTo(x, yFix - 9); ctx.stroke(); pulley(ctx, x, yFix, 9, C.primary); });
+    var loadCx, loadTop, effX, effY;
+    ctx.strokeStyle = C.rope; ctx.lineWidth = 4; ctx.lineCap = 'round';
+    if (n === 1) {
+      var lx = cx - 18, ex = cx + 18;
+      ctx.beginPath(); ctx.moveTo(lx, yFix); ctx.lineTo(lx, yMov + 40); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ex, yFix); ctx.lineTo(ex, yMov + 18); ctx.stroke();
+      loadCx = lx; loadTop = yMov + 40; effX = ex; effY = yMov + 18;
+    } else {
+      xs.forEach(function (x) { ctx.beginPath(); ctx.moveTo(x, yFix + 9); ctx.lineTo(x, yMov); ctx.stroke(); });
+      ctx.strokeStyle = C.primary; ctx.lineWidth = 2; ctx.fillStyle = C.panel;
+      draw.rrect(ctx, xL - 6, yMov, span + 12, 14, 5); ctx.fill(); ctx.stroke();
+      xs.forEach(function (x) { pulley(ctx, x, yMov + 7, 7, C.primary); });
+      effX = xR + 70; effY = yFix + 70;
+      ctx.strokeStyle = C.rope; ctx.lineWidth = 4; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(xR, yFix); ctx.lineTo(effX, yFix); ctx.lineTo(effX, effY); ctx.stroke();
+      loadCx = cx; loadTop = yMov + 14;
+    }
+    // carga
+    var w = 46, h = 34, top = loadTop + 18;
+    ctx.fillStyle = '#28282e'; ctx.strokeStyle = C.text; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(loadCx - w * 0.32, top); ctx.lineTo(loadCx + w * 0.32, top); ctx.lineTo(loadCx + w * 0.5, top + h); ctx.lineTo(loadCx - w * 0.5, top + h); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle = C.warning; ctx.beginPath(); ctx.arc(loadCx, top - 4, 4, 0, Math.PI * 2); ctx.stroke();
+    draw.text(ctx, loadCx - 20, top + h + 14, st.load.toFixed(0) + ' kg', C.text, 9);
+    forceArrow(ctx, loadCx, top + 78, C.info, 'F₁ = ' + F1.toFixed(2) + ' kN');
+    forceArrow(ctx, effX, effY, C.danger, 'F₂ = ' + F2.toFixed(2) + ' kN');
+    // cotas
+    var hx2 = loadCx - (n === 1 ? 60 : span / 2 + 26);
+    dim(ctx, hx2, loadTop + 4, loadTop + 4 + 34, C.info, 'h=' + st.h.toFixed(0) + ' cm');
+    var sLen = Math.min(3.4 * n * 10, HS * 0.42);
+    dim(ctx, effX + 26, effY - sLen, effY, GOLD, 's=' + sCm.toFixed(0) + ' cm');
+    draw.text(ctx, 20, 40, n + ':1', C.primary, 22, { bold: true });
+  }
+
+  function drawPanel(F1, F2, sCm) {
+    var c = ctxP; draw.clear(c, WP, HP);
+    var x = 16, y = 30, lh = 22, gain = F2 > 0 ? F1 / F2 : 0;
+    function head(t) { draw.text(c, x, y, t, C.primary, 13, { bold: true }); y += 22; }
+    function line(t, col) { draw.text(c, x + 4, y, t, col || C.text, 12); y += lh; }
+    head('Aparejo ' + st.ma + ':1');
+    line('Tramos que sostienen la carga: ' + st.ma);
+    y += 8;
+    head('Fuerzas');
+    line('Carga (F₁): ' + F1.toFixed(2) + ' kN (' + st.load.toFixed(0) + ' kg)', C.info);
+    line('Esfuerzo (F₂): ' + F2.toFixed(2) + ' kN (' + (F2 * 1000 / G).toFixed(0) + ' kg)', C.danger);
+    line('Reduce la fuerza ×' + gain.toFixed(1), C.accent);
+    y += 8;
+    head('Distancias (se conserva el trabajo)');
+    line('Para subir la carga ' + st.h.toFixed(0) + ' cm', C.text);
+    line('tenés que tirar ' + sCm.toFixed(0) + ' cm de cuerda', GOLD);
+    y += 8;
+    head('Eficiencia');
+    line(st.eff.toFixed(0) + '% ' + (st.eff >= 99.9 ? '(ideal, sin fricción)' : '(con fricción)'), st.eff >= 99.9 ? C.accent : C.warning);
+  }
+
+  function render() {
+    var F1 = phys.weightKn(st.load);
+    var F2 = phys.pulleyEffort(F1, st.ma, st.eff / 100);
+    var sCm = phys.pulleyHaulDistance(st.h, st.ma);
+    drawScene(F1, F2, sCm); drawPanel(F1, F2, sCm);
+  }
+
+  var mb = document.getElementById('maBtns');
+  var lbl = document.createElement('span'); lbl.textContent = 'Tipo de aparejo:'; lbl.style.cssText = 'color:' + C.text + ';font-size:0.8rem;margin-right:4px;'; mb.appendChild(lbl);
+  RS.buttonGroup('maBtns', [{ label: '1:1', value: 1 }, { label: '2:1', value: 2 }, { label: '3:1', value: 3 }, { label: '4:1', value: 4 }, { label: '5:1', value: 5 }, { label: '6:1', value: 6 }], 2, function (v) { st.ma = v; render(); });
+
+  RS.controls('ctrls', [
+    { id: 'load', label: 'Carga (kg)', min: 10, max: 500, value: 100, step: 5, color: 'info', decimals: 0 },
+    { id: 'eff', label: 'Eficiencia (%)', min: 50, max: 100, value: 100, step: 1, color: 'accent', decimals: 0 },
+    { id: 'h', label: 'Subir carga (cm)', min: 5, max: 100, value: 10, step: 1, color: 'secondary', decimals: 0 }
+  ], function (v) { st.load = v.load; st.eff = v.eff; st.h = v.h; render(); });
+
+  render();
+  RS.responsive('.sim-stage');
+  </script>
+
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
