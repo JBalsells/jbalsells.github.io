@@ -28,7 +28,7 @@
       '</div>' +
       '<div class="collapse navbar-collapse" id="navbarMain"><ul class="navbar-nav ms-auto">' + items +
       '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" id="othersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Others</a>' +
-      '<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="othersDropdown"><li><a class="dropdown-item" href="../rope_simulations.html">Rope Simulations</a></li></ul></li>' +
+      '<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="othersDropdown"><li><a class="dropdown-item" href="../rope_simulations.html">Rope Simulations</a></li><li><a class="dropdown-item" href="../Terrain_Analysis/index.html">Terrain Analysis</a></li></ul></li>' +
       '<li class="nav-item nav-contact-pill"><a class="nav-link" href="../index.html#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>' +
       '<li class="nav-item d-none d-lg-block"><button class="btn btn-link nav-dark-toggle" id="darkToggleDesktop" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button></li>' +
       '</ul></div></div></nav>';
