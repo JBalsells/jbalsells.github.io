@@ -348,8 +348,7 @@ entry("Esp. en Bioinformática y Biocomputación Molecular", "USAC, Guatemala", 
     note="GPA: 9.4/10")
 
 entry("Ingeniería Electrónica", "Universidad de San Carlos de Guatemala", "2008 – 2017",
-    ["Colegiado Activo No. 17029. Miembro IEEE 2010–2024."],
-    note="GPA: 6.9/10")
+    ["Colegiado Activo No. 17029. Miembro IEEE 2010–2024."])
 
 # ═══════════════════════════════════════════════════════════════════════════
 #  CERTIFICATES & COURSES
