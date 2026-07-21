@@ -276,7 +276,7 @@
             </div>
             <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
               <div class="highlight-icon"><i class="fas fa-award"></i></div>
-              <div class="highlight-number"><span data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="2" class="countup-number"></span>+</div>
+              <div class="highlight-number"><span id="certCount" data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="2" class="countup-number"></span>+</div>
               <div class="highlight-label">Certificates &amp; Courses</div>
             </div>
             <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
@@ -384,14 +384,16 @@
             <div class="timeline-card timeline-card-current card">
               <div class="card-body">
                 <div class="h5 mb-1">Profesor
-                  <span class="text-muted h6">Escuela de Ciencias Fisicas y Matematicas ECFM, USAC</span>
+                  <span class="text-muted h6">Escuela de Ciencias Físicas y Matemáticas ECFM, USAC</span>
                   <span class="badge-current">Actual</span>
                 </div>
                 <div class="text-muted text-small mb-2">Ene 2024 - Actualidad</div>
                 <ul class="card-details">
-                  <li>Ingeniero de desarrollo en proyecto LAGO (Latin American Giant Observatory)</li>
-                  <li>Catedratico de "Laboratorio de simulacion".</li>
-                  <li>Catedratico de "Laboratorio de instrumentacion".</li>
+                  <li><strong>Ingeniero de desarrollo</strong> en el proyecto <strong>LAGO</strong> (Latin American Giant Observatory): electrónica e instrumentación de detectores (tarjetas y tubos fotomultiplicadores).</li>
+                  <li><strong>Laboratorio de Simulación</strong> — <em>paradigmas de programación</em> y <em>métodos numéricos</em> aplicados a simulación (números pseudoaleatorios, Monte Carlo, sistemas dinámicos), con fuerte énfasis en <strong>ingeniería de software</strong>: patrones de diseño, patrones de arquitectura, <em>testing</em> y control de versiones.</li>
+                  <li><strong>Laboratorio de Instrumentación</strong> — sistemas embebidos y adquisición de datos con microcontroladores <em>ESP32</em>: sensores, actuadores, ADC/DAC, PWM y protocolos (UART/I2C/SPI, WiFi/BLE, MQTT).</li>
+                  <li><strong>Instrumentación aplicada</strong>: medición con celdas de carga, escaneo 3D con cámaras de profundidad y cómputo reconfigurable en <em>FPGA</em> (PYNQ / Vivado).</li>
+                  <li><strong>Mentoría</strong> y transferencia tecnológica a estudiantes de física.</li>
                 </ul>
               </div>
             </div>
@@ -404,9 +406,13 @@
                 </div>
                 <div class="text-muted text-small mb-2">2022 - Actualidad</div>
                 <ul class="card-details">
-                  <li>Data Science RISK Team, https://vana.gt</li>
-                  <li>MLOps / MLOps Platform</li>
-                  <li>Desarrollo y mantenimiento de infraestructura de despliegue y monitoreo de modelos a escala, inferencia de pipelines, monitoreo de modelos, feature store.</li>
+                  <li>Data Science / Risk Team — <em>ownership</em> de la plataforma MLOps de extremo a extremo (<a href="https://vana.gt" class="link-info" target="_blank" rel="noopener">vana.gt</a>).</li>
+                  <li><strong>Pipelines de inferencia en tiempo real</strong> bajo arquitectura <em>event-driven</em> y coreografía de servicios, con <strong>diseño hexagonal</strong> (puertos y adaptadores) para aislar el dominio de la infraestructura.</li>
+                  <li><strong>Feature store</strong> propio con capas <em>online/offline</em>: cómputo, versionado, <em>backfilling</em> y monitoreo de salud de las features servidas a los modelos.</li>
+                  <li><strong>Optimización de latencia y confiabilidad</strong> del <em>scoring</em> de extremo a extremo (estrategias de <em>retry/backoff</em>, procesamiento por lotes y eliminación de cuellos de botella): reducción de ~60% en el tiempo de inferencia E2E.</li>
+                  <li><strong>Monitoreo de modelos en producción</strong>: detección de <em>data/concept drift</em> con orquestación de flujos y alertas automáticas; observabilidad de ML.</li>
+                  <li><strong>Confiabilidad</strong>: sistemas de <em>auto-healing</em> de colas de fallos y <strong>evaluación declarativa</strong> de reglas de decisión.</li>
+                  <li>Prácticas <strong>MLOps</strong>: CI/CD, <em>tests</em>, versionado de modelos y despliegues <em>shadow/challenger</em>.</li>
                 </ul>
               </div>
             </div>
@@ -414,11 +420,11 @@
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
                 <div class="h5 mb-1">Profesor
-                  <span class="text-muted h6">Escuela de Estudios de Postgrado, Facultad de Ingenieria, USAC</span>
+                  <span class="text-muted h6">Escuela de Estudios de Postgrado, Facultad de Ingeniería, USAC</span>
                 </div>
                 <div class="text-muted text-small mb-2">2022</div>
                 <ul class="card-details">
-                  <li>Catedratico de curso "Software y bases de datos biomedicas". 93/100 y 97/100 en puntuaciones de
+                  <li>Catedrático de curso "Software y bases de datos biomédicas". 93/100 y 97/100 en puntuaciones de
                     primera y segunda evaluaciones docentes</li>
                 </ul>
               </div>
@@ -427,14 +433,16 @@
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
                 <div class="h5 mb-1">Coordinador - Profesional de Laboratorio
-                  <span class="text-muted h6">Laboratorio de Innovacion (Fab-LAB), Direccion General de Investigacion,
+                  <span class="text-muted h6">Laboratorio de Innovación (Fab-LAB), Dirección General de Investigación,
                     USAC</span>
                 </div>
                 <div class="text-muted text-small mb-2">Oct 2019 - Ene 2024</div>
                 <ul class="card-details">
-                  <li>Planificacion, Coordinacion y asesoria de desarrollo de proyectos.</li>
-                  <li>Desarrollador de prototipos y proyectos de innovacion.</li>
-                  <li>Operacion y mantenimiento de maquinas de control numerico.</li>
+                  <li><strong>Coordinación del laboratorio de fabricación digital (Fab-LAB)</strong> de la Dirección General de Investigación: <em>planificación</em>, gestión y <strong>asesoría técnica</strong> de proyectos de investigación e innovación multidisciplinarios.</li>
+                  <li><strong>Desarrollo de prototipos</strong> de hardware y software: diseño mecánico, <em>impresión 3D</em>, electrónica y firmware para llevar ideas de concepto a prototipo funcional.</li>
+                  <li><strong>Operación y mantenimiento de máquinas de control numérico (CNC)</strong> y equipo de fabricación digital.</li>
+                  <li>Proyectos insignia desarrollados en el laboratorio: un <strong>robot multifuncional para agroindustria</strong> (financiado por DIGI, con cobertura en prensa) y un <strong>dispositivo de asistencia ventilatoria de emergencia</strong> de lazo cerrado (publicado en revista indexada).</li>
+                  <li><strong>Mentoría</strong> a investigadores y estudiantes en fabricación digital y desarrollo de proyectos.</li>
                 </ul>
               </div>
             </div>
@@ -446,24 +454,22 @@
                 </div>
                 <div class="text-muted text-small mb-2">2016 - 2020</div>
                 <ul class="card-details">
-                  <li>Experiencia en desarrollo web y desarrollo de algoritmos para coberturas Wireless (Areas de
-                    coberturas, Zonas de Fresnel, disponibilidad de canales, areas LTE, sitios IPRAN, GPON, etc.)</li>
-                  <li>Desarrollos utilizando APIs de Google Maps mostrando distancias consumidas para instalaciones,
-                    aprobaciones de factibilidades y rutas efectivas de instalacion.</li>
-                  <li>Servicios de reporteria y estadisticas, servicios de depuracion de bases de datos, scripts para
-                    backups automaticos hacia servidores remotos por SFTP.</li>
+                  <li>Desarrollo de una <strong>aplicación web <em>full-stack</em></strong> para la gestión de proyectos e instalaciones de una empresa de telefonía: seguimiento de obras y determinación de <strong>áreas de cobertura</strong> de fibra óptica y <em>Wireless</em>, incluyendo el cálculo de si en una <strong>coordenada específica</strong> la señal inalámbrica ofrecía potencia y cobertura eficientes.</li>
+                  <li><strong>Algoritmos de cobertura y radiofrecuencia</strong>: áreas de cobertura, <em>zonas de Fresnel</em>, disponibilidad de canales, áreas LTE, sitios IPRAN y GPON.</li>
+                  <li>Integración con <strong>APIs de Google Maps</strong>: distancias consumidas por instalación, aprobación de factibilidades y rutas efectivas de instalación.</li>
+                  <li><strong>Reportería y estadísticas</strong>, depuración de bases de datos y <em>scripts</em> de respaldo automático hacia servidores remotos por SFTP.</li>
                 </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
-                <div class="h5 mb-1">Auxiliar de Catedra II
-                  <span class="text-muted h6">Laboratorio de Electronica, Ingenieria, USAC</span>
+                <div class="h5 mb-1">Auxiliar de Cátedra II
+                  <span class="text-muted h6">Laboratorio de Electrónica, Ingeniería, USAC</span>
                 </div>
                 <div class="text-muted text-small mb-2">2015 - 2017</div>
                 <ul class="card-details">
-                  <li>Auxiliar de laboratorio de Robotica.</li>
+                  <li>Auxiliar de laboratorio de Robótica.</li>
                   <li>Auxiliar de laboratorio de Comunicaciones 2.</li>
                 </ul>
               </div>
@@ -471,12 +477,12 @@
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
-                <div class="h5 mb-1">Desarrollador de Ingenierias
+                <div class="h5 mb-1">Desarrollador de Ingenierías
                   <span class="text-muted h6">PROSIMA</span>
                 </div>
                 <div class="text-muted text-small mb-2">2013 - 2014</div>
                 <ul class="card-details">
-                  <li>Desarrollo de ingenierias de automatizacion industrial subcontratadas para TIGSA y CEMPRO.</li>
+                  <li>Desarrollo de ingenierías de automatización industrial subcontratadas para TIGSA y CEMPRO.</li>
                 </ul>
               </div>
             </div>
@@ -498,12 +504,12 @@
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/ceupe.png" alt="CEUPE" class="logo">
-                  Master en Inteligencia Artificial.
+                  Máster en Inteligencia Artificial.
                   <span class="text-muted h6">Centro Europeo de Postgrado y Empresa (CEUPE).</span>
                 </div>
                 <div class="text-muted text-small mb-2">2023 - 2024</div>
                 <p class="text-muted">
-                  Enfoque en aprendizaje automatico, deep learning, procesamiento de lenguaje natural y aplicaciones
+                  Enfoque en aprendizaje automático, deep learning, procesamiento de lenguaje natural y aplicaciones
                   empresariales de la IA.
                 </p>
               </div>
@@ -513,14 +519,14 @@
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/unir.jpg" alt="UNIR" class="logo">
-                  Master en Ingenieria Matematica y Computacion.
-                  <span class="text-muted h6">Universidad Internacional de la Rioja (UNIR), Espana.</span>
+                  Máster en Ingeniería Matemática y Computación.
+                  <span class="text-muted h6">Universidad Internacional de la Rioja (UNIR), España.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2020 - 2021</div>
                 <div>GPA: 8.68/10</div>
                 <p class="text-muted">
-                  Enfoque en Geometria Diferencial, Analisis Numerico, Procesamiento de Senales, Modelado y Simulacion,
-                  Sistemas Dinamicos, Metodos Avanzados de Programacion y Tecnicas Multivariantes.
+                  Enfoque en Geometría Diferencial, Análisis Numérico, Procesamiento de Señales, Modelado y Simulación,
+                  Sistemas Dinámicos, Métodos Avanzados de Programación y Técnicas Multivariantes.
                 </p>
               </div>
             </div>
@@ -529,13 +535,13 @@
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/unir.jpg" alt="UNIR" class="logo">
-                  Especializacion en Big Data e Inteligencia Artificial.
-                  <span class="text-muted h6">Universidad Internacional de la Rioja (UNIR), Espana.</span>
+                  Especialización en Big Data e Inteligencia Artificial.
+                  <span class="text-muted h6">Universidad Internacional de la Rioja (UNIR), España.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2021</div>
                 <div>GPA: 9.5/10</div>
                 <p class="text-muted">
-                  Enfoque en analisis de datos, algoritmos de aprendizaje automatico y analisis predictivo.
+                  Enfoque en análisis de datos, algoritmos de aprendizaje automático y análisis predictivo.
                 </p>
               </div>
             </div>
@@ -544,7 +550,7 @@
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/usac.png" alt="USAC" class="logo">
-                  Especializacion en Bioinformatica y Biocomputacion Molecular Biomedica.
+                  Especialización en Bioinformática y Biocomputación Molecular Biomédica.
                   <span class="text-muted h6">Universidad de San Carlos, Guatemala.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2019</div>
@@ -556,7 +562,7 @@
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/usac.png" alt="USAC" class="logo">
-                  Ingenieria Electronica.
+                  Ingeniería Electrónica.
                   <span class="text-muted h6">Universidad de San Carlos, Guatemala.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2008 - 2017</div>
@@ -650,7 +656,7 @@
                 </div>
                 <div class="text-muted text-small mb-2">2025</div>
                 <p class="text-muted">
-                  Desarrollo de herramientas CLI y aplicaciones web para optimizar flujos de trabajo en ingenieria de
+                  Desarrollo de herramientas CLI y aplicaciones web para optimizar flujos de trabajo en ingeniería de
                   datos.
                 </p>
               </div>
@@ -665,7 +671,7 @@
                 </div>
                 <div class="text-muted text-small mb-2">2025</div>
                 <p class="text-muted">
-                  Fundamentos de AWS, incluyendo computo, almacenamiento y redes en la nube.
+                  Fundamentos de AWS, incluyendo cómputo, almacenamiento y redes en la nube.
                 </p>
               </div>
             </div>
@@ -679,7 +685,7 @@
                 </div>
                 <div class="text-muted text-small mb-2">2025</div>
                 <p class="text-muted">
-                  Principios y practicas de DevOps, DataOps y MLOps para automatizar y optimizar flujos de trabajo en TI
+                  Principios y prácticas de DevOps, DataOps y MLOps para automatizar y optimizar flujos de trabajo en TI
                   y ciencia de datos.
                 </p>
               </div>
@@ -737,19 +743,19 @@
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
-                <div class="h5 mb-1">Robot multifuncional orientado al area agricola
-                  <span class="text-muted h6">Proyecto de desarrollo e investigacion ejecutado dentro del presupuesto
-                    2021, Direccion General de Investigacion, Universidad de San Carlos.</span>
+                <div class="h5 mb-1">Robot multifuncional orientado al área agrícola
+                  <span class="text-muted h6">Proyecto de desarrollo e investigación ejecutado dentro del presupuesto
+                    2021, Dirección General de Investigación, Universidad de San Carlos.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2021 - 2022</div>
                 <ul class="card-details">
                   <li><a href="https://www.youtube.com/watch?v=SRWdE6ATchU" class="link-info" target="_blank"
-                      rel="noopener">Video Diario de Centro America.</a></li>
+                      rel="noopener">Video Diario de Centro América.</a></li>
                   <li><a href="https://issuu.com/_dca/docs/edicio_n_del_diario_de_centro_ame_rica_del_02_de_may"
-                      class="link-info" target="_blank" rel="noopener">Nota 1 Diario de Centro America.</a></li>
+                      class="link-info" target="_blank" rel="noopener">Nota 1 Diario de Centro América.</a></li>
                   <li><a
                       href="https://dca.gob.gt/noticias-guatemala-diario-centro-america/un-robot-aliado-de-la-agroindustria/"
-                      class="link-info" target="_blank" rel="noopener">Nota 2 Diario de Centro America.</a></li>
+                      class="link-info" target="_blank" rel="noopener">Nota 2 Diario de Centro América.</a></li>
                   <li><a
                       href="https://www.guatemala.com/noticias/tecnologia/laboratorio-de-innovacion-de-la-usac-presento-robot-para-ayudar-en-agricultura.html"
                       class="link-info" target="_blank" rel="noopener">Nota Guatemala.com.</a></li>
@@ -757,36 +763,36 @@
                       Soy USAC.</a></li>
                   <li><a
                       href="https://investigacionparatodos.usac.edu.gt/noticias-principales-2/item/225-prototipofablab"
-                      class="link-info" target="_blank" rel="noopener">Nota Investigacion para todos.</a></li>
+                      class="link-info" target="_blank" rel="noopener">Nota Investigación para todos.</a></li>
                 </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
-                <div class="h5 mb-1">Dispositivo electromecanico para Telescopio, para localizacion y seguimiento
-                  astronomico.
-                  <span class="text-muted h6">Trabajo de fin de master, Universidad Internacional de la Rioja</span>
+                <div class="h5 mb-1">Dispositivo electromecánico para Telescopio, para localización y seguimiento
+                  astronómico.
+                  <span class="text-muted h6">Trabajo de fin de máster, Universidad Internacional de la Rioja</span>
                 </div>
                 <div class="text-muted text-small mb-2">2020 - 2021</div>
                 <ul class="card-details">
-                  <li>Desarrollo de Hardware, firmware y software para ajuste automatico de telescopio y seguimiento
-                    astronomico.</li>
+                  <li>Desarrollo de Hardware, firmware y software para ajuste automático de telescopio y seguimiento
+                    astronómico.</li>
                 </ul>
               </div>
             </div>
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
-                <div class="h5 mb-1">Revista indexada de Ciencia, Tecnologia y Salud.
-                  <span class="text-muted h6">Vol 7, Num 3. Direccion General de Investigacion, USAC.</span>
+                <div class="h5 mb-1">Revista indexada de Ciencia, Tecnología y Salud.
+                  <span class="text-muted h6">Vol 7, Núm 3. Dirección General de Investigación, USAC.</span>
                 </div>
                 <div class="text-muted text-small mb-2">2020</div>
                 <ul class="card-details">
-                  <li>Diseno de un dispositivo de asistencia ventilatoria temporal de lazo cerrado basado en bolsa
-                    valvula-mascarilla.</li>
+                  <li>Diseño de un dispositivo de asistencia ventilatoria temporal de lazo cerrado basado en bolsa
+                    válvula-mascarilla.</li>
                   <li><a href="https://revistas.usac.edu.gt/index.php/cytes/article/view/1024" class="link-info"
-                      target="_blank" rel="noopener">Revista Ciencia, Tecnologia y Salud - USAC</a></li>
+                      target="_blank" rel="noopener">Revista Ciencia, Tecnología y Salud - USAC</a></li>
                 </ul>
               </div>
             </div>
@@ -798,7 +804,7 @@
                 </div>
                 <div class="text-muted text-small mb-2">2020</div>
                 <ul class="card-details">
-                  <li>Clasificacion en workshop con proyecto "Classification and Detection of Plasmodium Vivax Infected
+                  <li>Clasificación en workshop con proyecto "Classification and Detection of Plasmodium Vivax Infected
                     Cells in Blood Smears Images."</li>
                   <li><a href="https://pml4dc.github.io/iclr2020/program/pml4dc_45.html" class="link-info"
                       target="_blank" rel="noopener">Paper PML4DC Workshop</a></li>
@@ -808,14 +814,14 @@
 
             <div class="timeline-card timeline-card-primary card">
               <div class="card-body">
-                <div class="h5 mb-1">Deteccion y clasificacion de las fases del parasito PLASMODIUM VIVAX en imagenes de
-                  frotis de sangre a traves de redes neuronales convolucionales
-                  <span class="text-muted h6">Trabajo de fin de especializacion, Universidad de San Carlos</span>
+                <div class="h5 mb-1">Detección y clasificación de las fases del parásito PLASMODIUM VIVAX en imágenes de
+                  frotis de sangre a través de redes neuronales convolucionales
+                  <span class="text-muted h6">Trabajo de fin de especialización, Universidad de San Carlos</span>
                 </div>
                 <div class="text-muted text-small mb-2">2019</div>
                 <ul class="card-details">
-                  <li>Proyecto de software para analisis de imagenes de muestras de sangre de gota gruesa infectadas con
-                    malaria, para deteccion de gametocitos, esquizontes, trofozoitos y anillos.</li>
+                  <li>Proyecto de software para análisis de imágenes de muestras de sangre de gota gruesa infectadas con
+                    malaria, para detección de gametocitos, esquizontes, trofozoítos y anillos.</li>
                 </ul>
               </div>
             </div>
@@ -827,8 +833,8 @@
                 </div>
                 <div class="text-muted text-small mb-2">2019</div>
                 <ul class="card-details">
-                  <li>Desarrollo de brazo robot educativo impreso en 3D para desarrollar la teoria matematica detras de
-                    la robotica.</li>
+                  <li>Desarrollo de brazo robot educativo impreso en 3D para desarrollar la teoría matemática detrás de
+                    la robótica.</li>
                 </ul>
               </div>
             </div>
@@ -840,8 +846,8 @@
                 </div>
                 <div class="text-muted text-small mb-2">2017</div>
                 <ul class="card-details">
-                  <li>1er lugar en competencia de diseno de robot (Judge's Choice).</li>
-                  <li>Diseno de un robot teleoperado, capaz de realizar multiples pruebas de precision, exactitud y
+                  <li>1er lugar en competencia de diseño de robot (Judge's Choice).</li>
+                  <li>Diseño de un robot teleoperado, capaz de realizar múltiples pruebas de precisión, exactitud y
                     velocidad.</li>
                   <li><a href="https://www.youtube.com/watch?v=cL6FtH0tAvI" class="link-info" target="_blank"
                       rel="noopener">Video YouTube</a></li>
@@ -856,8 +862,8 @@
                 </div>
                 <div class="text-muted text-small mb-2">2016</div>
                 <ul class="card-details">
-                  <li>1er lugar en competencia de diseno de robot (Judge's Choice). 3er lugar en competencia general.</li>
-                  <li>Diseno de un robot teleoperado, capaz de realizar multiples pruebas de precision, exactitud y
+                  <li>1er lugar en competencia de diseño de robot (Judge's Choice). 3er lugar en competencia general.</li>
+                  <li>Diseño de un robot teleoperado, capaz de realizar múltiples pruebas de precisión, exactitud y
                     velocidad.</li>
                   <li><a
                       href="https://www.guatemala.com/noticias/tecnologia/guatemaltecos-ganan-en-la-primera-edicion-del-mercury-robotic-challenge-en-colombia.html"
@@ -875,7 +881,7 @@
                 </div>
                 <div class="text-muted text-small mb-2">2014</div>
                 <ul class="card-details">
-                  <li>URBAN DATA, proyecto dentro de los 5 finalistas a nivel mundial (Guatemala, Japon, Gran Bretana e
+                  <li>URBAN DATA, proyecto dentro de los 5 finalistas a nivel mundial (Guatemala, Japón, Gran Bretaña e
                     Italia) como "best mission concept".</li>
                   <li><a href="https://2014.spaceappschallenge.org/project/urban-data/" class="link-info"
                       target="_blank" rel="noopener">NASA SpaceApps Challenge</a></li>
@@ -904,12 +910,12 @@
                 <div class="h5 mb-1">
                   <img src="images/logos/cvb.png" alt="CVB" class="logo">
                   Galonista II
-                  <span class="text-muted h6">Benemerito Cuerpo de Bomberos Voluntarios de Guatemala.</span>
+                  <span class="text-muted h6">Benemérito Cuerpo de Bomberos Voluntarios de Guatemala.</span>
                   <span class="badge-current">Actual</span>
                 </div>
                 <div class="text-muted text-small mb-2">14 años de Servicio (2011 - Actualidad)</div>
                 <ul class="card-details">
-                  <li>Bombero Voluntario, decima compania, area metropolitana.</li>
+                  <li>Bombero Voluntario, décima compañía, área metropolitana.</li>
                   <li>Firefighter III - Fire Rescue Training - Reds Team, FAG</li>
                   <li>Fire Instructor NFPA 1403 - SACS Group, Texas A&amp;M Engineering Extension Services</li>
                   <li>Control y mitigación de incendios de GLP en situaciones de emergencia - Zeta gas</li>
@@ -927,15 +933,15 @@
               <div class="card-body">
                 <div class="h5 mb-1">
                   <img src="images/logos/sprat.png" alt="SPRAT" class="logo">
-                  Tecnico en accesos con cuerdas
+                  Técnico en accesos con cuerdas
                   <span class="text-muted h6">Society of Professional Rope Access Technicians.</span>
                   <span class="badge-current">Actual</span>
                 </div>
                 <div class="text-muted text-small mb-2">2025 - Actualidad</div>
-                <div>Tecnico Nivel 1</div>
+                <div>Técnico Nivel 1</div>
                 <p class="text-muted">
-                  Formacion en tecnicas avanzadas de acceso con cuerdas para realizar trabajos en alturas de manera
-                  segura y eficiente, aplicando normativas de seguridad, tecnicas de rescate y manejo de equipos
+                  Formación en técnicas avanzadas de acceso con cuerdas para realizar trabajos en alturas de manera
+                  segura y eficiente, aplicando normativas de seguridad, técnicas de rescate y manejo de equipos
                   especializados.
                 </p>
               </div>
@@ -950,7 +956,7 @@
                   <span class="badge-current">Actual</span>
                 </div>
                 <div class="text-muted text-small mb-2">2023 - Actualidad</div>
-                <div>Tecnico Nivel 2</div>
+                <div>Técnico Nivel 2</div>
                 <p class="text-muted">
                   Formación en técnicas avanzadas de rescate agreste mediante acceso y progresión con cuerdas, 
                   orientadas a la intervención segura y eficiente en entornos naturales y de difícil acceso. 
@@ -989,7 +995,7 @@
             </div>
             <div class="gallery-cta-text">
               <h3>Photo Gallery</h3>
-              <p>Browse 83 photos across projects, prototypes, academics &amp; firefighting</p>
+              <p>Browse photos across projects, prototypes, academics &amp; firefighting</p>
             </div>
             <div class="gallery-cta-arrow">
               <i class="fas fa-arrow-right"></i>

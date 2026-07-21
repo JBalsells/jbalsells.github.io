@@ -10,10 +10,11 @@ from docx.oxml import parse_xml
 import os
 
 # ── Color palette ─────────────────────────────────────────────────────────
-PRIMARY       = RGBColor(0x1A, 0x4F, 0x64)
-PRIMARY_MED   = RGBColor(0x2A, 0x7A, 0x96)
-PRIMARY_DARK  = RGBColor(0x12, 0x3A, 0x4A)
-PRIMARY_LIGHT = "E8F1F5"
+# Paleta naranja de marca — igual que el sitio (css/main.css --color-primary*)
+PRIMARY       = RGBColor(0xE8, 0x49, 0x0F)
+PRIMARY_MED   = RGBColor(0xF0, 0x60, 0x30)
+PRIMARY_DARK  = RGBColor(0xC9, 0x3D, 0x0A)
+PRIMARY_LIGHT = "FBE7DD"
 TEXT          = RGBColor(0x33, 0x33, 0x33)
 MUTED         = RGBColor(0x6C, 0x75, 0x7D)
 WHITE         = RGBColor(0xFF, 0xFF, 0xFF)
@@ -93,8 +94,8 @@ def section_bar(text):
     tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     full_width(tbl)
     cell = tbl.rows[0].cells[0]
-    shade(cell, "1A4F64")
-    cell_borders(cell, bottom='w:val="single" w:sz="6" w:color="2A7A96" w:space="0"')
+    shade(cell, "E8490F")
+    cell_borders(cell, bottom='w:val="single" w:sz="6" w:color="F06030" w:space="0"')
     p = cell.paragraphs[0]
     p.paragraph_format.space_before = Pt(3)
     p.paragraph_format.space_after = Pt(3)
@@ -113,8 +114,8 @@ def entry(title, org, period, bullets=None, note=None):
     # Left column: period
     lc = tbl.rows[0].cells[0]
     cell_width(lc, 1300)  # ~2.3cm
-    shade(lc, "1A4F64")
-    cell_borders(lc, right='w:val="single" w:sz="6" w:color="2A7A96" w:space="0"')
+    shade(lc, "E8490F")
+    cell_borders(lc, right='w:val="single" w:sz="6" w:color="F06030" w:space="0"')
     cell_margins(lc, top=40, bottom=40, left=50, right=50)
     pl = lc.paragraphs[0]
     pl.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -130,7 +131,7 @@ def entry(title, org, period, bullets=None, note=None):
     # Right column: content
     rc = tbl.rows[0].cells[1]
     shade(rc, PRIMARY_LIGHT)
-    cell_borders(rc, left='w:val="single" w:sz="6" w:color="2A7A96" w:space="0"')
+    cell_borders(rc, left='w:val="single" w:sz="6" w:color="F06030" w:space="0"')
     cell_margins(rc, top=35, bottom=35, left=90, right=50)
 
     # Title + org
@@ -189,7 +190,7 @@ htbl = doc.add_table(rows=1, cols=1)
 htbl.alignment = WD_TABLE_ALIGNMENT.CENTER
 full_width(htbl)
 hc = htbl.rows[0].cells[0]
-shade(hc, "123A4A")
+shade(hc, "C93D0A")
 cell_borders(hc)
 
 p = hc.paragraphs[0]
@@ -202,13 +203,13 @@ p2 = hc.add_paragraph()
 p2.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p2.paragraph_format.space_after = Pt(1)
 run(p2, "Electronic Engineer  |  Master's in Mathematical Engineering  |  Master's in AI",
-    size=9.5, color=RGBColor(0xCC,0xDD,0xE6))
+    size=9.5, color=RGBColor(0xFB,0xD9,0xC9))
 
 p3 = hc.add_paragraph()
 p3.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p3.paragraph_format.space_after = Pt(8)
 run(p3, "10+ years firmware & software  ·  4+ years MLOps  ·  14 years volunteer firefighter",
-    size=8, color=RGBColor(0xAA,0xBB,0xCC))
+    size=8, color=RGBColor(0xF0,0xC0,0xAB))
 
 # Contact bar
 ctbl = doc.add_table(rows=1, cols=5)
@@ -220,7 +221,7 @@ contacts = [
 ]
 for i, txt in enumerate(contacts):
     c = ctbl.rows[0].cells[i]
-    shade(c, "1A4F64")
+    shade(c, "E8490F")
     cell_borders(c)
     pp = c.paragraphs[0]
     pp.alignment = WD_ALIGN_PARAGRAPH.CENTER

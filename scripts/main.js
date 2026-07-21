@@ -222,6 +222,19 @@ function applyStagger(content) {
   var labels = document.querySelectorAll('.gallery-category-label[data-category]');
   var galleries = document.querySelectorAll('.thumbnail-gallery[data-category]');
 
+  // Conteos calculados desde el DOM para que nunca se desincronicen del contenido real.
+  filters.forEach(function (btn) {
+    var cat = btn.getAttribute('data-filter');
+    var span = btn.querySelector('.filter-count');
+    if (!span) return;
+    var n = document.querySelectorAll(
+      cat === 'all'
+        ? '.thumbnail-gallery[data-category] .gallery-item'
+        : '.thumbnail-gallery[data-category="' + cat + '"] .gallery-item'
+    ).length;
+    span.textContent = n;
+  });
+
   filters.forEach(function (btn) {
     btn.addEventListener('click', function () {
       // Update active button
@@ -594,6 +607,14 @@ function applyStagger(content) {
 (function () {
   var section = document.querySelector('.key-highlights');
   if (!section) return;
+
+  // Contador de certificados: derivado del nº real de tarjetas en #certsContent,
+  // así el highlight no se desactualiza al añadir/quitar cursos.
+  var certEl = document.getElementById('certCount');
+  if (certEl) {
+    var certN = document.querySelectorAll('#certsContent .timeline-card').length;
+    if (certN) certEl.setAttribute('data-purecounter-end', certN);
+  }
 
   function countUp(el) {
     var end      = parseInt(el.getAttribute('data-purecounter-end'), 10);
