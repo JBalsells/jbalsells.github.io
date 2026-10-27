@@ -162,6 +162,15 @@ def entry(title, org, period, bullets=None, note=None):
     sp.paragraph_format.space_after = Pt(0)
 
 
+# ── Sub-group label inside a section ──────────────────────────────────────
+
+def sub_label(text):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(2)
+    p.paragraph_format.space_after = Pt(2)
+    run(p, text.upper(), size=8, color=PRIMARY, bold=True)
+
+
 # ── Compact single-line entry ─────────────────────────────────────────────
 
 def compact_entry(title, org, period, desc=None):
@@ -302,7 +311,7 @@ entry("Profesor", "ECFM, Universidad de San Carlos de Guatemala", "Ene 2024 – 
     "Catedrático de Laboratorio de Simulación y Laboratorio de Instrumentación.",
 ])
 
-entry("Machine Learning Engineer LII", "Vana", "2022 – Actualidad", [
+entry("Machine Learning Engineer", "Vana", "2022 – Actualidad", [
     "MLOps para el equipo Data Science RISK — entrenamiento, despliegue y monitoreo de modelos a escala.",
 ])
 
@@ -387,32 +396,36 @@ doc.add_paragraph().paragraph_format.space_after = Pt(1)
 
 section_bar("VOLUNTEERING & EXTRACURRICULAR")
 
+sub_label("Roles activos")
+
+entry("Fundador y desarrollador",
+      "Rigging Science — riggingscience.com",
+      "2026 – Actualidad", [
+    "Plataforma educativa open source, sin fines de lucro, sobre la física de sistemas de cuerdas en rescate, accesos y rigging.",
+    "Simulaciones interactivas (ventaja mecánica, poleas, carga en anclajes) y ensayos con celdas de carga para validar el modelo.",
+])
+
 entry("Galonista II — Bombero Voluntario",
       "Benemérito Cuerpo de Bomberos Voluntarios de Guatemala",
       "2011 – Actualidad", [
     "Décima compañía, área metropolitana. 14 años de servicio activo.",
-    "Firefighter III (Reds Team, FAG). Fire Instructor NFPA 1403 (Texas A&M).",
-    "Control de incendios GLP (Zeta Gas). CBSCI (USAID/CVB). PRIMAP (USAID/CVB). TUM básico (CVB).",
-    "Incendios forestales TTBCIF (CONRED). Estancias técnicas en Baltar y Macedo de Cavaleiros, Portugal.",
 ])
 
 entry("Técnico en accesos con cuerdas — Nivel 1",
       "Society of Professional Rope Access Technicians (SPRAT)",
-      "2025", [
+      "2025 – Actualidad", [
     "Acceso con cuerdas para trabajo seguro en alturas, normativas de seguridad, técnicas de rescate y equipos especializados.",
 ])
 
-entry("Técnico en rescate agreste — Nivel 2",
-      "ASONBOMD — Santa Isabel",
-      "2023 – 2024", [
-    "Rescate agreste mediante progresión con cuerdas en entornos naturales. Evaluación de riesgos y equipos técnicos.",
-])
+sub_label("Formación complementaria")
 
-entry("Escalada de árboles — Tree Climbing",
-      "Tree Climbing — Purulhá B.V.",
-      "2023", [
-    "Aliado Oficial. Técnicas avanzadas de progresión con cuerdas en árboles.",
-])
+compact_entry("Rescate en alturas (zonas de difícil acceso) y rescate vehicular", "BUSF, SE-CONRED", "2026")
+compact_entry("Técnico en rescate agreste — Nivel 2", "ASONBOMD, Santa Isabel", "2023–2024")
+compact_entry("Escalada de árboles — Tree Climbing (Aliado Oficial)", "Purulhá B.V.", "2023")
+compact_entry("Firefighter III", "Fire Rescue Training, Reds Team, FAG", "CVB")
+compact_entry("Fire Instructor NFPA 1403", "SACS Group, Texas A&M Engineering Extension Service", "CVB")
+compact_entry("CBSCI · PRIMAP · TUM básico · Control de incendios GLP · TTBCIF", "USAID/CVB, Zeta Gas, CONRED", "CVB")
+compact_entry("Estancias técnicas en incendios forestales", "Baltar y Macedo de Cavaleiros, Portugal", "CVB")
 
 # ═══════════════════════════════════════════════════════════════════════════
 #  SAVE

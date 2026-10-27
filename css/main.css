@@ -962,6 +962,7 @@ body {
 
 /* Gallery items staggered reveal */
 .collapsible-content .gallery-category-label,
+.collapsible-content .timeline-group-label,
 .collapsible-content .thumbnail-gallery {
   opacity: 0;
   transform: translateY(20px);
@@ -969,6 +970,7 @@ body {
 }
 
 .collapsible-content.open .gallery-category-label,
+.collapsible-content.open .timeline-group-label,
 .collapsible-content.open .thumbnail-gallery {
   opacity: 1;
   transform: translateY(0);
@@ -1199,7 +1201,8 @@ body {
    Gallery Category Labels
    ========================================================================== */
 
-.gallery-category-label {
+.gallery-category-label,
+.timeline-group-label {
   font-family: var(--font-heading);
   font-size: 0.78rem;
   font-weight: 600;
@@ -1213,7 +1216,8 @@ body {
   padding-left: 0.6rem;
 }
 
-.gallery-category-label:first-of-type {
+.gallery-category-label:first-of-type,
+.timeline-group-label:first-child {
   margin-top: 0.75rem;
 }
 
@@ -2246,4 +2250,115 @@ footer a:not(.nav-link) {
 [data-theme="dark"] .gallery-cta-card:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   border-color: rgba(240, 112, 64, 0.40);
+}
+
+/* ==========================================================================
+   Glass (macOS-style)
+   ========================================================================== */
+
+/* Blurred glass over a flat gray reads as gray: soft brand-colored blobs give it
+   something to show through. Fixed, so they stay put while the page scrolls. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40vw 40vw at 8% 18%, rgba(240, 96, 48, 0.28), transparent 70%),
+    radial-gradient(36vw 36vw at 92% 42%, rgba(46, 139, 87, 0.18), transparent 70%),
+    radial-gradient(44vw 44vw at 30% 95%, rgba(232, 73, 15, 0.16), transparent 70%);
+}
+
+[data-theme="dark"] body::before {
+  background:
+    radial-gradient(40vw 40vw at 8% 18%, rgba(240, 112, 64, 0.20), transparent 70%),
+    radial-gradient(36vw 36vw at 92% 42%, rgba(60, 179, 113, 0.12), transparent 70%),
+    radial-gradient(44vw 44vw at 30% 95%, rgba(232, 93, 38, 0.12), transparent 70%);
+}
+
+/* Mesh lines: flat color hides the glass, lines are what you see through it.
+   Opacity, not an overlay color, fades the image's white field into the page. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("../images/backgrounds/network-mesh.webp") left bottom / cover no-repeat;
+  opacity: 0.6;
+}
+
+/* Invert + hue-rotate keeps the mesh blue but turns its white field dark. */
+[data-theme="dark"] body::after {
+  filter: invert(1) hue-rotate(180deg) saturate(1.2);
+  opacity: 0.35;
+}
+
+/* The page sheet is the frosted window; cards are lighter panes on top of it. */
+.cover,
+[data-theme="dark"] .cover {
+  background-color: rgba(255, 255, 255, 0.45);
+  /* Low blur on purpose: the lines should stay readable through the sheet. */
+  -webkit-backdrop-filter: blur(4px) saturate(150%);
+  backdrop-filter: blur(4px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .cover {
+  background-color: rgba(30, 30, 30, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* The inset line is the lit top edge of the glass. */
+.timeline-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 24px -12px rgba(120, 50, 20, 0.25);
+}
+
+.timeline-card:hover {
+  background-color: rgba(255, 255, 255, 0.68);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 14px 32px -14px rgba(120, 50, 20, 0.32);
+}
+
+.timeline-card-current {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 0 1px rgba(46, 139, 87, 0.22),
+    0 8px 24px -12px rgba(46, 139, 87, 0.3) !important;
+}
+
+[data-theme="dark"] .timeline-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-top-color: rgba(255, 255, 255, 0.12);
+  border-right-color: rgba(255, 255, 255, 0.06);
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 28px -14px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .timeline-card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .timeline-card-current {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(60, 179, 113, 0.25),
+    0 10px 28px -14px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Users who ask the OS for less transparency get the solid sheet back. */
+@media (prefers-reduced-transparency: reduce) {
+  .cover { background-color: var(--color-card); }
+  .timeline-card { background-color: var(--color-card); }
 }
